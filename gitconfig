@@ -1,0 +1,30 @@
+[user]
+	name = ayato-git
+	email = ayato-git@users.noreply.github.com
+	# 古い設定 signingkey = 23D77F49D4E07CDE
+[color]
+	ui = true
+[github]
+	user = ayato-git
+[url "git@github.com:"]
+	pushInsteadOf = https://github.com/
+[ghq]
+	root = /Users/ayato/Repositories
+[core]
+	excludesfile = /Users/ayato/.gitignore
+	editor = nvim
+	quotepath = false #日本語文字化け回避
+[pager]
+	log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+	show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+	diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+[interactive]
+	diffFilter = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
+[diff]
+	compactionHeuristic = true
+# [gpg]
+# 	program = /usr/local/bin/gpg
+# [commit]
+# 	gpgsign = true
+[pull]
+	rebase = false
