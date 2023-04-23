@@ -1,0 +1,44 @@
+# `sheldon` configuration file
+# ----------------------------
+#
+# You can modify this file directly or you can use one of the following
+# `sheldon` commands which are provided to assist in editing the config file:
+#
+# - `sheldon add` to add a new plugin to the config file
+# - `sheldon edit` to open up the config file in the default editor
+# - `sheldon remove` to remove a plugin from the config file
+#
+# See the documentation for more https://github.com/rossmacarthur/sheldon#readme
+
+shell = "zsh"
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[plugins.bindkey]
+inline = 'bindkey -e'
+
+[plugins.compinit]
+inline = 'autoload -Uz compinit && compinit'
+
+[plugins.OMZP-common-aliases]
+github = 'ohmyzsh/ohmyzsh'
+use = ['plugins/common-aliases/*.zsh']
+
+[plugins.OMZP-git]
+github = 'ohmyzsh/ohmyzsh'
+use = ['lib/git.zsh','plugins/git/git.plugin.zsh']
+
+[plugins.OMZL-history]
+github = 'ohmyzsh/ohmyzsh'
+use = ['lib/history.zsh']
+
+[plugins.anyframe]
+github = 'mollifier/anyframe'
+
+[plugins.anyframe-settings]
+inline = "bindkey '^R' anyframe-widget-put-history && alias gs=anyframe-widget-checkout-git-branch"
+
+# 
+# [plugins.]
+# github = ''

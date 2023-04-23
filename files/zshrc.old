@@ -1,0 +1,73 @@
+# ~/.zshenv にて幾つかの環境変数等を設定済み
+bindkey -e
+
+# zinit core
+source $HOME'/.zinit/bin/zinit.zsh'
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+zinit wait lucid for OMZL::git.zsh atload'unalias grv' OMZP::git
+zinit wait'!' lucid light-mode for \
+  OMZP::common-aliases \
+  OMZP::docker-compose \
+  OMZL::history.zsh
+setopt hist_save_no_dups hist_no_store # 古いコマンドとの重複無視 / historyコマンドは履歴に登録しない
+
+zinit ice wait lucid; zinit light arzzen/calc.plugin.zsh
+zinit ice wait lucid; zinit light walesmd/caniuse.plugin.zsh
+zinit ice wait lucid from'gh-r' as'program'
+zinit light sei40kr/fast-alias-tips-bin
+zinit ice wait lucid;
+zinit light sei40kr/zsh-fast-alias-tips
+
+zinit ice wait lucid
+zinit light mollifier/anyframe
+bindkey '^R' anyframe-widget-put-history
+alias gs=anyframe-widget-checkout-git-branch
+
+# see ~/.zshenv for settings
+# zplugin ice wait lucid; zplugin light mengelbrecht/slimline
+zinit light-mode compile"{*.zsh,lib/*.zsh,sections/*.zsh,zsh-async/*.zsh}" for mengelbrecht/slimline
+
+# # コマンド補完
+zplugin ice wait lucid atload'_zsh_autosuggest_start'
+zplugin light zsh-users/zsh-autosuggestions
+setopt auto_pushd correct list_packed
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' # 大文字小文字を無視して補完/意図して大文字を入力した時は小文字の候補を補完しない
+
+# 独自コマンド
+repo(){
+  cd $GHQ_ROOT/$(ghq list | peco --prompt '~/Repositories >' --select-1 --query ${1:-'github.com/'})
+}
+sandbox(){
+  cd $GHQ_ROOT/sandbox
+  target=$(ls | peco --prompt '~/sandbox >' --select-1 --query ${1:-' '})
+  mkdir -pv ${target:-$1} && ls -lh && cd ${target:-$1}
+}
+take() {
+  mkdir -p $1 && cd $1
+}
+anyenv_cache(){
+  mkdir -p ~/.cache
+  anyenv init - --no-rehash > ~/.cache/anyenv_init.zsh
+}
+alias ls='ls -GF'
+alias ping='ping -c 5'
+alias bubu='brew update && brew outdated && brew upgrade && brew cleanup && brew outdated --cask && anyenv update && anyenv_cache && zinit self-update && zinit update --all'
+
+# alternative of "anyenv init"
+if [ ! -e ~/.cache/anyenv_init.zsh ]; then
+  anyenv_cache
+fi
+source ~/.cache/anyenv_init.zsh
+
+fpath=(/usr/local/share/zsh-completions $fpath)
+path=($path /usr/local/sbin /usr/local/opt/gettext/bin)
+typeset -U path fpath
+zpcompinit
+zpcdreplay
+
+# if (which zprof > /dev/null) ;then
+#   zprof
+# fi
