@@ -1,0 +1,86 @@
+tap "hmarr/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "vldmrkl/formulae"
+brew "anyenv"
+brew "deno"
+brew "docker-completion"
+brew "docker-compose"
+brew "docker-slim"
+brew "dos2unix"
+brew "ghq"
+brew "git"
+brew "mas"
+brew "massren"
+brew "php"
+brew "sheldon"
+brew "smartmontools"
+brew "tree"
+brew "vagrant-completion"
+brew "vldmrkl/formulae/airdrop-cli"
+cask "1password6"
+cask "aldente"
+cask "android-platform-tools"
+cask "appcleaner"
+cask "balenaetcher"
+cask "bleunlock"
+cask "cloudflare-warp"
+cask "docker"
+cask "firefox"
+cask "firefox-developer-edition"
+cask "github"
+cask "iterm2"
+cask "keka"
+cask "macvim"
+cask "malwarebytes"
+cask "microsoft-edge-dev"
+cask "mimestream"
+cask "moderndeck"
+cask "monolingual"
+cask "netnewswire"
+cask "qlimagesize"
+cask "qlmarkdown"
+cask "quicklook-csv"
+cask "quicklook-json"
+cask "raindropio"
+cask "rectangle"
+cask "resilio-sync"
+cask "skype"
+cask "slack"
+cask "steam"
+cask "turbo-boost-switcher"
+cask "vagrant"
+cask "vagrant-manager"
+cask "vimr"
+cask "virtualbox"
+cask "virtualbox-extension-pack"
+cask "vitals"
+cask "vlc"
+cask "yacreader"
+cask "zulu"
+cask "zulu8"
+mas "1Blocker", id: 1365531024
+mas "Apple Configurator", id: 1037126344
+mas "BetterTDeck for TweetDeck", id: 1549421502
+mas "Bitdefender Virus Scanner", id: 500154009
+mas "CodePiece", id: 1021284423
+mas "Developer", id: 640199958
+mas "GhostText", id: 1552641506
+mas "Ginger - Skip Ads", id: 1555702394
+mas "Hidden Bar", id: 1452453066
+mas "Integrity", id: 513610341
+mas "Keyword Search", id: 1558453954
+mas "Kimis", id: 1667275125
+mas "Numbers", id: 409203825
+mas "Playgrounds", id: 1496833156
+mas "Refined GitHub", id: 1519867270
+mas "RunCat", id: 1429033973
+mas "Save to Raindrop.io", id: 1549370672
+mas "SEOSpyder", id: 648917964
+mas "Vidrio", id: 1209843625
+mas "VisBug", id: 1538509686
+mas "Wappalyzer", id: 1520333300
+mas "Whalebird", id: 6445864587
+mas "Xcode", id: 497799835
