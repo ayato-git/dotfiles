@@ -1,3 +1,24 @@
-# ~/.zshrc or ~/.bashrc
+bindkey -e
+autoload -Uz compinit && compinit
 
+# load plugins
 eval "$(sheldon source)"
+
+# homemade commands
+repo(){
+  cd $GHQ_ROOT/$(ghq list | peco --prompt '~/Repositories >' --select-1 --query ${1:-'github.com/'})
+}
+sandbox(){
+  cd $GHQ_ROOT/sandbox
+  target=$(ls | peco --prompt '~/sandbox >' --select-1 --query ${1:-' '})
+  mkdir -pv ${target:-$1} && ls -lh && cd ${target:-$1}
+}
+take() {
+  mkdir -p $1 && cd $1
+}
+alias ping='ping -c 5'
+
+# depends on plugins
+# depends on anyframe and peco
+bindkey '^R' anyframe-widget-put-history
+alias gs=anyframe-widget-checkout-git-branch
