@@ -1,0 +1,12 @@
+# zmodload zsh/zprof && zprof
+export EDITOR=vim
+export GHQ_ROOT=$(git config --global --get ghq.root)
+export LSCOLORS=gxfxcxdxbxegedabagacad
+export PS1="%F{green}${USER}%f @ ${HOST%%.*} %F{cyan}%1~%f %(!.#.$) "
+export SPROMPT="correct: %F{red}%R%f -> %F{green}%r%f ? [No/Yes/Abort/Edit]"
+
+# settings for mengelbrecht/slimline
+export SLIMLINE_SYMBOL_WORKING_FORMAT='%F{green}\$%f'
+export SLIMLINE_SYMBOL_READY_FORMAT='%F{white}\$%f'
+export GITLINE_BRANCH='${green}${branch}${reset}'
+export GITLINE_NO_TRACKED_UPSTREAM='${red}no upstream${reset}'

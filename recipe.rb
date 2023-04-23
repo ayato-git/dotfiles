@@ -2,10 +2,10 @@ home_dir = ENV['HOME']
 dotfiles_dir = "#{Dir.pwd}"
 
 dotfiles = {
-  "gitignore" => ".gitignore",
-  "gitconfig" => ".gitconfig",
-  "vimrc" => ".vimrc",
-  "vim" => ".vim",
+  "files/gitignore" => ".gitignore",
+  "files/gitconfig" => ".gitconfig",
+  "files/zshenv" => ".zshenv",
+  "files/zshrc" => ".zshrc",
   "config" => ".config"
 }
 

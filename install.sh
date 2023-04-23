@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+set -e
 
 # Determine the system architecture
 ARCH=$(uname -m)
@@ -21,3 +22,5 @@ if [[ ! -f "$MITAMAE_PATH" ]]; then
   mv mitamae* "$MITAMAE_PATH"
 fi
 
+"$MITAMAE_PATH" version
+"$MITAMAE_PATH" local $@ recipe.rb
