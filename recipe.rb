@@ -26,14 +26,15 @@ execute 'install homebrew' do
   not_if 'which brew'
 end
 
-execute 'update homebrew' do
-  command 'brew update'
-end
-
-execute 'upgrade outdated packages' do
-  command 'brew upgrade'
-end
-
 execute 'install packages from Brewfile' do
   command "brew bundle --global"
+end
+
+# adjust mode for zsh completion
+directory '/usr/local/share/zsh' do
+  mode '0755'
+end
+
+directory '/usr/local/share/zsh/site-functions' do
+  mode '0755'
 end
