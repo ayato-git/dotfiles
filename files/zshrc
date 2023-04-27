@@ -33,5 +33,5 @@ bindkey '^R' anyframe-widget-put-history
 alias gs=anyframe-widget-checkout-git-branch
 
 # depends on romkatv/powerlevel10k
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# To customize prompt, run `p10k configure` or edit p10k.zsh.
 source ~/.config/p10k/p10k.zsh
