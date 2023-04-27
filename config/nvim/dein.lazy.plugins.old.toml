@@ -1,0 +1,375 @@
+[[plugins]]
+repo = 'Shougo/context_filetype.vim' # 他のプラグイン等に呼ばれるまで読み込まない
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+merged = 0
+rev = 'release'
+on_event = ['InsertEnter', 'FocusLost', 'CursorHold']
+hook_source = '''
+" see settings in ~/.vim/coc-settings.json
+inoremap <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+nmap <silent> <leader>l :<C-u>CocList<cr>
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+'''
+hook_post_update = '''
+call coc#util#install()
+'''
+
+# [[plugins]]
+# repo = 'roxma/nvim-yarp'
+# if = "!has('nvim')"
+# on_source = ['deoplete.nvim']
+# 
+# [[plugins]]
+# repo = 'roxma/vim-hug-neovim-rpc'
+# if = "!has('nvim')"
+# on_source = ['deoplete.nvim']
+# 
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# rev = 'bc8e234' # version 4.1 release.
+# depends = ['vim-hug-neovim-rpc', 'nvim-yarp']
+# on_event = ['InsertEnter', 'FocusLost', 'CursorHold']
+# if = "!has('nvim')"
+# hook_source = '''
+# 
+# let g:deoplete#enable_at_startup          = 1
+# call deoplete#custom#option({
+#       \ 'camel_case': v:true,
+#       \ 'delimiters': ['/', '.', '::', ':', '#', '->'],
+#       \ 'max_list': 15,
+#       \ 'yarp': v:true
+#       \ })
+# 
+# inoremap <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
+# inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+# 
+# "  let g:deoplete#ignore_sources      = get(g:,'deoplete#ignore_sources',{})
+# "  " called by Vim. Vim regexp
+# "  let g:deoplete#omni_patterns       = get(g:,'deoplete#omni_patterns',{})
+# "  " called by deoplete. Python3 regexp
+# "  let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+# "  let g:deoplete#omni#functions      = get(g:,'deoplete#omni#functions',{})
+# 
+# " let g:deoplete#enable_profile = 1
+# " call deoplete#enable_logging('DEBUG', '/Users/ayato/.vim/deoplete.log')
+# '''
+# 
+# [[plugins]]
+# repo = 'Shougo/neoinclude.vim'
+# on_source = 'deoplete.nvim'
+# hook_add = 'let g:neoinclude#max_processes = 10'
+# 
+# [[plugins]]
+# repo = 'ujihisa/neco-look'
+# on_source = 'deoplete.nvim'
+# 
+# [[plugins]]
+# repo = 'Shougo/neco-syntax'
+# depends = ['context_filetype.vim']
+# on_source = 'deoplete.nvim'
+
+# [[plugins]]
+# repo = 'Shougo/neosnippet.vim'
+# depends = ['neosnippet-snippets', 'context_filetype.vim']
+# on_event = ['InsertCharPre', 'FocusLost', 'CursorHold', 'CursorHoldI']
+# on_ft = 'snippet'
+# hook_source = '''
+# imap <C-k>      <Plug>(neosnippet_jump_or_expand)
+# smap <C-k>      <Plug>(neosnippet_jump_or_expand)
+# xmap <C-k>      <Plug>(neosnippet_expand_target)
+# imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)"
+#       \ : pumvisible() ? "<C-y>" : "<CR>"
+#
+# let g:neosnippet#enable_snipmate_compatibility = 1
+# let g:neosnippet#enable_completed_snippet      = 1
+# let g:neosnippet#expand_word_boundary          = 1
+# let g:neosnippet#snippets_directory            = '~/.vim/snippets'
+# '''
+
+# [[plugins]]
+# repo = 'Shougo/echodoc.vim'
+# depends = 'context_filetype.vim'
+# on_event = ['CompleteDone']
+# hook_source = '''
+# call echodoc#enable()
+# '''
+# 
+# [[plugins]]
+# repo = 'lvht/phpcd.vim'
+# depends = 'deoplete.nvim'
+# on_event = ['InsertCharPre', 'FocusLost', 'CursorHold', 'CursorHoldI']
+# on_if = '&filetype == "php"'
+# build = 'composer install'
+# hook_source = '''
+# let g:deoplete#ignore_sources.php = ['omni']
+# '''
+# 
+# [[plugins]]
+# repo = 'Quramy/tsuquyomi'
+# on_map = '<Plug>(Tsuquyomi'
+# on_func = ['tsuquyomi#hint']
+# on_event = ['FocusLost', 'CursorHold', 'CursorHoldI']
+# on_if = '&filetype == "typescript"'
+# hook_add = '''
+# nmap <Leader>h <ESC>:echo tsuquyomi#hint()<CR>
+# nmap <Leader>i <Plug>(TsuquyomiImport)
+# '''
+# hook_source = '''
+# autocmd BufReadPost,TabLeave *.{ts,tsx} TsuquyomiReload
+# 
+# let g:tsuquyomi_single_quote_import = 1
+# let g:tsuquyomi_definition_split    = 3
+# let g:tsuquyomi_disable_quickfix    = 1
+# let g:tsuquyomi_locale              = 'ja'
+# '''
+# 
+# [[plugins]]
+# repo = 'rudism/deoplete-tsuquyomi'
+# on_if = "dein#is_sourced('tsuquyomi') && dein#is_sourced('deoplete.nvim')"
+# on_event = ['InsertCharPre', 'CursorHoldI']
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+on_event = 'CursorMoved'
+depends = 'context_filetype.vim'
+
+[[plugins]]
+repo = 'w0rp/ale'
+on_map = '<Plug>(ale'
+on_event = ['InsertLeave','FocusLost','CursorHold','CursorHoldI', 'TextChanged']
+hook_add = '''
+nmap <Leader>f <Plug>(ale_fix)
+'''
+hook_source = '''
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_enter        = 0
+let g:ale_lint_on_save         = 1
+let g:ale_list_window_size     = 5
+let g:ale_lint_delay           = 500
+let g:ale_echo_delay           = 500
+let g:ale_echo_msg_format      = '[%linter%] %s %code%'
+let g:ale_open_list            = has('gui_running')
+let g:ale_sign_error           = 'A>'
+let g:ale_sign_warning         = 'A-'
+
+let g:ale_fixers      = {
+      \ 'json': ['prettier'],
+      \ 'css' : ['prettier'],
+      \ 'scss': ['prettier'],
+      \ 'sass': ['prettier'],
+      \ 'php' : ['phpcbf', 'remove_trailing_lines', 'trim_whitespace'],
+      \ 'typescript': ['tslint'],
+      \ }
+
+let g:ale_pattern_options = {
+      \ '\.min\.js$' : {'ale_linters': [], 'ale_fixers': []},
+      \ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+      \ '.*node_modules.*': {'ale_linters': [], 'ale_fixers': []},
+      \ '.*vendor.*': {'ale_linters': [], 'ale_fixers': []},
+      \ }
+'''
+
+[[plugins]]
+repo = '907th/vim-auto-save'
+on_if = "has('gui_running')"
+on_event = 'BufWinEnter'
+hook_add = '''
+let g:auto_save                = 1
+let g:auto_save_in_insert_mode = 0
+let g:auto_save_silent         = 1
+let g:auto_save_events         = ["InsertLeave", "TextChanged"]
+'''
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_event = 'InsertEnter'
+hook_add = '''
+let g:user_emmet_leader_key   = '<C-f>'
+let g:user_emmet_settings     = { 'variables' : {'lang':'ja'} }
+let g:user_emmet_settings.php = {'extends':'html'}
+'''
+
+[[plugins]]
+repo = 'salcode/vim-wordpress-dict'
+on_ft = "php"
+build = 'bash ./build.sh'
+# hook_source = '''
+# autocmd FileType php let &l:dictionary=join(expand(g:fe_wordpress_dicts, 1, 1), ',')
+# '''
+
+[[plugins]]
+repo = 'shinespark/vim-list2tree'
+on_cmd = 'List2Tree'
+
+[[plugins]]
+repo = 'mattn/vim-maketable'
+on_cmd = 'MakeTable'
+
+[[plugins]]
+repo = 'mhinz/vim-grepper'
+on_map = '<plug>(Grepper'
+on_cmd = 'Grepper'
+hook_add = '''
+nmap gs <ESC>:tabnew<CR>:Grepper<CR>
+xmap gs <ESC>:tabnew<CR><plug>(GrepperOperator)
+
+let g:grepper           = {}
+let g:grepper.tools     = ['pt', 'git', 'grep']
+let g:grepper.next_tool = 'gs'
+'''
+
+[[plugins]]
+repo = 'koron/codic-vim'
+on_cmd = 'Codic'
+
+[[plugins]]
+repo = 'inotom/str2htmlentity'
+on_cmd = [ "Str2HtmlEntity", "Entity2HtmlString" ]
+
+[[plugins]]
+repo = 'rizzatti/dash.vim'
+on_cmd = ['Dash','DashKeyWords']
+hook_source = '''
+let g:dash_map = {
+\  'php' : 'phalcon'
+\  }
+'''
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_cmd = ['QuickRun']
+# ファイルタイプ毎に実行結果をブラウザ等に表示するには:help quickrun-module-outputter
+hook_source = '''
+let g:quickrun_config   = get(g:,'quickrun_config',{})
+let g:quickrun_config._ = {
+      \ 'runner':'job',
+      \ 'outputter/buffer/split':':botright',
+      \ 'outputter/buffer/close_on_empty':1,
+      \ }
+let g:quickrun_config.typescript = {
+      \ 'command':'tsc',
+      \ 'cmdopt':'--locale ja',
+      \ }
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+'''
+
+[[plugins]]
+repo = 'tyru/caw.vim'
+depends = 'context_filetype.vim'
+on_map = '<Plug>(caw'
+hook_add = '''
+nmap <Leader>c <Plug>(caw:prefix)
+xmap <Leader>c <Plug>(caw:prefix)
+'''
+
+[[plugins]]
+repo = 'joonty/vdebug'
+on_cmd = ['Breakpoint']
+hook_add = '''
+let g:vdebug_options = {
+\    "port" : 9001,
+\    "break_on_open" : 0,
+\    "debug_file_level" : 2,
+\    "debug_file" : '~/.vim/vdebug.log',
+\    "path_maps" : {
+\      '/var/www/vhosts/www.shinq-compass.jp': '/Users/ayato/Repositories/github.com/calista-tokyo/shinq-dock/exports/shinq-compass-pc/system/shinq',
+\      '/var/www/vhosts/s.shinq-compass.jp': '/Users/ayato/Repositories/github.com/calista-tokyo/shinq-compass-mobile',
+\      '/vagrant': '/Users/ayato/Repositories/github.com/necomori/CRM_SCRIPT',
+\      '/home/ai/IMGAI_SCRIPT': '/Users/ayato/Repositories/github.com/necomori/IMGAI_SCRIPT',
+\      '/var/www/html': '/Users/ayato/Repositories/github.com/10mado/innovator-japan-new-site'
+\    }
+\}
+nmap <Leader>b <ESC>:Breakpoint<CR>
+'''
+
+[[plugins]]
+repo = 'Rican7/php-doc-modded'
+on_func = ['PhpDocSingle','PhpDocSingleModded']
+hook_add = '''
+function! PhpDocSingleModded()
+  let g:auto_save = 0
+  call PhpDocSingle()
+  let g:auto_save = has('gui_running')
+endfunction
+autocmd FileType php nmap <Leader>cp <ESC>:call PhpDocSingleModded()<CR>
+'''
+
+[[plugins]]
+repo = 'heavenshell/vim-jsdoc'
+on_map = '<Plug>(jsdoc'
+hook_add = '''
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_enable_es6         = 1
+autocmd FileType typescript,javascript nmap <Leader>cj <Plug>(jsdoc)
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_map = '<Plug>(openbrowser'
+hook_add = '''
+nmap gw <Plug>(openbrowser-smart-search)
+vmap gw <Plug>(openbrowser-smart-search)
+'''
+
+[[plugins]]
+repo = 'haya14busa/vim-open-googletranslate'
+depends = 'open-browser.vim'
+on_cmd = 'OpenGoogleTranslate'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = ['markdown', 'rst', 'mkd', 'md']
+on_cmd = 'PrevimOpen'
+depends = 'open-browser.vim'
+hook_add = '''
+let g:previm_open_cmd = 'open -a Safari'
+let g:previm_enable_realtime = 1
+'''
+
+# [[plugins]]
+# repo = 'soramugi/auto-ctags.vim'
+# on_cmd = 'Ctags'
+# hook_source = '''
+# let g:auto_ctags_filetype_mode = 1
+# let g:auto_ctags_directory_list = ['.git']
+# '''
+
+# [[plugins]]
+# repo = 'Quramy/vim-js-pretty-template'
+# on_ft = ['typescript', 'javascript']
+# hook_source = '''
+# autocmd FileType javascript JsPreTmpl html
+# autocmd FileType typescript JsPreTmpl html
+# autocmd FileType typescript syntax clear foldBraces
+# '''
+
+# 今度試してみたいもの
+# https://github.com/adoy/vim-php-refactoring-toolbox
+# https://github.com/vim-php/vim-php-refactoring
+# https://github.com/bling/vim-bufferline
+# https://github.com/othree/yajs.vim
+# https://github.com/dsawardekar/wordpress.vim
+# https://github.com/hotwatermorning/auto-git-diff

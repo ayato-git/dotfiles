@@ -1,7 +1,19 @@
 -- Require Neovim 0.7.0+ for new API
 -- see https://github.com/willelz/nvim-lua-guide-ja/blob/master/README.ja.md
 vim.g.mapleader = " " -- <Leader>をスペースキーに指定
---[[ 検索 ]]
+
+---[[ Plugins with vim-jetpack ]]
+local jetpackfile = vim.fn.stdpath('data') .. '/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
+local jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+if vim.fn.filereadable(jetpackfile) == 0 then
+  vim.fn.system(string.format('curl -fsSLo %s --create-dirs %s', jetpackfile, jetpackurl))
+end
+vim.cmd.packadd('vim-jetpack')
+vim.call('jetpack#begin')
+vim.call('jetpack#load_toml', vim.fn.stdpath("config") .. '/jetpack.toml')
+vim.call('jetpack#end')
+
+---[[ 検索 ]]
 vim.opt.ignorecase = true -- 大文字小文字を無視する
 vim.opt.smartcase  = true -- 大文字が含まれる場合は大文字小文字を区別する
 vim.opt.showmatch  = true -- 対応する括弧を表示する
@@ -49,9 +61,6 @@ vim.keymap.set('i', "'", "''<LEFT>", nil)
 vim.api.nvim_create_user_command('CdCurrent', 'cd %:p:h', { nargs = 0 })
 -- 垂直分割して差分表示する :VDsplit
 vim.api.nvim_create_user_command('VDsplit', "vertical diffsplit <args>", { nargs = 1, complete = 'file' })
--- insert modeで相対行番号を表示して行移動等のコマンドの補助
-vim.api.nvim_command('autocmd InsertEnter * setlocal relativenumber!')
-vim.api.nvim_command('autocmd InsertLeave * setlocal relativenumber!')
 
 
 -- 補完関連のオプション
