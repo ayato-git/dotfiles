@@ -1,6 +1,7 @@
 home_dir = ENV['HOME']
 dotfiles_dir = "#{Dir.pwd}"
 
+# create symbolic link.
 dotfiles = {
   "files/gitignore" => ".gitignore",
   "files/gitconfig" => ".gitconfig",
@@ -10,7 +11,6 @@ dotfiles = {
   "config" => ".config"
 }
 
-# create symbolic link.
 dotfiles.each do |src, dst|
   src_path = File.join(dotfiles_dir, src)
   dst_path = File.join(home_dir, dst)
@@ -28,6 +28,10 @@ end
 
 execute 'install packages from Brewfile' do
   command "brew bundle --global"
+end
+
+execute 'brew autoremove && brew cleanup' do
+  only_if 'which brew'
 end
 
 # adjust mode for zsh completion
