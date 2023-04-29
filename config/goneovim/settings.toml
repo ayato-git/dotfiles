@@ -40,7 +40,7 @@ MouseScrollingUnit = "line"
 
 ## This option makes the whole GUI window in semi-transparent.
 ## This setting also implicitly enables the Drawborder setting
-Transparent = 0.75
+Transparent = 0.8
 
 ## Launch goneovim with full screen window size.
 # StartFullscreen = false
@@ -77,7 +77,7 @@ RestoreWindowGeometry = true
 ## If you prefer the traditional Vim UI, set it to false for all.
 ## Also, `ExtMessages` is still experimental at this time and we don't recommend setting it to true if you want stability.
 # ExtCmdline   = false
-# ExtPopupmenu = false
+ExtPopupmenu = true
 # ExtTabline   = false
 # ExtMessages  = false
 
@@ -94,7 +94,7 @@ RestoreWindowGeometry = true
 ## Copy yanked text to clipboard.
 ## This only works when connected to a remote nvim instance.
 ## Please check `:h clipboard` for clipboard integration in local nvim instances.
-# Clipboard = true
+Clipboard = true
 
 ## WSL Integration Options
 ## If UseWSL is set to true, it will connect to nvim on WSL.
@@ -295,7 +295,7 @@ RestoreWindowGeometry = true
 
 [ScrollBar]
 ## Specifies whether to show the external scrollbar or not.
-# Visible = false
+Visible = true
 
 
 [MiniMap]

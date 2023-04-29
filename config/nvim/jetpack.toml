@@ -1,38 +1,38 @@
 [[plugins]]
 repo = 'tani/vim-jetpack'
+opt = true
 
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-on_map = '<Plug>(openbrowser'
-hook_add = '''
-nmap gw <Plug>(openbrowser-smart-search)
-vmap gw <Plug>(openbrowser-smart-search)
-'''
-
-[[plugins]]
-repo = 'previm/previm'
-on_ft = ['markdown', 'rst', 'mkd', 'md']
-on_cmd = 'PrevimOpen'
-depends = 'open-browser.vim'
-hook_add = '''
-let g:previm_open_cmd = 'open -a Safari'
-let g:previm_enable_realtime = 1
-'''
-
+### Appearance ###
 [[plugins]]
 repo = 'gorodinskiy/vim-coloresque'
+on_event = 'VimEnter'
 
 [[plugins]]
-repo = '907th/vim-auto-save'
-on_if = "has('gui_running')"
-on_event = 'BufWinEnter'
-hook_add = '''
-let g:auto_save                = 1
-let g:auto_save_in_insert_mode = 0
-let g:auto_save_silent         = 1
-let g:auto_save_events         = ["InsertLeave", "TextChanged"]
+repo = 'nvim-treesitter/nvim-treesitter'
+on_event = 'VimEnter'
+hook_post_source = '''
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+    parser_install_dir = vim.fn.stdpath('data') .. '/treesitter',
+    auto_install = true,
+    highlight = { enable = true, },
+    indent = { enable = true, },
+  }
+vim.opt.runtimepath:append(vim.fn.stdpath('data') .. '/treesitter')
+EOF
 '''
 
+[[plugins]]
+repo = 'sainnhe/sonokai'
+on_post_source = 'nvim-treesitter'
+hook_post_source = '''
+let g:sonokai_transparent_background    = 1
+let g:sonokai_menu_selection_background = 'red'
+let g:sonokai_better_performance        = 1
+colorscheme sonokai
+'''
+
+### Extra Writing ###
 [[plugins]]
 repo = 'shinespark/vim-list2tree'
 on_cmd = 'List2Tree'
@@ -41,6 +41,11 @@ on_cmd = 'List2Tree'
 repo = 'mattn/vim-maketable'
 on_cmd = 'MakeTable'
 
+[[plugins]]
+repo = 'inotom/str2htmlentity'
+on_cmd = [ "Str2HtmlEntity", "Entity2HtmlString" ]
+
+### Search ###
 [[plugins]]
 repo = 'mhinz/vim-grepper'
 on_map = '<plug>(Grepper'
@@ -55,20 +60,46 @@ let g:grepper.next_tool = 'gs'
 '''
 
 [[plugins]]
-repo = 'koron/codic-vim'
-on_cmd = 'Codic'
+repo = 'tyru/open-browser.vim'
+on_map = '<Plug>(openbrowser'
+hook_add = '''
+nmap gw <Plug>(openbrowser-smart-search)
+vmap gw <Plug>(openbrowser-smart-search)
+'''
 
 [[plugins]]
-repo = 'inotom/str2htmlentity'
-on_cmd = [ "Str2HtmlEntity", "Entity2HtmlString" ]
+repo = 'rhysd/devdocs.vim'
+depends = 'open-browser.vim'
+on_map = '<Plug>(devdocs-under-cursor)'
+hook_add = '''
+nmap K <Plug>(devdocs-under-cursor)
+'''
 
 [[plugins]]
-repo = 'rizzatti/dash.vim'
-on_cmd = ['Dash','DashKeyWords']
-hook_source = '''
-let g:dash_map = {
-\  'php' : 'phalcon'
-\  }
+repo = 'rhysd/git-messenger.vim'
+on_cmd = 'GitMessenger'
+on_map = '<Plug>(git-messenger)'
+hook_add = '''
+nmap <Leader>gm <Plug>(git-messenger)
+'''
+
+### Filetype Specific Functions ###
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+on_event = 'CursorMoved'
+depends = 'context_filetype.vim'
+
+[[plugins]]
+repo = 'previm/previm'
+on_ft = ['markdown', 'rst', 'mkd', 'md']
+on_cmd = 'PrevimOpen'
+depends = 'open-browser.vim'
+hook_add = '''
+let g:previm_open_cmd = 'open -a Safari'
+let g:previm_enable_realtime = 1
 '''
 
 [[plugins]]
@@ -89,69 +120,15 @@ let g:quickrun_config.typescript = {
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 '''
 
-[[plugins]]
-repo = 'tyru/caw.vim'
-depends = 'context_filetype.vim'
-on_map = '<Plug>(caw'
-hook_add = '''
-nmap <Leader>c <Plug>(caw:prefix)
-xmap <Leader>c <Plug>(caw:prefix)
-'''
-
-# [[plugins]]
-# repo = 'joonty/vdebug'
-# on_cmd = ['Breakpoint']
-# hook_add = '''
-# let g:vdebug_options = {
-# \    "port" : 9001,
-# \    "break_on_open" : 0,
-# \    "debug_file_level" : 2,
-# \    "debug_file" : '~/.vim/vdebug.log',
-# \    "path_maps" : {
-# \      '/var/www/vhosts/www.shinq-compass.jp': '/Users/ayato/Repositories/github.com/calista-tokyo/shinq-dock/exports/shinq-compass-pc/system/shinq',
-# \      '/var/www/vhosts/s.shinq-compass.jp': '/Users/ayato/Repositories/github.com/calista-tokyo/shinq-compass-mobile',
-# \      '/vagrant': '/Users/ayato/Repositories/github.com/necomori/CRM_SCRIPT',
-# \      '/home/ai/IMGAI_SCRIPT': '/Users/ayato/Repositories/github.com/necomori/IMGAI_SCRIPT',
-# \      '/var/www/html': '/Users/ayato/Repositories/github.com/10mado/innovator-japan-new-site'
-# \    }
-# \}
-# nmap <Leader>b <ESC>:Breakpoint<CR>
-# '''
-
-# [[plugins]]
-# repo = 'Rican7/php-doc-modded'
-# on_func = ['PhpDocSingle','PhpDocSingleModded']
-# hook_add = '''
-# function! PhpDocSingleModded()
-#   let g:auto_save = 0
-#   call PhpDocSingle()
-#   let g:auto_save = has('gui_running')
-# endfunction
-# autocmd FileType php nmap <Leader>cp <ESC>:call PhpDocSingleModded()<CR>
-# '''
-
-# [[plugins]]
-# repo = 'heavenshell/vim-jsdoc'
-# on_map = '<Plug>(jsdoc'
-# hook_add = '''
-# let g:jsdoc_allow_input_prompt = 1
-# let g:jsdoc_enable_es6         = 1
-# autocmd FileType typescript,javascript nmap <Leader>cj <Plug>(jsdoc)
-# '''
-
-# [[plugins]]
-# repo = 'Quramy/vim-js-pretty-template'
-# on_ft = ['typescript', 'javascript']
-# hook_source = '''
-# autocmd FileType javascript JsPreTmpl html
-# autocmd FileType typescript JsPreTmpl html
-# autocmd FileType typescript syntax clear foldBraces
-# '''
-
 # 今度試してみたいもの
+# autosave
+# toggle comments
+# generate Document comment
+# Debugger
 # https://github.com/adoy/vim-php-refactoring-toolbox
 # https://github.com/vim-php/vim-php-refactoring
 # https://github.com/bling/vim-bufferline
 # https://github.com/othree/yajs.vim
 # https://github.com/dsawardekar/wordpress.vim
 # https://github.com/hotwatermorning/auto-git-diff
+# https://github.com/gennaro-tedesco/nvim-peekup
