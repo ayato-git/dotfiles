@@ -31,7 +31,7 @@ vim.opt.showtabline   = 2 -- NeoVim上部のタブラインを常に表示する
 vim.opt.tabstop       = 2 -- タブ文字をスペース2文字の長さで表示
 vim.opt.shiftwidth    = 0 -- 自動インデントでtabstopの値を参照
 vim.opt.list          = true
-vim.opt.listchars     = {tab="¦\\ ", trail="¬", nbsp='%'} -- タブ文字と行末の空白を表示
+vim.opt.listchars:append "trail:¬" -- 行末の空白を可視化
 vim.cmd("highlight SpecialKey guibg=NONE guifg=Gray40") -- 特殊キーの色をグレーに設定
 
 ---[[ バックアップやアンドゥ関連 ]]
@@ -46,13 +46,6 @@ vim.keymap.set('c', "<D-v>", '<C-R>+',  { noremap = true }) -- コマンドモ�
 vim.keymap.set('i', 'jj', '<ESC>',   nil)
 vim.keymap.set('i', 'jl', '<RIGHT>', nil)
 vim.keymap.set('i', 'jk', '<ESC>O',  nil)
--- 括弧/クォートを自動補完 d.hatena.ne.jp/spiritloose/20061113/1163401194
-vim.keymap.set('i', '{', '{}<LEFT>', nil)
-vim.keymap.set('i', '[', '[]<LEFT>', nil)
-vim.keymap.set('i', '(', '()<LEFT>', nil)
-vim.keymap.set('i', '<', '<><LEFT>', nil)
-vim.keymap.set('i', '"', '""<LEFT>', nil)
-vim.keymap.set('i', "'", "''<LEFT>", nil)
 
 ---[[ 自作のコマンド定義 ]]
 -- 現在開いているファイルのディレクトリに移動する :CdCurrent
