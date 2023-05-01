@@ -1,5 +1,8 @@
+-- TODO: InsertModeのctrl-oで一度だけノーマルモードのコマンドを入力できるのを覚える
+-- TODO: gd コマンドで変数や関数の定義場所にジャンプできるのを覚える
 -- Require Neovim 0.7.0+ for new API
 -- see https://github.com/willelz/nvim-lua-guide-ja/blob/master/README.ja.md
+vim.loader.enable()
 vim.g.mapleader = " " -- <Leader>をスペースキーに指定
 
 ---[[ Plugins with vim-jetpack ]]
@@ -35,24 +38,19 @@ vim.opt.listchars:append "trail:¬" -- 行末の空白を可視化
 vim.cmd("highlight SpecialKey guibg=NONE guifg=Gray40") -- 特殊キーの色をグレーに設定
 
 ---[[ バックアップやアンドゥ関連 ]]
--- swp / undo / backup ファイルの格納場所はneovimデフォルトに従う
-vim.opt.backup    = true
-vim.opt.undofile  = true
+--- swp と undo ファイルの格納場所はneovimデフォルトに従う
+vim.opt.backup    = true -- バックアップファイルを作成する
+-- 編集ファイルの隣にバックアップファイルを作成しない
+vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup~//"
+vim.opt.undofile  = true -- アンドゥファイルを作成する
 
 ---[[ 編集 ]]
 vim.opt.clipboard = "unnamedplus" -- *と+のレジスタをOSのクリップボードとシンクロ
 vim.keymap.set('c', "<D-v>", '<C-R>+',  { noremap = true }) -- コマンドモードでcommand-vで貼り付け
--- jjで挿入モードから抜ける qiita.com/hachi8833/items/7beeee825c11f7437f54#1-5
-vim.keymap.set('i', 'jj', '<ESC>',   nil)
-vim.keymap.set('i', 'jl', '<RIGHT>', nil)
-vim.keymap.set('i', 'jk', '<ESC>O',  nil)
+vim.keymap.set('i', 'jj', '<ESC>',   nil) -- jjで挿入モードから抜ける
 
 ---[[ 自作のコマンド定義 ]]
 -- 現在開いているファイルのディレクトリに移動する :CdCurrent
 vim.api.nvim_create_user_command('CdCurrent', 'cd %:p:h', { nargs = 0 })
 -- 垂直分割して差分表示する :VDsplit
 vim.api.nvim_create_user_command('VDsplit', "vertical diffsplit <args>", { nargs = 1, complete = 'file' })
-
-
--- 補完関連のオプション
--- vim.opt.wildmenu = true; vim.opt.wildmode = {"longest", "full"}

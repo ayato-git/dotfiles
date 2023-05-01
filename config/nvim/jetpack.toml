@@ -1,19 +1,11 @@
 [[plugins]]
 repo = 'tani/vim-jetpack'
-opt = true
+on_event = 'CmdlineEnter'
 
 ### Appearance ###
 [[plugins]]
-repo = 'norcalli/nvim-colorizer.lua'
-on_event = 'BufEnter'
-hook_source = '''
-lua << EOF
-require('colorizer').setup()
-EOF
-'''
-
-[[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
+tag = 'v0.9.0'
 on_event = 'VimEnter'
 hook_post_source = '''
 lua << EOF
@@ -29,7 +21,9 @@ EOF
 
 [[plugins]]
 repo = 'sainnhe/sonokai'
+tag = 'v0.3.3'
 on_post_source = 'nvim-treesitter'
+depends = 'nvim-treesitter'
 hook_post_source = '''
 let g:sonokai_transparent_background    = 1
 let g:sonokai_menu_selection_background = 'red'
@@ -38,8 +32,16 @@ colorscheme sonokai
 '''
 
 [[plugins]]
-repo = 'lukas-reineke/indent-blankline.nvim'
+repo = 'norcalli/nvim-colorizer.lua'
 on_post_source = 'nvim-treesitter'
+hook_add = 'set termguicolors'
+hook_post_source = "lua require('colorizer').setup()"
+
+[[plugins]]
+repo = 'lukas-reineke/indent-blankline.nvim'
+tag = 'v2.20.4'
+on_post_source = 'nvim-treesitter'
+depends = 'nvim-treesitter'
 hook_post_source = '''
 lua << EOF
 vim.cmd("highlight IndentBlanklineContextStart guifg=#56B6C2 gui=nocombine")
@@ -54,11 +56,7 @@ EOF
 [[plugins]]
 repo = 'windwp/nvim-autopairs'
 on_event = 'InsertEnter'
-hook_source = '''
-lua << EOF
-require('nvim-autopairs').setup()
-EOF
-'''
+hook_post_source = "lua require('nvim-autopairs').setup()"
 
 [[plugins]]
 repo = 'shinespark/vim-list2tree'
@@ -88,6 +86,7 @@ let g:grepper.next_tool = 'gs'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
+tag = 'v0.1.2'
 on_map = '<Plug>(openbrowser'
 hook_add = '''
 nmap gw <Plug>(openbrowser-smart-search)
@@ -113,7 +112,6 @@ nmap <Leader>gm <Plug>(git-messenger)
 ### Filetype Specific Functions ###
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
-opt = 1
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
@@ -122,6 +120,7 @@ depends = 'context_filetype.vim'
 
 [[plugins]]
 repo = 'previm/previm'
+tag = '1.8.1'
 on_ft = ['markdown', 'rst', 'mkd', 'md']
 on_cmd = 'PrevimOpen'
 depends = 'open-browser.vim'
@@ -130,33 +129,31 @@ let g:previm_open_cmd = 'open -a Safari'
 let g:previm_enable_realtime = 1
 '''
 
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-on_cmd = ['QuickRun']
-# ファイルタイプ毎に実行結果をブラウザ等に表示するには:help quickrun-module-outputter
-hook_source = '''
-let g:quickrun_config   = get(g:,'quickrun_config',{})
-let g:quickrun_config._ = {
-      \ 'runner':'job',
-      \ 'outputter/buffer/split':':botright',
-      \ 'outputter/buffer/close_on_empty':1,
-      \ }
-let g:quickrun_config.typescript = {
-      \ 'command':'tsc',
-      \ 'cmdopt':'--locale ja',
-      \ }
-nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
-'''
+## Language Server Protocol ##
+# [[plugins]]
+# repo = 'Maan2003/lsp_lines.nvim'
+# on_event = 'BufEnter'
+# hook_source = "lua << require('lsp_lines').setup()"
 
 # 今度試してみたいもの
 # autosave
 # toggle comments
 # generate Document comment
 # Debugger
+# Quickfix
+# code completion
+# fuzzy finder
 # https://github.com/adoy/vim-php-refactoring-toolbox
 # https://github.com/vim-php/vim-php-refactoring
 # https://github.com/bling/vim-bufferline
 # https://github.com/othree/yajs.vim
 # https://github.com/dsawardekar/wordpress.vim
 # https://github.com/hotwatermorning/auto-git-diff
-# https://github.com/gennaro-tedesco/nvim-peekup
+# https://github.com/gennaro-tedesco/nvim-peekup telescopeでまとまる？
+# https://github.com/yuki-yano/fuzzy-motion.vim telescopeでまとまる？
+# https://github.com/lukas-reineke/cmp-rg
+# https://github.com/aduros/ai.vim
+# https://github.com/mattn/vim-findroot
+# https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+# https://daisuzu.hatenablog.com/entry/2020/12/03/003629
+# https://zenn.dev/tmrekk/articles/4380961a754287
