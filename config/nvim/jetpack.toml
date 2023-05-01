@@ -4,8 +4,13 @@ opt = true
 
 ### Appearance ###
 [[plugins]]
-repo = 'gorodinskiy/vim-coloresque'
-on_event = 'VimEnter'
+repo = 'norcalli/nvim-colorizer.lua'
+on_event = 'BufEnter'
+hook_source = '''
+lua << EOF
+require('colorizer').setup()
+EOF
+'''
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
@@ -86,6 +91,7 @@ nmap <Leader>gm <Plug>(git-messenger)
 ### Filetype Specific Functions ###
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
+opt = 1
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
