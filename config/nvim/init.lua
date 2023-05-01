@@ -35,10 +35,9 @@ vim.opt.listchars     = {tab="¦\\ ", trail="¬", nbsp='%'} -- タブ文字と�
 vim.cmd("highlight SpecialKey guibg=NONE guifg=Gray40") -- 特殊キーの色をグレーに設定
 
 ---[[ バックアップやアンドゥ関連 ]]
--- swp と undo ファイルの格納場所はneovimデフォルトに従う
-vim.opt.backup    = true -- バックアップファイルを作成する
-vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup~//"
-vim.opt.undofile  = true -- アンドゥファイルを作成する
+-- swp / undo / backup ファイルの格納場所はneovimデフォルトに従う
+vim.opt.backup    = true
+vim.opt.undofile  = true
 
 ---[[ 編集 ]]
 vim.opt.clipboard = "unnamedplus" -- *と+のレジスタをOSのクリップボードとシンクロ
