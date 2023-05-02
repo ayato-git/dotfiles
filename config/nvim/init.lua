@@ -19,7 +19,7 @@ vim.call('jetpack#end')
 ---[[ 検索 ]]
 vim.opt.ignorecase = true -- 大文字小文字を無視する
 vim.opt.smartcase  = true -- 大文字が含まれる場合は大文字小文字を区別する
-vim.opt.showmatch  = true -- 対応する括弧を表示する
+vim.opt.inccommand = 'split' -- 置換をプレビューウィンドウで表示
 
 ---[[ Network file Reader and Writer ]]
 vim.g.netrw_liststyle = 3  -- ディレクトリの中身をツリー表示
@@ -30,6 +30,7 @@ vim.g.netrw_winsize   = 30 -- ウィンドウサイズを横30%に限定(プレ�
 vim.opt.number        = true -- 行番号を表示する
 vim.opt.cursorline    = true -- カーソル行をハイライトする
 vim.opt.cursorcolumn  = true -- カーソル列をハイライトする
+vim.opt.showmatch     = true -- 対応する括弧を表示する
 vim.opt.showtabline   = 2 -- NeoVim上部のタブラインを常に表示する
 vim.opt.tabstop       = 2 -- タブ文字をスペース2文字の長さで表示
 vim.opt.shiftwidth    = 0 -- 自動インデントでtabstopの値を参照

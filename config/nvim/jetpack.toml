@@ -2,6 +2,10 @@
 repo = 'tani/vim-jetpack'
 on_event = 'CmdlineEnter'
 
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+opt = true
+
 ### Appearance ###
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
@@ -52,6 +56,11 @@ require('indent_blankline').setup {
 EOF
 '''
 
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter-context'
+on_event = 'CursorMoved'
+depends = 'nvim-treesitter'
+
 ### Extra Writing ###
 [[plugins]]
 repo = 'windwp/nvim-autopairs'
@@ -72,17 +81,11 @@ on_cmd = [ "Str2HtmlEntity", "Entity2HtmlString" ]
 
 ### Search ###
 [[plugins]]
-repo = 'mhinz/vim-grepper'
-on_map = '<plug>(Grepper'
-on_cmd = 'Grepper'
-hook_add = '''
-nmap gs <ESC>:tabnew<CR>:Grepper<CR>
-xmap gs <ESC>:tabnew<CR><plug>(GrepperOperator)
-
-let g:grepper           = {}
-let g:grepper.tools     = ['pt', 'git', 'grep']
-let g:grepper.next_tool = 'gs'
-'''
+repo = 'nvim-telescope/telescope.nvim'
+depends = 'plenary.nvim'
+tag = '0.1.1'
+on_cmd = 'Telescope'
+hook_add = 'nmap <Leader>f <Cmd>Telescope<CR>'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
@@ -112,6 +115,7 @@ nmap <Leader>gm <Plug>(git-messenger)
 ### Filetype Specific Functions ###
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
+opt = true
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
@@ -140,20 +144,16 @@ let g:previm_enable_realtime = 1
 # toggle comments
 # generate Document comment
 # Debugger
-# Quickfix
 # code completion
-# fuzzy finder
 # https://github.com/adoy/vim-php-refactoring-toolbox
 # https://github.com/vim-php/vim-php-refactoring
 # https://github.com/bling/vim-bufferline
 # https://github.com/othree/yajs.vim
 # https://github.com/dsawardekar/wordpress.vim
 # https://github.com/hotwatermorning/auto-git-diff
-# https://github.com/gennaro-tedesco/nvim-peekup telescopeでまとまる？
-# https://github.com/yuki-yano/fuzzy-motion.vim telescopeでまとまる？
 # https://github.com/lukas-reineke/cmp-rg
 # https://github.com/aduros/ai.vim
 # https://github.com/mattn/vim-findroot
 # https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-# https://daisuzu.hatenablog.com/entry/2020/12/03/003629
-# https://zenn.dev/tmrekk/articles/4380961a754287
+# https://daisuzu.hatenablog.com/entry/2020/12/03/003629  ## Quickfix
+# https://zenn.dev/tmrekk/articles/4380961a754287  ## Quickfix
