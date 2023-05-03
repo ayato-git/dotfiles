@@ -128,16 +128,12 @@ tag = '1.8.1'
 on_ft = ['markdown', 'rst', 'mkd', 'md']
 on_cmd = 'PrevimOpen'
 depends = 'open-browser.vim'
-hook_add = '''
-let g:previm_open_cmd = 'open -a Safari'
-let g:previm_enable_realtime = 1
-'''
 
 ## Language Server Protocol ##
 # [[plugins]]
 # repo = 'Maan2003/lsp_lines.nvim'
 # on_event = 'BufEnter'
-# hook_source = "lua << require('lsp_lines').setup()"
+# hook_source = "lua require('lsp_lines').setup()"
 
 # 今度試してみたいもの
 # autosave
