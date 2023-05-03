@@ -99,10 +99,7 @@ vmap gw <Plug>(openbrowser-smart-search)
 [[plugins]]
 repo = 'rhysd/devdocs.vim'
 depends = 'open-browser.vim'
-on_map = '<Plug>(devdocs-under-cursor)'
-hook_add = '''
-nmap K <Plug>(devdocs-under-cursor)
-'''
+on_cmd = ['DevDocs', 'DevDocsUnderCursor', 'DevDocsALL', 'DevDocsALLUnderCursor']
 
 [[plugins]]
 repo = 'rhysd/git-messenger.vim'
