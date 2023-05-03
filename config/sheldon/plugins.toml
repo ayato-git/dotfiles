@@ -36,6 +36,9 @@ use = ['lib/git.zsh','plugins/git/git.plugin.zsh']
 github = 'ohmyzsh/ohmyzsh'
 use = ['lib/history.zsh']
 
+[plugins.Homebrew-asdf]
+inline = 'zsh-defer source /usr/local/opt/asdf/libexec/asdf.sh'
+
 [plugins.anyframe]
 github = 'mollifier/anyframe'
 

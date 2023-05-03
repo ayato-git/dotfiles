@@ -3,6 +3,8 @@ export EDITOR=nvim
 export GHQ_ROOT=$(git config --global --get ghq.root)
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export XDG_CONFIG_HOME=$HOME/.config
+export ASDF_DATA_DIR=~/.local/share/asdf
+export ASDF_CONFIG_FILE=$XDG_CONFIG_HOME/asdf/asdfrc
 
 # export PS1="%F{green}${USER}%f @ ${HOST%%.*} %F{cyan}%1~%f %(!.#.$) "
 # export SPROMPT="correct: %F{red}%R%f -> %F{green}%r%f ? [No/Yes/Abort/Edit]"

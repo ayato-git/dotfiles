@@ -3,11 +3,12 @@ dotfiles_dir = "#{Dir.pwd}"
 
 # create symbolic link.
 dotfiles = {
-  "files/gitignore" => ".gitignore",
-  "files/gitconfig" => ".gitconfig",
-  "files/zshenv" => ".zshenv",
-  "files/zshrc" => ".zshrc",
-  "files/Brewfile" => ".Brewfile",
+  "files/gitignore"     => ".gitignore",
+  "files/gitconfig"     => ".gitconfig",
+  "files/zshenv"        => ".zshenv",
+  "files/zshrc"         => ".zshrc",
+  "files/Brewfile"      => ".Brewfile",
+  "files/tool-versions" => ".tool-versions",
   "config" => ".config"
 }
 
