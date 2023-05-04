@@ -47,24 +47,20 @@ end
 # setup asdf to manage multiple versions of tools
 # TODO: asdfが環境変数を読むので、完全な新規環境では期待と異なる動作になる
 # TODO: zshenvに書いた環境変数の値を新規環境でも適用したい
-tool_versions = {}
 File.open('files/tool-versions') do |file|
   file.each_line do |line|
     tool, version = line.chomp.split(' ')
-    tool_versions[tool] = version
-  end
-end
 
-tool_versions.each do |tool, tool_version|
-  execute "asdf plugin add #{tool}" do
-    not_if "asdf plugin list | grep #{tool}"
-  end
+    execute "asdf plugin add #{tool}" do
+      not_if "asdf plugin list | grep #{tool}"
+    end
 
-  execute "asdf install #{tool} #{tool_version}" do
-    not_if "asdf list #{tool} | grep #{tool_version}"
-  end
+    execute "asdf install #{tool} #{version}" do
+      not_if "asdf list #{tool} | grep #{version}"
+    end
 
-  execute "asdf global #{tool} #{tool_version}" do
-    not_if "asdf current #{tool} | grep #{tool_version}"
+    execute "asdf global #{tool} #{version}" do
+      not_if "asdf current #{tool} | grep #{version}"
+    end
   end
 end
