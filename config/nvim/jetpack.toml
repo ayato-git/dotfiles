@@ -27,7 +27,6 @@ EOF
 repo = 'sainnhe/sonokai'
 tag = 'v0.3.3'
 on_post_source = 'nvim-treesitter'
-depends = 'nvim-treesitter'
 hook_post_source = '''
 let g:sonokai_transparent_background    = 1
 let g:sonokai_menu_selection_background = 'red'
@@ -45,7 +44,6 @@ hook_post_source = "lua require('colorizer').setup()"
 repo = 'lukas-reineke/indent-blankline.nvim'
 tag = 'v2.20.4'
 on_post_source = 'nvim-treesitter'
-depends = 'nvim-treesitter'
 hook_post_source = '''
 lua << EOF
 vim.cmd("highlight IndentBlanklineContextStart guifg=#56B6C2 gui=nocombine")
@@ -127,6 +125,87 @@ on_cmd = 'PrevimOpen'
 depends = 'open-browser.vim'
 
 ## Language Server Protocol ##
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+tag = 'v0.1.6'
+opt = true
+hook_post_source = """
+lua << EOF
+local lsp = require('lspconfig')
+-- lsp.pyright.setup({})
+-- lsp.tsserver.setup({})
+EOF
+"""
+
+[[plugins]]
+repo = "hrsh7th/nvim-cmp"
+on_event = 'CursorMoved'
+hook_post_source = """
+lua << EOF
+local cmp = require("cmp")
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+end
+
+cmp.setup({
+  sources = {
+    { name = "path" },
+    { name = "buffer" },
+    { name = "cmdline" },
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<Tab>'] = function(fallback)
+      if not cmp.select_next_item() then
+        if vim.bo.buftype ~= 'prompt' and has_words_before() then
+          cmp.complete()
+        else
+          fallback()
+        end
+      end
+    end,
+    ['<S-Tab>'] = function(fallback)
+      if not cmp.select_prev_item() then
+        if vim.bo.buftype ~= 'prompt' and has_words_before() then
+          cmp.complete()
+        else
+          fallback()
+        end
+      end
+    end,
+   ["<CR>"] = cmp.mapping({
+     i = function(fallback)
+       if cmp.visible() and cmp.get_active_entry() then
+         cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+       else
+         fallback()
+       end
+     end,
+     s = cmp.mapping.confirm({ select = true }),
+     c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+   }),
+  }),
+})
+EOF
+"""
+
+[[plugins]]
+repo = "hrsh7th/cmp-path"
+on_post_source = 'nvim-cmp'
+
+[[plugins]]
+repo = "hrsh7th/cmp-buffer"
+on_post_source = 'nvim-cmp'
+
+[[plugins]]
+repo = "hrsh7th/cmp-cmdline"
+on_post_source = 'nvim-cmp'
+
+# [[plugins]]
+# repo = "hrsh7th/cmp-nvim-lsp"
+# on_post_source = 'nvim-cmp'
+
 # [[plugins]]
 # repo = 'Maan2003/lsp_lines.nvim'
 # on_event = 'BufEnter'
