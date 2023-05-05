@@ -154,6 +154,9 @@ cmp.setup({
     { name = "path" },
     { name = "buffer" },
     { name = "cmdline" },
+    { name = 'look', keyword_length = 2,
+      option = { convert_case = true, loud = true }
+    },
   },
   mapping = cmp.mapping.preset.insert({
     ['<Tab>'] = function(fallback)
@@ -200,6 +203,10 @@ on_post_source = 'nvim-cmp'
 
 [[plugins]]
 repo = "hrsh7th/cmp-cmdline"
+on_post_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'octaltree/cmp-look'
 on_post_source = 'nvim-cmp'
 
 # [[plugins]]
