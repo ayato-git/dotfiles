@@ -211,12 +211,11 @@ on_post_source = 'nvim-cmp'
 # on_event = 'BufEnter'
 # hook_source = "lua require('lsp_lines').setup()"
 
-# 今度試してみたいもの
+# TODO: 今度試してみたい
 # autosave
 # toggle comments
 # generate Document comment
 # Debugger
-# code completion
 # https://github.com/adoy/vim-php-refactoring-toolbox
 # https://github.com/vim-php/vim-php-refactoring
 # https://github.com/bling/vim-bufferline
@@ -229,3 +228,5 @@ on_post_source = 'nvim-cmp'
 # https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 # https://daisuzu.hatenablog.com/entry/2020/12/03/003629  ## Quickfix
 # https://zenn.dev/tmrekk/articles/4380961a754287  ## Quickfix
+# https://github.com/ray-x/navigator.lua
+# https://github.com/mfussenegger/nvim-dap
