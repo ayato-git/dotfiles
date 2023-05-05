@@ -8,6 +8,32 @@ opt = true
 
 ### Appearance ###
 [[plugins]]
+repo = 'akinsho/bufferline.nvim'
+tag = 'v4.1.0'
+on_event = 'VimEnter'
+hook_post_source = """
+lua << EOF
+local bufferline = require('bufferline')
+bufferline.setup({ options = {
+  numbers = 'buffer_id',
+  show_buffer_close_icons = false,
+  diagnostics = "nvim_lsp",
+}})
+vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', {})
+vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
+EOF
+"""
+
+[[plugins]]
+repo = 'ray-x/starry.nvim'
+on_event = 'VimEnter'
+hook_source = '''
+let g:starry_disable_background = v:true
+let g:starry_set_hl             = v:true
+colorscheme monokai
+'''
+
+[[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 tag = 'v0.9.0'
 on_event = 'VimEnter'
@@ -24,20 +50,8 @@ EOF
 '''
 
 [[plugins]]
-repo = 'sainnhe/sonokai'
-tag = 'v0.3.3'
-on_post_source = 'nvim-treesitter'
-hook_post_source = '''
-let g:sonokai_transparent_background    = 1
-let g:sonokai_menu_selection_background = 'red'
-let g:sonokai_better_performance        = 1
-colorscheme sonokai
-'''
-
-[[plugins]]
 repo = 'norcalli/nvim-colorizer.lua'
-on_post_source = 'nvim-treesitter'
-hook_add = 'set termguicolors'
+on_event = 'VimEnter'
 hook_post_source = "lua require('colorizer').setup()"
 
 [[plugins]]
@@ -46,7 +60,6 @@ tag = 'v2.20.4'
 on_post_source = 'nvim-treesitter'
 hook_post_source = '''
 lua << EOF
-vim.cmd("highlight IndentBlanklineContextStart guifg=#56B6C2 gui=nocombine")
 require('indent_blankline').setup {
   show_current_context = true,
   show_current_context_start = true,
@@ -154,6 +167,9 @@ cmp.setup({
     { name = "path" },
     { name = "buffer" },
     { name = "cmdline" },
+    { name = 'look', keyword_length = 2,
+      option = { convert_case = true, loud = true }
+    },
   },
   mapping = cmp.mapping.preset.insert({
     ['<Tab>'] = function(fallback)
@@ -202,6 +218,10 @@ on_post_source = 'nvim-cmp'
 repo = "hrsh7th/cmp-cmdline"
 on_post_source = 'nvim-cmp'
 
+[[plugins]]
+repo = 'octaltree/cmp-look'
+on_post_source = 'nvim-cmp'
+
 # [[plugins]]
 # repo = "hrsh7th/cmp-nvim-lsp"
 # on_post_source = 'nvim-cmp'
@@ -211,12 +231,11 @@ on_post_source = 'nvim-cmp'
 # on_event = 'BufEnter'
 # hook_source = "lua require('lsp_lines').setup()"
 
-# 今度試してみたいもの
+# TODO: 今度試してみたい
 # autosave
 # toggle comments
 # generate Document comment
 # Debugger
-# code completion
 # https://github.com/adoy/vim-php-refactoring-toolbox
 # https://github.com/vim-php/vim-php-refactoring
 # https://github.com/bling/vim-bufferline
@@ -229,3 +248,5 @@ on_post_source = 'nvim-cmp'
 # https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 # https://daisuzu.hatenablog.com/entry/2020/12/03/003629  ## Quickfix
 # https://zenn.dev/tmrekk/articles/4380961a754287  ## Quickfix
+# https://github.com/ray-x/navigator.lua
+# https://github.com/mfussenegger/nvim-dap

@@ -27,11 +27,12 @@ vim.g.netrw_preview   = 1  -- 'p'でファイルのプレビューウィンド�
 vim.g.netrw_winsize   = 30 -- ウィンドウサイズを横30%に限定(プレビューが70%)
 
 ---[[ 表示 ]]
+vim.opt.termguicolors = true -- ターミナルで起動しても24bit色で表示する
+vim.opt.laststatus    = 3 -- ステータスラインをsplitせずに下部に表示する
 vim.opt.number        = true -- 行番号を表示する
 vim.opt.cursorline    = true -- カーソル行をハイライトする
 vim.opt.cursorcolumn  = true -- カーソル列をハイライトする
 vim.opt.showmatch     = true -- 対応する括弧を表示する
-vim.opt.showtabline   = 2 -- NeoVim上部のタブラインを常に表示する
 vim.opt.tabstop       = 2 -- タブ文字をスペース2文字の長さで表示
 vim.opt.shiftwidth    = 0 -- 自動インデントでtabstopの値を参照
 vim.opt.list          = true
