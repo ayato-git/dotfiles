@@ -51,6 +51,3 @@ use = ["{{ name }}.zsh"]
 
 [plugins.zsh-alias-finder]
 github = "akash329d/zsh-alias-finder"
-
-[plugins.zsh-abbr]
-github = 'olets/zsh-abbr'
