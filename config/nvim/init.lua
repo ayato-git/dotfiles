@@ -37,8 +37,7 @@ vim.opt.tabstop       = 2 -- タブ文字をスペース2文字の長さで表�
 vim.opt.shiftwidth    = 0 -- 自動インデントでtabstopの値を参照
 vim.opt.list          = true
 vim.opt.listchars:append "trail:¬" -- 行末の空白を可視化
-vim.opt.listchars:append "tab:|-" -- タブ文字を可視化
-vim.cmd("highlight SpecialKey guibg=NONE guifg=Gray40") -- 特殊キーの色をグレーに設定
+vim.opt.listchars:append "tab:¦-" -- タブ文字を可視化
 
 ---[[ バックアップやアンドゥ関連 ]]
 --- swp と undo ファイルの格納場所はneovimデフォルトに従う
