@@ -32,6 +32,12 @@ sandbox(){
 # depends on mollifier/anyframe and peco
 bindkey '^R' anyframe-widget-put-history
 alias gs=anyframe-widget-checkout-git-branch
+gbd(){
+  anyframe-source-git-branch -n \
+  | anyframe-selector-auto \
+  | awk '{print $1}' \
+  | anyframe-action-execute git branch --delete
+}
 
 # depends on romkatv/powerlevel10k
 # To customize prompt, run `p10k configure` or edit p10k.zsh.
