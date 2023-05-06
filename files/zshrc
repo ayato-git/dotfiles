@@ -32,7 +32,7 @@ sandbox(){
 # depends on mollifier/anyframe and peco
 bindkey '^R' anyframe-widget-put-history
 alias gs=anyframe-widget-checkout-git-branch
-gbd(){
+gbdel(){
   anyframe-source-git-branch -n \
   | anyframe-selector-auto \
   | awk '{print $1}' \
