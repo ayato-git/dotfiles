@@ -28,6 +28,10 @@ apply = ["source"]
 github = 'ohmyzsh/ohmyzsh'
 use = ['plugins/common-aliases/*.zsh']
 
+[plugins.OMZP-globalias]
+github = 'ohmyzsh/ohmyzsh'
+use = ['plugins/globalias/globalias.plugin.zsh']
+
 [plugins.OMZP-git]
 github = 'ohmyzsh/ohmyzsh'
 use = ['lib/git.zsh','plugins/git/git.plugin.zsh']
