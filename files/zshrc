@@ -7,7 +7,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 bindkey -e
-autoload -Uz compinit && compinit
 
 # load plugins
 eval "$(sheldon source)"

@@ -20,6 +20,9 @@ apply = ["source"]
 [templates]
 defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 
+[plugins.compinit]
+inline = 'autoload -Uz compinit && zsh-defer compinit'
+
 [plugins.powerlevel10k]
 github = "romkatv/powerlevel10k"
 apply = ["source"]
