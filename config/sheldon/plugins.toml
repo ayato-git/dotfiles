@@ -44,7 +44,8 @@ github = 'ohmyzsh/ohmyzsh'
 use = ['lib/history.zsh']
 
 [plugins.Homebrew-asdf]
-inline = 'zsh-defer source /usr/local/opt/asdf/libexec/asdf.sh'
+local = '/usr/local/opt/asdf'
+use = ['libexec/asdf.sh']
 
 [plugins.anyframe]
 github = 'mollifier/anyframe'
