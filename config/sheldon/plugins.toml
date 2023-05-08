@@ -20,6 +20,9 @@ apply = ["source"]
 [templates]
 defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 
+[plugins.compinit]
+inline = 'autoload -Uz compinit && zsh-defer compinit'
+
 [plugins.powerlevel10k]
 github = "romkatv/powerlevel10k"
 apply = ["source"]
@@ -41,7 +44,8 @@ github = 'ohmyzsh/ohmyzsh'
 use = ['lib/history.zsh']
 
 [plugins.Homebrew-asdf]
-inline = 'zsh-defer source /usr/local/opt/asdf/libexec/asdf.sh'
+local = '/usr/local/opt/asdf'
+use = ['libexec/asdf.sh']
 
 [plugins.anyframe]
 github = 'mollifier/anyframe'

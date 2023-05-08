@@ -1,13 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 bindkey -e
-autoload -Uz compinit && compinit
 
 # load plugins
 eval "$(sheldon source)"
@@ -32,11 +23,17 @@ sandbox(){
 # depends on mollifier/anyframe and peco
 bindkey '^R' anyframe-widget-put-history
 alias gs=anyframe-widget-checkout-git-branch
-gbdel(){
+gbdel(){ # select git blanch and delete it.
   anyframe-source-git-branch -n \
   | anyframe-selector-auto \
   | awk '{print $1}' \
   | anyframe-action-execute git branch --delete
+}
+gsedit(){ # select file shown on git status and edit it.
+  anyframe-source-git-status \
+  | anyframe-selector-auto \
+  | awk '{print $2}' \
+  | anyframe-action-execute ${EDITOR}
 }
 
 # depends on romkatv/powerlevel10k
