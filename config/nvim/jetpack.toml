@@ -50,9 +50,9 @@ EOF
 '''
 
 [[plugins]]
-repo = 'norcalli/nvim-colorizer.lua'
+repo = 'brenoprata10/nvim-highlight-colors'
 on_event = 'VimEnter'
-hook_post_source = "lua require('colorizer').setup()"
+hook_post_source = "lua require('nvim-highlight-colors').setup()"
 
 [[plugins]]
 repo = 'lukas-reineke/indent-blankline.nvim'
@@ -136,6 +136,13 @@ tag = '1.8.1'
 on_ft = ['markdown', 'rst', 'mkd', 'md']
 on_cmd = 'PrevimOpen'
 depends = 'open-browser.vim'
+
+[[plugins]]
+repo = 'windwp/nvim-ts-autotag'
+on_ft = [ 'html', 'javascript', 'jsx', 'markdown', 'php', 'rescript', 'svelte', 'tsx', 'typescript', 'vue', 'xml' ]
+on_event = 'InsertEnter'
+depends = 'nvim-treesitter'
+hook_source = "lua require('nvim-ts-autotag').setup()"
 
 ## Language Server Protocol ##
 [[plugins]]
