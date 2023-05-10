@@ -1,7 +1,11 @@
 bindkey -e
 
 # load plugins
-eval "$(sheldon source)"
+local sheldon_dump="$XDG_CACHE_HOME/sheldon-dump.sh"
+if [ "$XDG_CONFIG_HOME/sheldon/plugins.toml" -nt $sheldon_dump ] || [ ! -e $sheldon_dump ]; then
+  sheldon source > $sheldon_dump
+fi
+source $sheldon_dump
 
 # homemade commands
 take() {
