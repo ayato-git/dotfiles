@@ -69,7 +69,7 @@ EOF
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter-context'
-on_event = 'CursorMoved'
+on_event = ['CursorMoved', 'CursorMovedI']
 depends = 'nvim-treesitter'
 
 ### Extra Writing ###
@@ -127,7 +127,7 @@ opt = true
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
-on_event = 'CursorMoved'
+on_event = ['CursorMoved', 'CursorMovedI']
 depends = 'context_filetype.vim'
 
 [[plugins]]
@@ -159,7 +159,7 @@ EOF
 
 [[plugins]]
 repo = "hrsh7th/nvim-cmp"
-on_event = 'CursorMoved'
+on_event = ['CursorMoved', 'CursorMovedI']
 hook_post_source = """
 lua << EOF
 local cmp = require("cmp")
