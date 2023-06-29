@@ -11,7 +11,7 @@
 [ghq]
 	root = /Users/ayato/Repositories
 [core]
-	excludesfile = /Users/ayato/.gitignore
+	excludesfile = /Users/ayato/.config/git/ignore
 	editor = nvim
 	quotepath = false #日本語文字化け回避
 [pager]
