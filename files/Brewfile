@@ -3,62 +3,118 @@ tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "vldmrkl/formulae"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
+# Bash, Zsh and Fish completion for Docker
 brew "docker-completion"
+# Isolated development environments using Docker
 brew "docker-compose"
+# Minify and secure Docker images
 brew "docker-slim"
+# Remote repository management made easy
 brew "ghq"
+# Distributed revision control system
 brew "git"
+# Mac App Store command-line interface
 brew "mas"
+# Easily rename multiple files using your text editor
 brew "massren"
+# Time command execution over multiple executions
 brew "multitime"
+# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Simplistic interactive filtering tool
 brew "peco"
+# Wrapper around ripgrep that adds multiple rich file types
 brew "ripgrep-all"
+# Fast, configurable, shell plugin manager
 brew "sheldon"
+# SMART hard drive monitoring
 brew "smartmontools"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Bash completion for Vagrant
 brew "vagrant-completion"
+# Homebrew, but with Docker images
 brew "whalebrew"
+# macOS CLI for AirDrop
 brew "vldmrkl/formulae/airdrop-cli"
+# Password manager that keeps all passwords secure behind one password
 cask "1password6"
+# Menu bar tool to limit maximum charging percentage
 cask "aldente"
+# Android SDK component
 cask "android-platform-tools"
+# Application uninstaller
 cask "appcleaner"
+# Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
+# Lock/unlock Apple computers using the proximity of a bluetooth low energy device
 cask "bleunlock"
+# Free app that makes your Internet safer
 cask "cloudflare-warp"
+# App to build and share containerized applications and microservices
 cask "docker"
+# Web browser
 cask "firefox"
+# Web browser
 cask "firefox-developer-edition"
+# Japanese programming font which is a composed of Hack and GenJyuu-Gothic
 cask "font-hackgen-nerd"
+# Desktop client for GitHub repositories
 cask "github"
+# Neovim GUI written in Golang, using a Golang qt backend
 cask "goneovim"
+# Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# File archiver
 cask "keka"
+# Warns about malware, adware and spyware
 cask "malwarebytes"
+# Multi-platform web browser
 cask "microsoft-edge-dev"
+# Native app email client for Gmail
 cask "mimestream"
+# Free and open-source RSS reader
 cask "netnewswire"
+# Display image info and preview unsupported formats in QuickLook
 cask "qlimagesize"
+# QuickLook generator for Markdown files
 cask "qlmarkdown"
+# QuickLook plugin for CSV files
 cask "quicklook-csv"
+# QuickLook plugin for JSON files
 cask "quicklook-json"
+# All-in-one bookmark manager
 cask "raindropio"
+# Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# File sync and share software
 cask "resilio-sync"
+# Video chat, voice call and instant messaging application
 cask "skype"
+# Team communication and collaboration software
 cask "slack"
+# Video game digital distribution service
 cask "steam"
+# Enable and disable the Intel CPU Turbo Boost feature
 cask "turbo-boost-switcher"
+# Development environment
 cask "vagrant"
 cask "vagrant-manager"
+# Virtualizer for x86 hardware
 cask "virtualbox"
+# Extend the functionality of VirtualBox
 cask "virtualbox-extension-pack"
+# Tiny process monitor
 cask "vitals"
+# Multimedia player
 cask "vlc"
+# Comic reader
 cask "yacreader"
+# OpenJDK distribution from Azul
 cask "zulu"
+# OpenJDK distribution from Azul
 cask "zulu8"
 mas "1Blocker", id: 1365531024
 mas "Apple Configurator", id: 1037126344
