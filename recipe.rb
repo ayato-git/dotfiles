@@ -27,10 +27,12 @@ end
 
 execute 'install packages from Brewfile' do
   command "brew bundle --global"
+  not_if 'brew bundle check --global'
 end
 
 execute 'brew autoremove && brew cleanup' do
   only_if 'which brew'
+  not_if 'brew bundle check --global'
 end
 
 # adjust mode for zsh completion
@@ -59,6 +61,9 @@ File.open('files/tool-versions') do |file|
 
     execute "asdf global #{tool} #{version}" do
       not_if "asdf current #{tool} | grep #{version}"
+    end
+
+    execute "asdf reshim #{tool}" do
     end
   end
 end
