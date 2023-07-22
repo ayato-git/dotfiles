@@ -35,8 +35,8 @@ colorscheme monokai
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
-tag = 'v0.9.0'
 on_event = 'VimEnter'
+hook_add = "lua vim.opt.runtimepath:prepend(vim.fn.stdpath('data') .. '/treesitter')"
 hook_post_source = '''
 lua << EOF
 require'nvim-treesitter.configs'.setup {
@@ -45,7 +45,6 @@ require'nvim-treesitter.configs'.setup {
     highlight = { enable = true, },
     indent = { enable = true, },
   }
-vim.opt.runtimepath:append(vim.fn.stdpath('data') .. '/treesitter')
 EOF
 '''
 
