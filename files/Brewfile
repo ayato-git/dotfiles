@@ -49,6 +49,8 @@ cask "aldente"
 cask "android-platform-tools"
 # Application uninstaller
 cask "appcleaner"
+# Chromium based browser
+cask "arc"
 # Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
 # Lock/unlock Apple computers using the proximity of a bluetooth low energy device
