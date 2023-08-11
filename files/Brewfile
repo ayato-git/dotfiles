@@ -17,8 +17,6 @@ brew "docker-slim"
 brew "ghq"
 # Distributed revision control system
 brew "git"
-# NaCl networking and cryptography library
-brew "libsodium"
 # Mac App Store command-line interface
 brew "mas"
 # Easily rename multiple files using your text editor
@@ -81,6 +79,8 @@ cask "microsoft-edge-dev"
 cask "mimestream"
 # Free and open-source RSS reader
 cask "netnewswire"
+# Replacement for Docker Desktop
+cask "orbstack"
 # Minecraft launcher
 cask "prismlauncher"
 # Display image info and preview unsupported formats in QuickLook
@@ -146,3 +146,4 @@ mas "VisBug", id: 1538509686
 mas "Wappalyzer", id: 1520333300
 mas "Whalebird", id: 6445864587
 mas "Xcode", id: 497799835
+whalebrew "library/php:8.2-alpine"
