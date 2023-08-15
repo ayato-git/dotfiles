@@ -135,7 +135,6 @@ mas "Ginger - Skip Ads", id: 1555702394
 mas "Hidden Bar", id: 1452453066
 mas "Integrity", id: 513610341
 mas "Keyword Search", id: 1558453954
-mas "Kimis", id: 1667275125
 mas "Numbers", id: 409203825
 mas "Playgrounds", id: 1496833156
 mas "Refined GitHub", id: 1519867270
@@ -148,4 +147,7 @@ mas "VisBug", id: 1538509686
 mas "Wappalyzer", id: 1520333300
 mas "Whalebird", id: 6445864587
 mas "Xcode", id: 497799835
-whalebrew "library/php:8.2-alpine"
+whalebrew "aws-amazon/aws-cli"
+whalebrew "composer"
+whalebrew "php:8.2-cli-alpine"
+whalebrew "yt-jauderho/yt-dlp"
