@@ -7,12 +7,25 @@ if [ "$XDG_CONFIG_HOME/sheldon/plugins.toml" -nt $sheldon_dump ] || [ ! -e $shel
 fi
 source $sheldon_dump
 
+setopt hist_ignore_all_dups hist_save_no_dups # コマンド履歴の重複無視
+setopt hist_no_store hist_ignore_space  # historyコマンドや行頭がスペースのコマンドは履歴に登録しない
+setopt correct # スペルミス修正
+setopt auto_pushd pushd_ignore_dups # cdでディレクトリスタックを積む
+setopt list_packed # 補完候補をコンパクトに表示
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' # 大文字小文字を無視して補完/意図して大文字を入力した時は小文字の候補を補完しない
+
 # homemade commands
 take() {
   mkdir -p $1 && cd $1
 }
 alias ping='ping -c 5'
 alias ls='ls -GF'
+alias bubu='brew bundle dump --describe --global --force & brew update && brew upgrade && brew autoremove && brew cleanup'
+
+# homemade commands that depends on smartctl(smartmontools)
+alias temperature='smartctl -a /dev/disk0 | grep -i cel && sudo powermetrics -i 1 -n 1 --sampler smc,thermal'
+
 # homemade commands that depends on ghq
 repo(){
   cd $GHQ_ROOT/$(ghq list | peco --prompt '~/Repositories >' --select-1 --query ${1:-'github.com/'})
