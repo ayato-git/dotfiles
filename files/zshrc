@@ -21,7 +21,8 @@ take() {
 }
 alias ping='ping -c 5'
 alias ls='ls -GF'
-alias bubu='brew bundle dump --describe --global --force & brew update && brew upgrade && brew autoremove && brew cleanup'
+alias bubu='brew update && brew upgrade && brew bundle dump --describe --global --force & brew autoremove & brew cleanup'
+zsh-defer unalias 'hgrep' # use rhysd/hgrep instead of common-aliases in ohmyzsh
 
 # homemade commands that depends on smartctl(smartmontools)
 alias temperature='smartctl -a /dev/disk0 | grep -i cel && sudo powermetrics -i 1 -n 1 --sampler smc,thermal'

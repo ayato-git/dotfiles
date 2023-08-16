@@ -7,7 +7,7 @@
 [github]
 	user = ayato-git
 [url "git@github.com:"]
-	pushInsteadOf = https://github.com/
+	insteadOf = https://github.com/
 [ghq]
 	root = /Users/ayato/Repositories
 [core]

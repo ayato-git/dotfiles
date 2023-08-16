@@ -2,11 +2,14 @@ tap "hmarr/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
+tap "rhysd/hgrep", "https://github.com/rhysd/hgrep"
 tap "vldmrkl/formulae"
 # GNU multiple precision arithmetic library
 brew "gmp"
 # Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
+# Top-like interface for container metrics
+brew "ctop"
 # Bash, Zsh and Fish completion for Docker
 brew "docker-completion"
 # Isolated development environments using Docker
@@ -41,6 +44,8 @@ brew "tree"
 brew "vagrant-completion"
 # Homebrew, but with Docker images
 brew "whalebrew"
+# hgrep is grep with human-friendly search output
+brew "rhysd/hgrep/hgrep"
 # macOS CLI for AirDrop
 brew "vldmrkl/formulae/airdrop-cli"
 # Password manager that keeps all passwords secure behind one password
