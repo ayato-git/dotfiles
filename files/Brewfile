@@ -10,6 +10,8 @@ brew "gmp"
 brew "asdf"
 # Top-like interface for container metrics
 brew "ctop"
+# Diff that understands syntax
+brew "difftastic"
 # Bash, Zsh and Fish completion for Docker
 brew "docker-completion"
 # Isolated development environments using Docker

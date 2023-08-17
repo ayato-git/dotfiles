@@ -15,12 +15,13 @@
 	editor = nvim
 	quotepath = false #日本語文字化け回避
 [pager]
+	difftool = true
 	log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 	show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
-	diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 [interactive]
 	diffFilter = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
 [diff]
+	external = difft
 	compactionHeuristic = true
 # [gpg]
 # 	program = /usr/local/bin/gpg
