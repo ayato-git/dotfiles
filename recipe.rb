@@ -40,7 +40,7 @@ directory '/usr/local/share/zsh/site-functions' do
   mode '0755'
 end
 
-execute 'run rtx to manage multiple versions of tools' do
-  command 'eval "$(rtx activate zsh)" && rtx install'
-  not_if 'which rtx'
+execute 'install tools in ~/.tool-versions' do
+  command 'RTX_YES=yes rtx install'
+  only_if 'which rtx'
 end
