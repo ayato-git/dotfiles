@@ -1,18 +1,14 @@
-home_dir = ENV['HOME']
-dotfiles_dir = "#{Dir.pwd}"
-
 # create symbolic link.
-dotfiles = {
+{
   "files/zshenv"        => ".zshenv",
   "files/zshrc"         => ".zshrc",
   "files/Brewfile"      => ".Brewfile",
   "files/tool-versions" => ".tool-versions",
-  "config" => ".config"
+  "config"              => ".config"
 }
-
-dotfiles.each do |src, dst|
-  src_path = File.join(dotfiles_dir, src)
-  dst_path = File.join(home_dir, dst)
+.each do |src, dst|
+  src_path = File.join("#{Dir.pwd}", src)
+  dst_path = File.join(ENV['HOME'], dst)
 
   link dst_path do
     to src_path

@@ -14,5 +14,5 @@ and runs mitamae with `recipe.rb`.
 
 ## TODO
 
-- Set config dir according to XDG Base Directory Specification.
-- remove old setting files like xxxx.old.toml
+- [x] Set config dir according to XDG Base Directory Specification.
+- [ ] remove old setting files like xxxx.old.toml
