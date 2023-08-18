@@ -6,8 +6,6 @@ tap "rhysd/hgrep", "https://github.com/rhysd/hgrep"
 tap "vldmrkl/formulae"
 # GNU multiple precision arithmetic library
 brew "gmp"
-# Extendable version manager with support for Ruby, Node.js, Erlang & more
-brew "asdf"
 # Top-like interface for container metrics
 brew "ctop"
 # Diff that understands syntax
