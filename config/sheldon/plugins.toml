@@ -43,10 +43,6 @@ use = ['lib/git.zsh','plugins/git/git.plugin.zsh']
 github = 'ohmyzsh/ohmyzsh'
 use = ['lib/history.zsh']
 
-[plugins.Homebrew-asdf]
-local = '/usr/local/opt/asdf'
-use = ['libexec/asdf.sh']
-
 [plugins.anyframe]
 github = 'mollifier/anyframe'
 
@@ -59,3 +55,6 @@ use = ["{{ name }}.zsh"]
 
 [plugins.zsh-alias-finder]
 github = "akash329d/zsh-alias-finder"
+
+[plugins.Homebrew-rtx]
+inline = 'zsh-defer eval "$(rtx activate zsh)"'
