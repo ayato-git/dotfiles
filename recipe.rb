@@ -1,4 +1,3 @@
-# create symbolic link.
 {
   "files/zshenv"        => ".zshenv",
   "files/zshrc"         => ".zshrc",
@@ -10,12 +9,11 @@
   src_path = File.join("#{Dir.pwd}", src)
   dst_path = File.join(ENV['HOME'], dst)
 
-  link dst_path do
+  link dst_path do # create symbolic link.
     to src_path
   end
 end
 
-# setup Homebrew
 execute 'install homebrew' do
   command '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
   not_if 'which brew'
@@ -26,7 +24,8 @@ execute 'install packages from Brewfile' do
   not_if 'brew bundle check --global'
 end
 
-execute 'brew autoremove && brew cleanup' do
+execute 'Clean up files needed only during installation' do
+  command "brew autoremove && brew cleanup"
   only_if 'which brew'
   not_if 'brew bundle check --global'
 end

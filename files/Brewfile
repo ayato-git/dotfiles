@@ -4,8 +4,6 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "rhysd/hgrep", "https://github.com/rhysd/hgrep"
 tap "vldmrkl/formulae"
-# GNU multiple precision arithmetic library
-brew "gmp"
 # Top-like interface for container metrics
 brew "ctop"
 # Diff that understands syntax
@@ -22,6 +20,8 @@ brew "ghq"
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
+# GNU multiple precision arithmetic library
+brew "gmp"
 # Mac App Store command-line interface
 brew "mas"
 # Easily rename multiple files using your text editor
