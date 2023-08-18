@@ -34,6 +34,8 @@ brew "neovim"
 brew "peco"
 # Wrapper around ripgrep that adds multiple rich file types
 brew "ripgrep-all"
+# Polyglot runtime manager (asdf rust clone)
+brew "rtx"
 # Fast, configurable, shell plugin manager
 brew "sheldon"
 # SMART hard drive monitoring
