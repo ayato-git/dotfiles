@@ -14,4 +14,4 @@ if [[ ! -f "$MITAMAE_PATH" ]]; then
 fi
 
 "$MITAMAE_PATH" version
-"$MITAMAE_PATH" local $@ recipe.rb
+"$MITAMAE_PATH" local $@ files/recipe.rb

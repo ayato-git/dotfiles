@@ -10,9 +10,9 @@ Bootstrap environment for macOS on intell/AppleSilicon
 ```
 
 `install.sh` gets [mitamae](https://github.com/itamae-kitchen/mitamae),
-and runs mitamae with `recipe.rb`.
+and runs mitamae with `files/recipe.rb`.
 
 ## TODO
 
 - [x] Set config dir according to XDG Base Directory Specification.
-- [ ] remove old setting files like xxxx.old.toml
+- [x] remove old setting files like xxxx.old.toml
