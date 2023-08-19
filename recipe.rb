@@ -54,3 +54,12 @@ execute 'install tools in rtx/config.toml' do
   command 'rtx --yes install'
   only_if 'which rtx'
 end
+
+{
+  "wezterm shell-completion --shell zsh" => "_wezterm"
+}.each do |src, dump|
+  execute "add #{dump} for zsh completion" do
+    command "#{src} >> /usr/local/share/zsh/site-functions/#{dump}"
+    not_if "test -f /usr/local/share/zsh/site-functions/#{dump}" 
+  end
+end

@@ -108,6 +108,8 @@ cask "raindropio"
 cask "rectangle"
 # File sync and share software
 cask "resilio-sync"
+# Plugin for AWS CLI to start and end sessions that connect to managed instances
+cask "session-manager-plugin"
 # Video chat, voice call and instant messaging application
 cask "skype"
 # Team communication and collaboration software
@@ -127,6 +129,8 @@ cask "virtualbox-extension-pack"
 cask "vitals"
 # Multimedia player
 cask "vlc"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
 # Comic reader
 cask "yacreader"
 # OpenJDK distribution from Azul
