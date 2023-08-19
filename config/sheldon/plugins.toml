@@ -43,6 +43,10 @@ use = ['lib/git.zsh','plugins/git/git.plugin.zsh']
 github = 'ohmyzsh/ohmyzsh'
 use = ['lib/history.zsh']
 
+[plugins.OMZL-GNU-util]
+github = 'ohmyzsh/ohmyzsh'
+use = ['plugins/gnu-utils/gnu-utils.plugin.zsh']
+
 [plugins.anyframe]
 github = 'mollifier/anyframe'
 

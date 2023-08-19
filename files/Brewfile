@@ -4,6 +4,10 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "rhysd/hgrep", "https://github.com/rhysd/hgrep"
 tap "vldmrkl/formulae"
+# GNU multiple precision arithmetic library
+brew "gmp"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
 # Top-like interface for container metrics
 brew "ctop"
 # Diff that understands syntax
@@ -14,14 +18,16 @@ brew "docker-completion"
 brew "docker-compose"
 # Minify and secure Docker images
 brew "docker-slim"
+# Collection of GNU find, xargs, and locate
+brew "findutils"
 # Remote repository management made easy
 brew "ghq"
 # Distributed revision control system
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
-# GNU multiple precision arithmetic library
-brew "gmp"
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
 # Mac App Store command-line interface
 brew "mas"
 # Easily rename multiple files using your text editor
