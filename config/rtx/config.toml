@@ -1,0 +1,4 @@
+[tools]
+awscli = "latest"
+deno = "latest"
+node = "20"

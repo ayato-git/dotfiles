@@ -2,7 +2,6 @@
   "files/zshenv"        => ".zshenv",
   "files/zshrc"         => ".zshrc",
   "files/Brewfile"      => ".Brewfile",
-  "files/tool-versions" => ".tool-versions",
   "config"              => ".config"
 }
 .each do |src, dst|
@@ -51,7 +50,7 @@ directory '/usr/local/share/zsh/site-functions' do
   mode '0755'
 end
 
-execute 'install tools in ~/.tool-versions' do
-  command 'RTX_YES=yes rtx install'
+execute 'install tools in rtx/config.toml' do
+  command 'rtx --yes install'
   only_if 'which rtx'
 end
