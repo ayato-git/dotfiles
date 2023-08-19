@@ -52,7 +52,7 @@ end
 
 execute 'install tools in rtx/config.toml' do
   command 'rtx --yes install'
-  only_if 'which rtx'
+  only_if 'which rtx && rtx list | grep missing'
 end
 
 {
