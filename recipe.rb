@@ -30,6 +30,18 @@ execute 'Clean up files needed only during installation' do
   not_if 'brew bundle check --global'
 end
 
+{
+  "php"      => "php:8.2-cli-alpine",
+  "composer" => "composer",
+  "yt-dlp"   => "jauderho/yt-dlp"
+}.each do |name, image|
+  execute "install #{name} via Whalebrew" do
+    command "whalebrew install --name #{name} #{image}"
+    only_if 'docker container ls'
+  end
+end
+
+
 # adjust mode for zsh completion
 directory '/usr/local/share/zsh' do
   mode '0755'
