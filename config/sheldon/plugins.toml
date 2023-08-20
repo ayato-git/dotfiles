@@ -27,25 +27,12 @@ inline = 'autoload -Uz compinit && zsh-defer compinit'
 github = "romkatv/powerlevel10k"
 apply = ["source"]
 
-[plugins.OMZP-common-aliases]
+[plugins.ohmyzsh]
 github = 'ohmyzsh/ohmyzsh'
-use = ['plugins/common-aliases/*.zsh']
-
-[plugins.OMZP-globalias]
-github = 'ohmyzsh/ohmyzsh'
-use = ['plugins/globalias/globalias.plugin.zsh']
-
-[plugins.OMZP-git]
-github = 'ohmyzsh/ohmyzsh'
-use = ['lib/git.zsh','plugins/git/git.plugin.zsh']
-
-[plugins.OMZL-history]
-github = 'ohmyzsh/ohmyzsh'
-use = ['lib/history.zsh']
-
-[plugins.OMZL-GNU-util]
-github = 'ohmyzsh/ohmyzsh'
-use = ['plugins/gnu-utils/gnu-utils.plugin.zsh']
+use = [
+	'lib/{git,history}.zsh',
+	'plugins/{common-aliases,globalias,git,gnu-utils}/*.zsh'
+]
 
 [plugins.anyframe]
 github = 'mollifier/anyframe'
