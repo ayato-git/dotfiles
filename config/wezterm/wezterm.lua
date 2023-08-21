@@ -21,7 +21,7 @@ return {
   use_ime = true,
   font_size = 14.5,
   color_scheme = "Molokai",
-  window_background_opacity = 0.7,
+  window_background_opacity = 0.75,
   window_decorations = 'RESIZE',
   window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
   adjust_window_size_when_changing_font_size = false,

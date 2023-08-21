@@ -24,8 +24,7 @@ execute 'install packages from Brewfile' do
 end
 
 execute 'Clean up files needed only during installation' do
-  command "brew autoremove && brew cleanup"
-  only_if 'which brew'
+  command "brew autoremove & brew cleanup"
   not_if 'brew bundle check --global'
 end
 
@@ -36,7 +35,7 @@ end
 }.each do |name, image|
   execute "install #{name} via Whalebrew" do
     command "whalebrew install --name #{name} #{image}"
-    only_if 'docker container ls'
+    only_if 'which docker && which whalebrew && docker container ls'
   end
 end
 

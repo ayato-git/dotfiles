@@ -32,6 +32,7 @@ vim.opt.laststatus    = 3 -- ステータスラインをsplitせずに下部に�
 vim.opt.number        = true -- 行番号を表示する
 vim.opt.cursorline    = true -- カーソル行をハイライトする
 vim.opt.cursorcolumn  = true -- カーソル列をハイライトする
+vim.opt.synmaxcol     = 200  -- 1行に200文字までハイライトする(負荷対策)
 vim.opt.showmatch     = true -- 対応する括弧を表示する
 vim.opt.tabstop       = 2 -- タブ文字をスペース2文字の長さで表示
 vim.opt.shiftwidth    = 0 -- 自動インデントでtabstopの値を参照
