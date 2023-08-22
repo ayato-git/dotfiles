@@ -20,7 +20,7 @@ take() {
   mkdir -p $1 && cd $1
 }
 alias ping='ping -c 5'
-alias ls='ls -GF'
+alias ls='ls -F --color=tty'
 alias bubu='brew update && brew upgrade && \
 	brew bundle dump --describe --global --force --formula --cask --tap --mas \
 	& brew autoremove & brew cleanup'

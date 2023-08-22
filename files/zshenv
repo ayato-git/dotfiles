@@ -1,7 +1,6 @@
 # zmodload zsh/zprof && zprof
 export EDITOR=nvim
 export GHQ_ROOT=$(git config --global --get ghq.root)
-export LSCOLORS=gxfxcxdxbxegedabagacad
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
