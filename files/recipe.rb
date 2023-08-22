@@ -55,7 +55,10 @@ execute 'install tools in config/rtx/config.toml' do
 end
 
 execute 'enable corepack that bundled with Node.js installed via rtx' do
-  command 'corepack enable'
+  # command 'npm uninstall --global npm pnpm yarn && corepack enable npm pnpm yarn'
+  # 'npm uninstall --global npm' でnpmが消せない。このnpmがrtx由来なのでバグかも知れない。
+  # 直接npmを消してから corepack enable する
+  command "rm -f $(rtx which npm) && corepack enable npm pnpm yarn"
   only_if 'which corepack | grep "rtx" '
   not_if 'which pnpm && cat $(which pnpm) | grep "corepack" '
 end
