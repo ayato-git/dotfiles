@@ -18,7 +18,7 @@ execute 'install homebrew' do
   not_if 'which brew'
 end
 
-execute 'install packages from Brewfile' do
+execute 'install packages from files/Brewfile' do
   command "brew bundle --global"
   not_if 'brew bundle check --global'
 end
@@ -49,9 +49,15 @@ directory '/usr/local/share/zsh/site-functions' do
   mode '0755'
 end
 
-execute 'install tools in rtx/config.toml' do
+execute 'install tools in config/rtx/config.toml' do
   command 'rtx --yes install'
-  only_if 'which rtx && rtx list | grep missing'
+  only_if 'which rtx && rtx list | grep "missing|outdated" '
+end
+
+execute 'enable corepack that bundled with Node.js installed via rtx' do
+  command 'corepack enable'
+  only_if 'which corepack | grep "rtx" '
+  not_if 'which pnpm && cat $(which pnpm) | grep "corepack" '
 end
 
 {

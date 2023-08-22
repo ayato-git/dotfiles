@@ -1,4 +1,15 @@
+env_path = [
+	# the absolute path of $XDG_DATA_HOME/pnpm
+	"/Users/ayato/.local/share/pnpm"
+]
+
 [tools]
 awscli = "latest"
 deno = "latest"
 node = "20"
+
+[env]
+# the absolute path of $XDG_DATA_HOME/pnpm
+PNPM_HOME = "/Users/ayato/.local/share/pnpm"
+ # the absolute path of $XDG_CONFIG_HOME/rtx/default-npm-package
+RTX_NODE_DEFAULT_PACKAGES_FILE = "/Users/ayato/.config/rtx/default-npm-package"
