@@ -10,6 +10,10 @@ local shortcutkeys = {
     key = 'k',
     mods = 'CMD',
     action = wezterm.action.ClearScrollback 'ScrollbackAndViewport',
+  }, {
+    key = "_", -- workaround  https://github.com/wez/wezterm/issues/4051
+    mods = "SHIFT|ALT",
+    action = wezterm.action({ SendString = "\\" })
   },
 }
 
@@ -18,7 +22,6 @@ return {
     {family = "HackGen Console NF", assume_emoji_presentation = false},
     {family = "HackGen Console NF", assume_emoji_presentation = true}
   }),
-  use_ime = true,
   font_size = 14.5,
   color_scheme = "Molokai",
   window_background_opacity = 0.75,
