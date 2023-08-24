@@ -56,7 +56,7 @@ end
 
 execute 'enable corepack that bundled with Node.js installed via rtx' do
   # command 'npm uninstall --global npm pnpm yarn && corepack enable npm pnpm yarn'
-  # 'npm uninstall --global npm' でnpmが消せない。このnpmがrtx由来なのでバグかも知れない。
+  # 'npm uninstall --global npm' でnpmが消せない。node14で確認したがnode20では起きない
   # 直接npmを消してから corepack enable する
   command "rm -f $(rtx which npm) && corepack enable npm pnpm yarn"
   only_if 'which corepack | grep "rtx" '
