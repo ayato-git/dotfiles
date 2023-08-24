@@ -21,7 +21,7 @@
 [interactive]
 	diffFilter = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
 [diff]
-	external = difft
+	external = difft # github.com/Wilfred/difftastic
 	compactionHeuristic = true
 [gpg]
 	format = ssh
@@ -40,3 +40,6 @@
 	required = true
 [init]
 	defaultBranch = main
+
+
+# vim: ft=gitconfig
