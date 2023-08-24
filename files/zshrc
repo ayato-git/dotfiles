@@ -22,9 +22,12 @@ take() {
 alias ping='ping -c 5'
 alias ls='ls -F --color=tty'
 alias bubu='brew update && brew upgrade && \
-	brew bundle dump --describe --global --force --formula --cask --tap --mas \
-	& brew autoremove & brew cleanup'
+  brew bundle dump --describe --global --force --formula --cask --tap --mas \
+  & brew autoremove & brew cleanup'
 zsh-defer unalias 'hgrep' # use rhysd/hgrep instead of common-aliases in ohmyzsh
+alias reconnect='networksetup -SetAirportPower en0 off \
+  && networksetup -SetAirportPower en0 on
+'
 
 # homemade commands that depends on smartctl(smartmontools)
 alias temperature='smartctl -a /dev/disk0 | grep -i cel && sudo powermetrics -i 1 -n 1 --sampler smc,thermal'
