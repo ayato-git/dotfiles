@@ -119,14 +119,14 @@ nmap <Leader>gm <Plug>(git-messenger)
 '''
 
 ### Filetype Specific Functions ###
-[[plugins]]
-repo = 'Shougo/context_filetype.vim'
-opt = true
-
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-on_event = ['CursorMoved', 'CursorMovedI']
-depends = 'context_filetype.vim'
+# [[plugins]]
+# repo = 'Shougo/context_filetype.vim'
+# opt = true
+# 
+# [[plugins]]
+# repo = 'osyo-manga/vim-precious'
+# on_event = ['CursorMoved', 'CursorMovedI']
+# depends = 'context_filetype.vim'
 
 [[plugins]]
 repo = 'previm/previm'
