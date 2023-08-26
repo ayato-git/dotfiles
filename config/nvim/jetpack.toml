@@ -144,7 +144,6 @@ hook_source = "lua require('nvim-ts-autotag').setup()"
 ## Language Server Protocol ##
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
-tag = 'v0.1.6'
 on_event = ["BufReadPre", "BufNewFile"]
 
 [[plugins]]

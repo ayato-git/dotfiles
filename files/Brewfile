@@ -28,6 +28,10 @@ brew "git"
 brew "git-lfs"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
+# Language Server for the Lua language
+brew "lua-language-server"
+# Language Server Protocol for Markdown
+brew "marksman"
 # Mac App Store command-line interface
 brew "mas"
 # Easily rename multiple files using your text editor
