@@ -150,13 +150,9 @@ on_event = ["BufReadPre", "BufNewFile"]
 [[plugins]]
 repo = 'j-hui/fidget.nvim'
 tag = 'legacy'
-on_source = 'nvim-lspconfig'
+on_post_source = 'nvim-lspconfig'
 depends = 'nvim-lspconfig'
-hook_source = '''
-lua << EOF
-require('fidget').setup()
-EOF
-'''
+hook_post_source = "lua require('fidget').setup()"
 
 [[plugins]]
 repo = "hrsh7th/nvim-cmp"
@@ -187,7 +183,7 @@ depends = 'nvim-lspconfig'
 
 [[plugins]]
 repo = 'Maan2003/lsp_lines.nvim'
-on_source = 'nvim-lspconfig'
+on_post_source = 'nvim-lspconfig'
 hook_source = """
 lua << EOF
 require('lsp_lines').setup()
