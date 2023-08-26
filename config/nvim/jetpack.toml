@@ -146,58 +146,12 @@ hook_source = "lua require('nvim-ts-autotag').setup()"
 repo = 'neovim/nvim-lspconfig'
 tag = 'v0.1.6'
 opt = true
-hook_post_source = """
-lua << EOF
-local lsp = require('lspconfig')
--- lsp.pyright.setup({})
--- lsp.tsserver.setup({})
-EOF
-"""
 
 [[plugins]]
 repo = "hrsh7th/nvim-cmp"
 on_event = ['CursorMoved', 'CursorMovedI']
-hook_post_source = """
-lua << EOF
-local cmp = require("cmp")
-local has_words_before = function()
-  unpack = unpack or table.unpack
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
-end
-
-cmp.setup({
-  sources = {
-    { name = "path" },
-    { name = "buffer" },
-    { name = "cmdline" },
-    { name = 'look', keyword_length = 2,
-      option = { convert_case = true, loud = true }
-    },
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<Tab>'] = function(fallback)
-      if not cmp.select_next_item() then
-        if vim.bo.buftype ~= 'prompt' and has_words_before() then
-          cmp.complete()
-        else
-          fallback()
-        end
-      end
-    end,
-    ['<S-Tab>'] = function(fallback)
-      if not cmp.select_prev_item() then
-        if vim.bo.buftype ~= 'prompt' and has_words_before() then
-          cmp.complete()
-        else
-          fallback()
-        end
-      end
-    end,
-  }),
-})
-EOF
-"""
+depends = ['nvim-lspconfig', 'cmp-nvim-lsp']
+hook_post_source = "lua require('my-cmp')"
 
 [[plugins]]
 repo = "hrsh7th/cmp-path"
@@ -215,9 +169,11 @@ on_post_source = 'nvim-cmp'
 repo = 'octaltree/cmp-look'
 on_post_source = 'nvim-cmp'
 
-# [[plugins]]
-# repo = "hrsh7th/cmp-nvim-lsp"
-# on_post_source = 'nvim-cmp'
+[[plugins]]
+repo = "hrsh7th/cmp-nvim-lsp"
+on_post_source = 'nvim-cmp'
+depends = 'nvim-lspconfig'
+
 
 # [[plugins]]
 # repo = 'Maan2003/lsp_lines.nvim'
