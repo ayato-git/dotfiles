@@ -73,9 +73,10 @@ depends = 'nvim-treesitter'
 
 ### Extra Writing ###
 [[plugins]]
-repo = 'windwp/nvim-autopairs'
+## repo = 'windwp/nvim-autopairs'
+repo = 'hrsh7th/nvim-insx'
 on_event = 'InsertEnter'
-hook_post_source = "lua require('nvim-autopairs').setup()"
+hook_post_source = "lua require('insx.preset.standard').setup()"
 
 [[plugins]]
 repo = 'shinespark/vim-list2tree'
@@ -145,6 +146,17 @@ hook_source = "lua require('nvim-ts-autotag').setup()"
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 on_event = ["BufReadPre", "BufNewFile"]
+
+[[plugins]]
+repo = 'j-hui/fidget.nvim'
+tag = 'legacy'
+on_source = 'nvim-lspconfig'
+depends = 'nvim-lspconfig'
+hook_source = '''
+lua << EOF
+require('fidget').setup()
+EOF
+'''
 
 [[plugins]]
 repo = "hrsh7th/nvim-cmp"
