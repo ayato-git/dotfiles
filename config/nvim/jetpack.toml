@@ -191,6 +191,26 @@ vim.diagnostic.config({ virtual_text = false })
 EOF
 """
 
+## Debug Adapter Protocol ##
+[[plugins]]
+repo = "mfussenegger/nvim-dap"
+
+[[plugins]]
+repo = "rcarriga/nvim-dap-ui"
+depends = "nvim-dap"
+hook_post_source = "lua require('my-dap')"
+
+[[plugins]]
+repo = "xdebug/vscode-php-debug"
+opt = true
+build = """
+pnpm import
+pnpm install --frozen-lockfile
+pnpm run build
+"""
+
+
+
 # TODO: 今度試してみたい
 # autosave
 # toggle comments
@@ -210,3 +230,17 @@ EOF
 # https://zenn.dev/tmrekk/articles/4380961a754287  ## Quickfix
 # https://github.com/ray-x/navigator.lua
 # https://github.com/mfussenegger/nvim-dap
+#
+#[[plugins]]
+#repo = "mxsdev/nvim-dap-vscode-js"
+#depends = "mfussenegger/nvim-dap"
+#hook_post_source = ""
+#
+#[[plugins]]
+#repo = "microsoft/vscode-js-debug"
+#opt = true
+#build = """
+#npm install --legacy-peer-deps
+#npx gulp vsDebugServerBundle
+#mv dist out
+#"""
