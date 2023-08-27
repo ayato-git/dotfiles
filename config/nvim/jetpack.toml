@@ -161,6 +161,22 @@ depends = ['nvim-lspconfig', 'cmp-nvim-lsp']
 hook_post_source = "lua require('my-cmp')"
 
 [[plugins]]
+repo = "hrsh7th/cmp-nvim-lsp"
+on_post_source = 'nvim-cmp'
+depends = 'nvim-lspconfig'
+
+[[plugins]]
+repo = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+on_post_source = 'nvim-lspconfig'
+hook_source = """
+lua << EOF
+require('lsp_lines').setup()
+vim.diagnostic.config({ virtual_text = false })
+EOF
+"""
+
+## Sources for nvim-cmp ##
+[[plugins]]
 repo = "hrsh7th/cmp-path"
 on_post_source = 'nvim-cmp'
 
@@ -175,21 +191,6 @@ on_post_source = 'nvim-cmp'
 [[plugins]]
 repo = 'octaltree/cmp-look'
 on_post_source = 'nvim-cmp'
-
-[[plugins]]
-repo = "hrsh7th/cmp-nvim-lsp"
-on_post_source = 'nvim-cmp'
-depends = 'nvim-lspconfig'
-
-[[plugins]]
-repo = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
-on_post_source = 'nvim-lspconfig'
-hook_source = """
-lua << EOF
-require('lsp_lines').setup()
-vim.diagnostic.config({ virtual_text = false })
-EOF
-"""
 
 ## Debug Adapter Protocol ##
 [[plugins]]
