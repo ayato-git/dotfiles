@@ -229,11 +229,9 @@ pnpm run build
 # Debugger
 # https://github.com/adoy/vim-php-refactoring-toolbox
 # https://github.com/vim-php/vim-php-refactoring
-# https://github.com/bling/vim-bufferline
 # https://github.com/othree/yajs.vim
 # https://github.com/dsawardekar/wordpress.vim
 # https://github.com/hotwatermorning/auto-git-diff
-# https://github.com/lukas-reineke/cmp-rg
 # https://github.com/aduros/ai.vim
 # https://github.com/mattn/vim-findroot
 # https://github.com/nvim-treesitter/nvim-treesitter-textobjects
