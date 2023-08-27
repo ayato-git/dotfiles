@@ -80,6 +80,7 @@ cmp.setup({
     { name = "path" },
     { name = "buffer" },
     { name = "cmdline" },
+    { name = "rg" },
     { name = 'look', keyword_length = 2,
       option = { convert_case = true, loud = true }
     },

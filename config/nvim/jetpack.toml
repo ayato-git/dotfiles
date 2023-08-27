@@ -166,6 +166,11 @@ on_post_source = 'nvim-cmp'
 depends = 'nvim-lspconfig'
 
 [[plugins]]
+repo = "ray-x/lsp_signature.nvim"
+on_post_source = ['nvim-cmp', 'nvim-lspconfig']
+hook_post_source = 'lua require("lsp_signature").setup({zindex = 50})'
+
+[[plugins]]
 repo = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 on_post_source = 'nvim-lspconfig'
 hook_source = """
@@ -191,6 +196,11 @@ on_post_source = 'nvim-cmp'
 [[plugins]]
 repo = 'octaltree/cmp-look'
 on_post_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'lukas-reineke/cmp-rg'
+on_post_source = 'nvim-cmp'
+
 
 ## Debug Adapter Protocol ##
 [[plugins]]
