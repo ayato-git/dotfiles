@@ -145,13 +145,12 @@ hook_source = "lua require('nvim-ts-autotag').setup()"
 ## Language Server Protocol ##
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
-on_event = ["BufReadPre", "BufNewFile"]
+on_event = ["VimEnter"]
 
-[[plugins]]
+[[plugins]] # TODO: fidget.nvim not working with intelephense LSP
 repo = 'j-hui/fidget.nvim'
 tag = 'legacy'
 on_post_source = 'nvim-lspconfig'
-depends = 'nvim-lspconfig'
 hook_post_source = "lua require('fidget').setup()"
 
 [[plugins]]
@@ -162,17 +161,19 @@ hook_post_source = "lua require('my-cmp')"
 
 [[plugins]]
 repo = "hrsh7th/cmp-nvim-lsp"
-on_post_source = 'nvim-cmp'
+opt = true
 depends = 'nvim-lspconfig'
 
 [[plugins]]
 repo = "ray-x/lsp_signature.nvim"
-on_post_source = ['nvim-cmp', 'nvim-lspconfig']
+on_event = ['CursorMoved', 'CursorMovedI']
+depends = 'nvim-lspconfig'
 hook_post_source = 'lua require("lsp_signature").setup({zindex = 50})'
 
 [[plugins]]
 repo = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 on_post_source = 'nvim-lspconfig'
+on_event = ['TextChanged', 'TextChangedI', 'CursorMoved', 'CursorMovedI']
 hook_source = """
 lua << EOF
 require('lsp_lines').setup()
@@ -205,9 +206,11 @@ on_post_source = 'nvim-cmp'
 ## Debug Adapter Protocol ##
 [[plugins]]
 repo = "mfussenegger/nvim-dap"
+opt = true
 
 [[plugins]]
 repo = "rcarriga/nvim-dap-ui"
+on_event = 'CmdlineEnter'
 depends = "nvim-dap"
 hook_post_source = "lua require('my-dap')"
 

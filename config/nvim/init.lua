@@ -48,7 +48,7 @@ vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup~//"
 vim.opt.undofile  = true -- アンドゥファイルを作成する
 
 ---[[ 編集 ]]
-vim.opt.clipboard = "unnamedplus" -- *と+のレジスタをOSのクリップボードとシンクロ
+vim.opt.clipboard:append  "unnamedplus" -- *と+のレジスタをOSのクリップボードとシンクロ
 vim.keymap.set('c', "<D-v>", '<C-R>+',  { noremap = true }) -- コマンドモードでcommand-vで貼り付け
 vim.keymap.set('i', 'jj', '<ESC>',   nil) -- jjで挿入モードから抜ける
 

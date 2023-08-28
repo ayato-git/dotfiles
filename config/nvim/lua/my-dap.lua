@@ -31,3 +31,6 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+
+-- TODO: デバッガの起動等がコマンドだけで可能な状態なので、keymappingする
+-- TODO: mfussenegger/nvim-dap プラグインの遅延読み込みをkeymappingに合わせる
