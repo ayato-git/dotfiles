@@ -6,6 +6,10 @@ tap "rhysd/hgrep", "https://github.com/rhysd/hgrep"
 tap "vldmrkl/formulae"
 # GNU multiple precision arithmetic library
 brew "gmp"
+# General-purpose scripting language
+brew "php"
+# Dependency Manager for PHP
+brew "composer"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Top-like interface for container metrics

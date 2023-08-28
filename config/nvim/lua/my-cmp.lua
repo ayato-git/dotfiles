@@ -27,8 +27,10 @@ local servers = {
   -- 'docker_compose_language_service',
   -- pnpm install -g intelephense
   'intelephense',
+  -- ready to use phpactor
+  -- 'phpactor',
   -- not installed yet for PHP
-  -- 'phactor', 'psalm'
+  -- 'psalm'
   -- pnpm install -g vim-language-server
   'vimls',
   -- pnpm install -g sql-language-server
