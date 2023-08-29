@@ -29,16 +29,14 @@ execute 'Clean up files needed only during installation' do
 end
 
 {
-  "php"      => "php:8.2-cli-alpine",
-  "composer" => "composer",
   "yt-dlp"   => "jauderho/yt-dlp"
 }.each do |name, image|
   execute "install #{name} via Whalebrew" do
     command "whalebrew install --name #{name} #{image}"
     only_if 'which docker && which whalebrew && docker container ls'
+    not_if "which #{name}"
   end
 end
-
 
 # adjust mode for zsh completion
 directory '/usr/local/share/zsh' do
@@ -70,4 +68,14 @@ end
     command "#{src} >> /usr/local/share/zsh/site-functions/#{dump}"
     not_if "test -f /usr/local/share/zsh/site-functions/#{dump}" 
   end
+end
+
+execute 'download phpactor.phar' do
+  command 'curl -Lo /usr/local/bin/phpactor https://github.com/phpactor/phpactor/releases/latest/download/phpactor.phar'
+  not_if 'which phpactor'
+end
+
+file '/usr/local/bin/phpactor' do
+  action :create
+  mode '0755'
 end

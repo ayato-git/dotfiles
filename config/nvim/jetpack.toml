@@ -145,18 +145,13 @@ hook_source = "lua require('nvim-ts-autotag').setup()"
 ## Language Server Protocol ##
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
-on_event = ["BufReadPre", "BufNewFile"]
+on_event = ["VimEnter"]
 
-[[plugins]]
+[[plugins]] # TODO: fidget.nvim not working with intelephense LSP
 repo = 'j-hui/fidget.nvim'
 tag = 'legacy'
-on_source = 'nvim-lspconfig'
-depends = 'nvim-lspconfig'
-hook_source = '''
-lua << EOF
-require('fidget').setup()
-EOF
-'''
+on_post_source = 'nvim-lspconfig'
+hook_post_source = "lua require('fidget').setup()"
 
 [[plugins]]
 repo = "hrsh7th/nvim-cmp"
@@ -164,6 +159,29 @@ on_event = ['CursorMoved', 'CursorMovedI']
 depends = ['nvim-lspconfig', 'cmp-nvim-lsp']
 hook_post_source = "lua require('my-cmp')"
 
+[[plugins]]
+repo = "hrsh7th/cmp-nvim-lsp"
+opt = true
+depends = 'nvim-lspconfig'
+
+[[plugins]]
+repo = "ray-x/lsp_signature.nvim"
+on_event = ['CursorMoved', 'CursorMovedI']
+depends = 'nvim-lspconfig'
+hook_post_source = 'lua require("lsp_signature").setup({zindex = 50})'
+
+[[plugins]]
+repo = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+on_post_source = 'nvim-lspconfig'
+on_event = ['TextChanged', 'TextChangedI', 'CursorMoved', 'CursorMovedI']
+hook_source = """
+lua << EOF
+require('lsp_lines').setup()
+vim.diagnostic.config({ virtual_text = false })
+EOF
+"""
+
+## Sources for nvim-cmp ##
 [[plugins]]
 repo = "hrsh7th/cmp-path"
 on_post_source = 'nvim-cmp'
@@ -181,19 +199,31 @@ repo = 'octaltree/cmp-look'
 on_post_source = 'nvim-cmp'
 
 [[plugins]]
-repo = "hrsh7th/cmp-nvim-lsp"
+repo = 'lukas-reineke/cmp-rg'
 on_post_source = 'nvim-cmp'
-depends = 'nvim-lspconfig'
+
+
+## Debug Adapter Protocol ##
+[[plugins]]
+repo = "mfussenegger/nvim-dap"
+opt = true
 
 [[plugins]]
-repo = 'Maan2003/lsp_lines.nvim'
-on_source = 'nvim-lspconfig'
-hook_source = """
-lua << EOF
-require('lsp_lines').setup()
-vim.diagnostic.config({ virtual_text = false })
-EOF
+repo = "rcarriga/nvim-dap-ui"
+on_event = 'CmdlineEnter'
+depends = "nvim-dap"
+hook_post_source = "lua require('my-dap')"
+
+[[plugins]]
+repo = "xdebug/vscode-php-debug"
+opt = true
+build = """
+pnpm import
+pnpm install --frozen-lockfile
+pnpm run build
 """
+
+
 
 # TODO: 今度試してみたい
 # autosave
@@ -202,11 +232,9 @@ EOF
 # Debugger
 # https://github.com/adoy/vim-php-refactoring-toolbox
 # https://github.com/vim-php/vim-php-refactoring
-# https://github.com/bling/vim-bufferline
 # https://github.com/othree/yajs.vim
 # https://github.com/dsawardekar/wordpress.vim
 # https://github.com/hotwatermorning/auto-git-diff
-# https://github.com/lukas-reineke/cmp-rg
 # https://github.com/aduros/ai.vim
 # https://github.com/mattn/vim-findroot
 # https://github.com/nvim-treesitter/nvim-treesitter-textobjects
@@ -214,3 +242,17 @@ EOF
 # https://zenn.dev/tmrekk/articles/4380961a754287  ## Quickfix
 # https://github.com/ray-x/navigator.lua
 # https://github.com/mfussenegger/nvim-dap
+#
+#[[plugins]]
+#repo = "mxsdev/nvim-dap-vscode-js"
+#depends = "mfussenegger/nvim-dap"
+#hook_post_source = ""
+#
+#[[plugins]]
+#repo = "microsoft/vscode-js-debug"
+#opt = true
+#build = """
+#npm install --legacy-peer-deps
+#npx gulp vsDebugServerBundle
+#mv dist out
+#"""

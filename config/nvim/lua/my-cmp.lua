@@ -1,6 +1,9 @@
 local cmp = require("cmp")
 local lspconfig = require('lspconfig')
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+local lsp_settings = {
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
+  -- settings = {}
+}
 local servers = {
   -- pnpm install --global vscode-langservers-extracted
   'cssls',
@@ -27,46 +30,37 @@ local servers = {
   -- 'docker_compose_language_service',
   -- pnpm install -g intelephense
   'intelephense',
+  -- ready to use phpactor
+  -- 'phpactor',
   -- not installed yet for PHP
-  -- 'phactor', 'psalm'
+  -- 'psalm'
   -- pnpm install -g vim-language-server
   'vimls',
-  -- brew install marksman
-  'marksman',
   -- pnpm install -g sql-language-server
   'sqlls',
+  -- brew install marksman
+  'marksman',
+  -- brew install lua-language-server
+  'lua_ls',
 }
 
+-- TODO: PHPのlanguage-serverがautostartしない。ファイルを再度開くか、:LspStartすると問題ない
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    capabilities = lsp_capabilities,
-  }
+  -- if lsp == 'intelephense' then
+  --   -- see https://github.com/bmewburn/vscode-intelephense/blob/v1.9.5/package.json
+  --   -- see contributes.configuration.properties
+  --   lsp_settings.settings = {
+  --     intelephense = {
+  --       stubs = {
+  --         "wordpress"
+  --       }
+  --     }
+  --   }
+  -- end
+
+  lspconfig[lsp].setup(lsp_settings)
 end
 
--- brew install lua-language-server
--- https://github.com/neovim/nvim-lspconfig/blob/v0.1.6/doc/server_configurations.md#sumneko_lua
-lspconfig.lua_ls.setup({
-  on_init = function(client)
-    local path = client.workspace_folders[1].name
-    if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
-      client.config.settings = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-        runtime = {
-          -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-          version = 'LuaJIT'
-        },
-        -- Make the server aware of Neovim runtime files
-        workspace = {
-          library = { vim.env.VIMRUNTIME }
-          -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-          -- library = vim.api.nvim_get_runtime_file("", true)
-        }
-      })
-
-      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-    end
-    return true
-  end
-})
 
 local has_words_before = function()
   unpack = unpack or table.unpack
@@ -80,6 +74,7 @@ cmp.setup({
     { name = "path" },
     { name = "buffer" },
     { name = "cmdline" },
+    { name = "rg" },
     { name = 'look', keyword_length = 2,
       option = { convert_case = true, loud = true }
     },
