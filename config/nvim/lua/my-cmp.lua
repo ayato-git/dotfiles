@@ -1,6 +1,9 @@
 local cmp = require("cmp")
 local lspconfig = require('lspconfig')
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+local lsp_settings = {
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
+  -- settings = {}
+}
 local servers = {
   -- pnpm install --global vscode-langservers-extracted
   'cssls',
@@ -43,9 +46,19 @@ local servers = {
 
 -- TODO: PHPのlanguage-serverがautostartしない。ファイルを再度開くか、:LspStartすると問題ない
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    capabilities = lsp_capabilities,
-  }
+  -- if lsp == 'intelephense' then
+  --   -- see https://github.com/bmewburn/vscode-intelephense/blob/v1.9.5/package.json
+  --   -- see contributes.configuration.properties
+  --   lsp_settings.settings = {
+  --     intelephense = {
+  --       stubs = {
+  --         "wordpress"
+  --       }
+  --     }
+  --   }
+  -- end
+
+  lspconfig[lsp].setup(lsp_settings)
 end
 
 
