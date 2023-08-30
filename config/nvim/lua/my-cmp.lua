@@ -5,43 +5,24 @@ local lsp_settings = {
   -- settings = {}
 }
 local servers = {
-  -- pnpm install --global vscode-langservers-extracted
-  'cssls',
-  'eslint', -- TODO: :ExlintFixAll コマンドについて調べる
-  'html',
-  'jsonls',
-  -- pnpm install -g cssmodules-language-server
-  'cssmodules_ls',
-  -- pnpm i -g stylelint-lsp
-  'stylelint_lsp',
-  -- pnpm install -g @tailwindcss/language-server
-  'tailwindcss',
-  -- pnpm install --global quick-lint-js
-  'quick_lint_js',
-  -- pnpm install -g typescript typescript-language-server
-  'tsserver',
-  -- pnpm install -g typescript svelte-language-server
-  'svelte',
-  -- pnpm i -g bash-language-server
-  'bashls',
-  -- pnpm install --global dockerfile-language-server-nodejs
-  'dockerls',
-  -- pnpm install --global @microsoft/compose-language-service
-  -- 'docker_compose_language_service',
-  -- pnpm install -g intelephense
-  'intelephense',
-  -- ready to use phpactor
-  -- 'phpactor',
-  -- not installed yet for PHP
-  -- 'psalm'
-  -- pnpm install -g vim-language-server
-  'vimls',
-  -- pnpm install -g sql-language-server
-  'sqlls',
-  -- brew install marksman
-  'marksman',
-  -- brew install lua-language-server
-  'lua_ls',
+  -- TODO: :ExlintFixAll コマンドについて調べる
+  'cssls', 'eslint', 'html', 'jsonls', -- pnpm install --global vscode-langservers-extracted
+  'cssmodules_ls', -- pnpm install --global cssmodules-language-server
+  'stylelint_lsp', -- pnpm install --global stylelint-lsp
+  'tailwindcss',   -- pnpm install --global @tailwindcss/language-server
+  'quick_lint_js', -- pnpm install --global quick-lint-js
+  'tsserver',      -- pnpm install --global typescript typescript-language-server
+  'svelte',        -- pnpm install --global typescript svelte-language-server
+  'bashls',        -- pnpm install --global bash-language-server
+  'dockerls',      -- pnpm install --global dockerfile-language-server-nodejs
+  'intelephense',  -- pnpm install --global intelephense
+  'vimls',         -- pnpm install --global vim-language-server
+  'sqlls',         -- pnpm install --global sql-language-server
+  'marksman',      -- brew install marksman
+  'lua_ls',        -- brew install lua-language-server
+  -- 'docker_compose_language_service', pnpm install --global @microsoft/compose-language-service
+  -- 'phpactor', ready to use phpactor
+  -- 'psalm' not installed yet for PHP
 }
 
 -- TODO: PHPのlanguage-serverがautostartしない。ファイルを再度開くか、:LspStartすると問題ない
