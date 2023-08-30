@@ -228,7 +228,8 @@ opt = true
 
 [[plugins]]
 repo = "rcarriga/nvim-dap-ui"
-on_event = 'CmdlineEnter'
+# call 'dap'.toggle_breakpoint()
+opt = true
 depends = "nvim-dap"
 hook_post_source = "lua require('my-dap')"
 

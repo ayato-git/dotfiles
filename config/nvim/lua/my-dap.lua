@@ -13,12 +13,19 @@ dap.configurations.php = {
     type = 'php',
     request = 'launch',
     name = 'Listen for Xdebug',
-    port = 9000,
+    port = 9003, -- Xdebug3系は9003
+    -- port = 9000, -- Xdebug2系は9000
     pathMappings = {
       ["/app"] = "${workspaceFolder}"
     }
   }
 }
+
+vim.keymap.set('n', '<F5>',  function() require('dap').continue() end)
+vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
+vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
+vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
+vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
 
 dapui.setup()
 
@@ -32,5 +39,4 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
--- TODO: デバッガの起動等がコマンドだけで可能な状態なので、keymappingする
 -- TODO: mfussenegger/nvim-dap プラグインの遅延読み込みをkeymappingに合わせる
