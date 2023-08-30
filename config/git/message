@@ -1,0 +1,25 @@
+# feat      新しい機能の追加 /  Semantic Versioning における MINOR に相当
+# fix       バグの修正 / Semantic Versioning における PATCH に相当
+# deps      dependencies
+# docs      documentation
+# style     formatting, missing semi colons, etc
+# refactor  refactoring
+# test      when adding missing tests
+# chore     サポート期限切れソフトウェアの対応等
+
+# <型>(任意のスコープ): <タイトル>
+# 型/スコープの直後に ! が追加されているコミットは破壊的変更を示します 
+# (Semantic Versioning における MAJOR に相当)
+
+# <任意の本文>
+
+# <任意のフッター>
+# 破壊的変更がある場合はフッターに
+# BREAKING CHANGE: <変更の内容>
+# と書く
+
+# ==========
+# Conventional Commits
+# - https://www.conventionalcommits.org/ja/v1.0.0/
+# AngularJS Git Commit Message Conventions
+# - https://gist.github.com/stephenparish/9941e89d80e2bc58a153#allowed-type
