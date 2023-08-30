@@ -1,11 +1,11 @@
-# feat      新しい機能の追加 /  Semantic Versioning における MINOR に相当
-# fix       バグの修正 / Semantic Versioning における PATCH に相当
-# deps      dependencies
-# docs      documentation
-# style     formatting, missing semi colons, etc
-# refactor  refactoring
-# test      when adding missing tests
-# chore     サポート期限切れソフトウェアの対応等
+# FEAT      新しい機能の追加 /  Semantic Versioning における MINOR に相当
+# FIX       バグの修正 / Semantic Versioning における PATCH に相当
+# DEPS      dependencies
+# DOCS      documentation
+# STYLE     formatting, missing semi colons, etc
+# REFACTOR  refactoring
+# TEST      when adding missing tests
+# CHORE     サポート期限切れソフトウェアの対応等
 
 # <型>(任意のスコープ): <タイトル>
 # 型/スコープの直後に ! が追加されているコミットは破壊的変更を示します 
