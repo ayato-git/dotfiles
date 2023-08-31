@@ -13,16 +13,38 @@ tag = 'v4.3.0'
 on_event = 'VimEnter'
 hook_post_source = """
 lua << EOF
-local bufferline = require('bufferline')
-bufferline.setup({ options = {
-  numbers = 'buffer_id',
-  diagnostics = "nvim_lsp",
-  indicator = { style = 'underline' },
-}})
-vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', {})
-vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
+require('bufferline').setup({
+  options = {
+    numbers = 'buffer_id',
+    diagnostics = "nvim_lsp",
+    indicator = { style = 'none' },
+  },
+  highlights = {
+    tab_selected = {
+      fg = { attribute = "fg", highlight = "TabLineSel" },
+      bg = { attribute = "bg", highlight = "TabLineSel" }
+    },
+    buffer_selected = {
+      fg = { attribute = "fg", highlight = "TabLineSel" },
+      bg = { attribute = "bg", highlight = "TabLineSel" }
+    },
+    numbers_selected = {
+      fg = { attribute = "fg", highlight = "TabLineSel" },
+      bg = { attribute = "bg", highlight = "TabLineSel" }
+    },
+    close_button_selected = {
+      fg = { attribute = "fg", highlight = "TabLineSel" },
+      bg = { attribute = "bg", highlight = "TabLineSel" }
+    },
+  }
+})
 EOF
 """
+
+[[plugins]]
+repo = "tiagovla/scope.nvim"
+on_source = 'bufferline.nvim'
+hook_source = "lua require('scope').setup()"
 
 [[plugins]]
 repo = 'ray-x/starry.nvim'
@@ -119,16 +141,6 @@ hook_add = '''
 nmap <Leader>gm <Plug>(git-messenger)
 '''
 
-### Filetype Specific Functions ###
-# [[plugins]]
-# repo = 'Shougo/context_filetype.vim'
-# opt = true
-# 
-# [[plugins]]
-# repo = 'osyo-manga/vim-precious'
-# on_event = ['CursorMoved', 'CursorMovedI']
-# depends = 'context_filetype.vim'
-
 [[plugins]]
 repo = 'previm/previm'
 on_ft = ['markdown', 'rst', 'mkd', 'md']
@@ -144,8 +156,14 @@ hook_source = "lua require('nvim-ts-autotag').setup()"
 
 ## Language Server Protocol ##
 [[plugins]]
+repo = "hrsh7th/cmp-nvim-lsp"
+opt = true
+
+[[plugins]]
 repo = 'neovim/nvim-lspconfig'
 on_event = ["VimEnter"]
+depends = 'cmp-nvim-lsp'
+hook_post_source = "lua require('my-lsp')"
 
 [[plugins]] # TODO: fidget.nvim not working with intelephense LSP
 repo = 'j-hui/fidget.nvim'
@@ -154,19 +172,8 @@ on_post_source = 'nvim-lspconfig'
 hook_post_source = "lua require('fidget').setup()"
 
 [[plugins]]
-repo = "hrsh7th/nvim-cmp"
-on_event = ['CursorMoved', 'CursorMovedI']
-depends = ['nvim-lspconfig', 'cmp-nvim-lsp']
-hook_post_source = "lua require('my-cmp')"
-
-[[plugins]]
-repo = "hrsh7th/cmp-nvim-lsp"
-opt = true
-depends = 'nvim-lspconfig'
-
-[[plugins]]
 repo = "ray-x/lsp_signature.nvim"
-on_event = ['CursorMoved', 'CursorMovedI']
+on_event = ['InsertEnter']
 depends = 'nvim-lspconfig'
 hook_post_source = 'lua require("lsp_signature").setup({zindex = 50})'
 
@@ -183,25 +190,29 @@ EOF
 
 ## Sources for nvim-cmp ##
 [[plugins]]
+repo = "hrsh7th/nvim-cmp"
+on_event = ['CursorMoved', 'CursorMovedI']
+hook_post_source = "lua require('my-cmp')"
+
+[[plugins]]
 repo = "hrsh7th/cmp-path"
-on_post_source = 'nvim-cmp'
+on_source = 'nvim-cmp'
 
 [[plugins]]
 repo = "hrsh7th/cmp-buffer"
-on_post_source = 'nvim-cmp'
+on_source = 'nvim-cmp'
 
 [[plugins]]
 repo = "hrsh7th/cmp-cmdline"
-on_post_source = 'nvim-cmp'
+on_source = 'nvim-cmp'
 
 [[plugins]]
 repo = 'octaltree/cmp-look'
-on_post_source = 'nvim-cmp'
+on_source = 'nvim-cmp'
 
 [[plugins]]
 repo = 'lukas-reineke/cmp-rg'
-on_post_source = 'nvim-cmp'
-
+on_source = 'nvim-cmp'
 
 ## Debug Adapter Protocol ##
 [[plugins]]
@@ -210,7 +221,7 @@ opt = true
 
 [[plugins]]
 repo = "rcarriga/nvim-dap-ui"
-on_event = 'CmdlineEnter'
+on_map = '<F5>'
 depends = "nvim-dap"
 hook_post_source = "lua require('my-dap')"
 

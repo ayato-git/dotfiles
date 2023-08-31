@@ -51,6 +51,8 @@ vim.opt.undofile  = true -- アンドゥファイルを作成する
 vim.opt.clipboard:append  "unnamedplus" -- *と+のレジスタをOSのクリップボードとシンクロ
 vim.keymap.set('c', "<D-v>", '<C-R>+',  { noremap = true }) -- コマンドモードでcommand-vで貼り付け
 vim.keymap.set('i', 'jj', '<ESC>',   nil) -- jjで挿入モードから抜ける
+vim.keymap.set('n', '<Tab>', '<Cmd>bnext<CR>', nil)
+vim.keymap.set('n', '<S-Tab>', '<Cmd>bprev<CR>', nil)
 
 ---[[ 自作のコマンド定義 ]]
 -- 現在開いているファイルのディレクトリに移動する :CdCurrent
