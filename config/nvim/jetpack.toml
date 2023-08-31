@@ -160,9 +160,17 @@ repo = "hrsh7th/cmp-nvim-lsp"
 opt = true
 
 [[plugins]]
+repo = "hrsh7th/nvim-cmp"
+opt = true
+# my-cmpの設定でluasnipを呼ぶ
+depends = ['LuaSnip']
+hook_post_source = "lua require('my-cmp')"
+
+[[plugins]]
 repo = 'neovim/nvim-lspconfig'
 on_event = ["VimEnter"]
-depends = 'cmp-nvim-lsp'
+# my-lspの設定でcmp-nvim-lspを呼び、そこで更にnvim-cmpを呼ぶ
+depends = ['cmp-nvim-lsp','nvim-cmp']
 hook_post_source = "lua require('my-lsp')"
 
 [[plugins]] # TODO: fidget.nvim not working with intelephense LSP
@@ -173,8 +181,7 @@ hook_post_source = "lua require('fidget').setup()"
 
 [[plugins]]
 repo = "ray-x/lsp_signature.nvim"
-on_event = ['InsertEnter']
-depends = 'nvim-lspconfig'
+on_post_source = 'nvim-lspconfig'
 hook_post_source = 'lua require("lsp_signature").setup({zindex = 50})'
 
 [[plugins]]
@@ -190,9 +197,9 @@ EOF
 
 ## Sources for nvim-cmp ##
 [[plugins]]
-repo = "hrsh7th/nvim-cmp"
-on_event = ['CursorMoved', 'CursorMovedI']
-hook_post_source = "lua require('my-cmp')"
+repo = "L3MON4D3/LuaSnip"
+opt = true
+build = "make install_jsregexp"
 
 [[plugins]]
 repo = "hrsh7th/cmp-path"
@@ -214,7 +221,12 @@ on_source = 'nvim-cmp'
 repo = 'lukas-reineke/cmp-rg'
 on_source = 'nvim-cmp'
 
+[[plugins]]
+repo = 'saadparwaiz1/cmp_luasnip'
+on_source = 'nvim-cmp'
+
 ## Debug Adapter Protocol ##
+# F5を押してデバッガ読み込み,もう一度押してデバッガ起動
 [[plugins]]
 repo = "mfussenegger/nvim-dap"
 opt = true
@@ -242,17 +254,12 @@ pnpm run build
 # generate Document comment
 # Debugger
 # https://github.com/adoy/vim-php-refactoring-toolbox
-# https://github.com/vim-php/vim-php-refactoring
-# https://github.com/othree/yajs.vim
 # https://github.com/dsawardekar/wordpress.vim
 # https://github.com/hotwatermorning/auto-git-diff
-# https://github.com/aduros/ai.vim
-# https://github.com/mattn/vim-findroot
 # https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 # https://daisuzu.hatenablog.com/entry/2020/12/03/003629  ## Quickfix
 # https://zenn.dev/tmrekk/articles/4380961a754287  ## Quickfix
 # https://github.com/ray-x/navigator.lua
-# https://github.com/mfussenegger/nvim-dap
 #
 #[[plugins]]
 #repo = "mxsdev/nvim-dap-vscode-js"
