@@ -38,5 +38,3 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
-
--- TODO: mfussenegger/nvim-dap プラグインの遅延読み込みをkeymappingに合わせる

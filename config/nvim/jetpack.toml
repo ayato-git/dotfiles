@@ -221,8 +221,7 @@ opt = true
 
 [[plugins]]
 repo = "rcarriga/nvim-dap-ui"
-# call 'dap'.toggle_breakpoint()
-opt = true
+on_map = '<F5>'
 depends = "nvim-dap"
 hook_post_source = "lua require('my-dap')"
 
