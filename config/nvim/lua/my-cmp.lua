@@ -13,6 +13,7 @@ cmp.setup({
     { name = "buffer" },
     { name = "cmdline" },
     { name = "rg" },
+    { name = "luasnip" },
     { name = 'look', keyword_length = 2,
       option = { convert_case = true, loud = true }
     },
@@ -37,4 +38,9 @@ cmp.setup({
       end
     end,
   }),
+  snippet = {
+    expand = function(args)
+      require("luasnip").lsp_expand(args.body)
+    end,
+  },
 })

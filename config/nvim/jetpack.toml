@@ -162,12 +162,14 @@ opt = true
 [[plugins]]
 repo = "hrsh7th/nvim-cmp"
 opt = true
+# my-cmpの設定でluasnipを呼ぶ
+depends = ['LuaSnip']
 hook_post_source = "lua require('my-cmp')"
 
-# my-lspの設定でcmp-nvim-lspを呼び、そこで更にnvim-cmpを呼ぶ
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 on_event = ["VimEnter"]
+# my-lspの設定でcmp-nvim-lspを呼び、そこで更にnvim-cmpを呼ぶ
 depends = ['cmp-nvim-lsp','nvim-cmp']
 hook_post_source = "lua require('my-lsp')"
 
@@ -195,6 +197,11 @@ EOF
 
 ## Sources for nvim-cmp ##
 [[plugins]]
+repo = "L3MON4D3/LuaSnip"
+opt = true
+build = "make install_jsregexp"
+
+[[plugins]]
 repo = "hrsh7th/cmp-path"
 on_source = 'nvim-cmp'
 
@@ -214,7 +221,12 @@ on_source = 'nvim-cmp'
 repo = 'lukas-reineke/cmp-rg'
 on_source = 'nvim-cmp'
 
+[[plugins]]
+repo = 'saadparwaiz1/cmp_luasnip'
+on_source = 'nvim-cmp'
+
 ## Debug Adapter Protocol ##
+# F5を押してデバッガ読み込み,もう一度押してデバッガ起動
 [[plugins]]
 repo = "mfussenegger/nvim-dap"
 opt = true
