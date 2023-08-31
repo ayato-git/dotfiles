@@ -160,9 +160,15 @@ repo = "hrsh7th/cmp-nvim-lsp"
 opt = true
 
 [[plugins]]
+repo = "hrsh7th/nvim-cmp"
+opt = true
+hook_post_source = "lua require('my-cmp')"
+
+# my-lspの設定でcmp-nvim-lspを呼び、そこで更にnvim-cmpを呼ぶ
+[[plugins]]
 repo = 'neovim/nvim-lspconfig'
 on_event = ["VimEnter"]
-depends = 'cmp-nvim-lsp'
+depends = ['cmp-nvim-lsp','nvim-cmp']
 hook_post_source = "lua require('my-lsp')"
 
 [[plugins]] # TODO: fidget.nvim not working with intelephense LSP
@@ -188,11 +194,6 @@ EOF
 """
 
 ## Sources for nvim-cmp ##
-[[plugins]]
-repo = "hrsh7th/nvim-cmp"
-on_event = ['CursorMoved', 'CursorMovedI']
-hook_post_source = "lua require('my-cmp')"
-
 [[plugins]]
 repo = "hrsh7th/cmp-path"
 on_source = 'nvim-cmp'
