@@ -17,7 +17,7 @@ require('bufferline').setup({
   options = {
     numbers = 'buffer_id',
     diagnostics = "nvim_lsp",
-    indicator = { style = 'underline' },
+    indicator = { style = 'none' },
   },
   highlights = {
     tab_selected = {
@@ -29,6 +29,10 @@ require('bufferline').setup({
       bg = { attribute = "bg", highlight = "TabLineSel" }
     },
     numbers_selected = {
+      fg = { attribute = "fg", highlight = "TabLineSel" },
+      bg = { attribute = "bg", highlight = "TabLineSel" }
+    },
+    close_button_selected = {
       fg = { attribute = "fg", highlight = "TabLineSel" },
       bg = { attribute = "bg", highlight = "TabLineSel" }
     },
