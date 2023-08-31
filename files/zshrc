@@ -30,7 +30,9 @@ alias reconnect='networksetup -SetAirportPower en0 off \
 '
 
 # homemade commands that depends on smartctl(smartmontools)
-alias temperature='smartctl -a /dev/disk0 | grep -i cel && sudo powermetrics -i 1 -n 1 --sampler smc,thermal'
+alias temperature_sudo='smartctl -a /dev/disk0 | grep -i cel && sudo powermetrics -i 1 -n 1 --sampler smc,thermal'
+# homemade commands that depends on smartctl(smartmontools) and osx-cpu-temp
+alias temperature='smartctl -a /dev/disk0 | grep -i cel && echo "CPU Temp by osx-cpu-temp" && osx-cpu-temp'
 
 # homemade commands that depends on ghq
 repo(){
