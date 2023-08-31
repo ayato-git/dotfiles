@@ -6,13 +6,16 @@ Bootstrap environment for macOS on intell/AppleSilicon
 
 ```sh
 ./install.sh --dry-run
-./install.sh # apply
+# output verbose
+./install.sh --dry-run --log-level=DEBUG
+# apply
+./install.sh
 ```
 
 `install.sh` gets [mitamae](https://github.com/itamae-kitchen/mitamae),
 and runs mitamae with `files/recipe.rb`.
+mitamae is single binary.
 
-## TODO
+## Note
 
-- [x] Set config dir according to XDG Base Directory Specification.
-- [x] remove old setting files like xxxx.old.toml
+- Set config dir according to XDG Base Directory Specification.
