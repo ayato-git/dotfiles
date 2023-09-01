@@ -3,6 +3,11 @@ repo = 'tani/vim-jetpack'
 on_event = 'CmdlineEnter'
 
 [[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+on_event = 'CmdlineEnter'
+hook_source = "set helplang=ja,en"
+
+[[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 opt = true
 
@@ -260,6 +265,10 @@ pnpm run build
 # https://daisuzu.hatenablog.com/entry/2020/12/03/003629  ## Quickfix
 # https://zenn.dev/tmrekk/articles/4380961a754287  ## Quickfix
 # https://github.com/ray-x/navigator.lua
+# https://github.com/ThePrimeagen/refactoring.nvim
+# https://github.com/glacambre/firenvim
+# https://github.com/numToStr/Comment.nvim
+# https://github.com/folke/which-key.nvim
 #
 #[[plugins]]
 #repo = "mxsdev/nvim-dap-vscode-js"
