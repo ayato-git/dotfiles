@@ -3,6 +3,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "rhysd/hgrep", "https://github.com/rhysd/hgrep"
+tap "stripe/stripe-cli"
 tap "vldmrkl/formulae"
 # GNU multiple precision arithmetic library
 brew "gmp"
@@ -64,6 +65,8 @@ brew "vagrant-completion"
 brew "whalebrew"
 # hgrep is grep with human-friendly search output
 brew "rhysd/hgrep/hgrep"
+# Stripe CLI utility
+brew "stripe/stripe-cli/stripe"
 # macOS CLI for AirDrop
 brew "vldmrkl/formulae/airdrop-cli"
 # Password manager that keeps all passwords secure behind one password
