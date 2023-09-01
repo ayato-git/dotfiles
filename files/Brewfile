@@ -44,6 +44,8 @@ brew "massren"
 brew "multitime"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Outputs current CPU temperature for OSX
+brew "osx-cpu-temp"
 # Simplistic interactive filtering tool
 brew "peco"
 # Wrapper around ripgrep that adds multiple rich file types
@@ -153,7 +155,6 @@ cask "zulu17"
 cask "zulu8"
 mas "1Blocker", id: 1365531024
 mas "Apple Configurator", id: 1037126344
-mas "BetterTDeck for TweetDeck", id: 1549421502
 mas "Bitdefender Virus Scanner", id: 500154009
 mas "CodePiece", id: 1021284423
 mas "Developer", id: 640199958
