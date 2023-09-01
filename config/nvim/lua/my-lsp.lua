@@ -23,6 +23,17 @@ local servers = {
   -- 'phpactor', ready to use phpactor
   -- 'psalm' not installed yet for PHP
 }
+local border = {
+  {"🭽", "FloatBorder"}, {"▔", "FloatBorder"}, {"🭾", "FloatBorder"}, {"▕", "FloatBorder"},
+  {"🭿", "FloatBorder"}, {"▁", "FloatBorder"}, {"🭼", "FloatBorder"}, {"▏", "FloatBorder"},
+}
+-- override LSP floating window settings
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or border
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
 
 -- TODO: PHPのlanguage-serverがautostartしない。ファイルを再度開くか、:LspStartすると問題ない
 for _, lsp in ipairs(servers) do
