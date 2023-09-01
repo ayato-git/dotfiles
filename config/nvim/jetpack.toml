@@ -3,6 +3,11 @@ repo = 'tani/vim-jetpack'
 on_event = 'CmdlineEnter'
 
 [[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+on_event = 'CmdlineEnter'
+hook_source = "set helplang=ja,en"
+
+[[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 opt = true
 
