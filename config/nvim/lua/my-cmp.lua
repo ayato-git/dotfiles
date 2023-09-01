@@ -1,5 +1,9 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local border_opts = {
+  border = "rounded",
+  winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+}
 
 local has_words_before = function()
   unpack = unpack or table.unpack
@@ -48,5 +52,9 @@ cmp.setup({
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
+  },
+  window = {
+    completion = cmp.config.window.bordered(border_opts),
+    documentation = cmp.config.window.bordered(border_opts),
   },
 })
