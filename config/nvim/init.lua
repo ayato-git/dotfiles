@@ -28,14 +28,15 @@ vim.g.netrw_winsize   = 30 -- ウィンドウサイズを横30%に限定(プレ�
 
 ---[[ 表示 ]]
 vim.opt.termguicolors = true -- ターミナルで起動しても24bit色で表示する
-vim.opt.laststatus    = 3 -- ステータスラインをsplitせずに下部に表示する
+vim.opt.splitright    = true -- :vertical や :vsplit でウィンドウを右側に表示する
+vim.opt.laststatus    = 3    -- ステータスラインをsplitせずに下部に表示する
 vim.opt.number        = true -- 行番号を表示する
 vim.opt.cursorline    = true -- カーソル行をハイライトする
 vim.opt.cursorcolumn  = true -- カーソル列をハイライトする
 vim.opt.synmaxcol     = 200  -- 1行に200文字までハイライトする(負荷対策)
 vim.opt.showmatch     = true -- 対応する括弧を表示する
-vim.opt.tabstop       = 2 -- タブ文字をスペース2文字の長さで表示
-vim.opt.shiftwidth    = 0 -- 自動インデントでtabstopの値を参照
+vim.opt.tabstop       = 2    -- タブ文字をスペース2文字の長さで表示
+vim.opt.shiftwidth    = 0    -- 自動インデントでtabstopの値を参照
 vim.opt.list          = true
 vim.opt.listchars:append "trail:¬" -- 行末の空白を可視化
 vim.opt.listchars:append "tab:¦-" -- タブ文字を可視化
