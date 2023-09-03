@@ -269,6 +269,7 @@ pnpm run build
 # https://github.com/glacambre/firenvim
 # https://github.com/numToStr/Comment.nvim
 # https://github.com/folke/which-key.nvim
+# https://github.com/marilari88/twoslash-queries.nvim
 #
 #[[plugins]]
 #repo = "mxsdev/nvim-dap-vscode-js"
