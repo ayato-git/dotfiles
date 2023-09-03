@@ -86,14 +86,11 @@ for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup(lsp_settings)
 end
 
-vim.keymap.set('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<CR>')           -- カーソル下の変数の情報を表示
-vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>')      -- コード整形
-vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')      -- カーソル下の変数をコード内で参照している箇所を一覧表示
-vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')      -- 定義ジャンプ
-vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')     -- 宣言ジャンプ
-vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')  -- 実装ジャンプ
-vim.keymap.set('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>') -- 定義ジャンプ
-vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<CR>')          -- 変数のリネーム
-vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')     -- 修正作業の候補を表示(LanguageServerによって異なる)
-vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>')    -- 次のエラー箇所へジャンプ
-vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')    -- 前のエラー箇所へジャンプ
+vim.keymap.set('n', 'K',         '<cmd>lua vim.lsp.buf.hover()<CR>')           -- カーソル下の変数の情報を表示
+vim.keymap.set('n', '=',         '<cmd>lua vim.lsp.buf.formatting()<CR>')      -- コード整形
+vim.keymap.set('n', '<Leader>r', '<cmd>lua vim.lsp.buf.references()<CR>')      -- カーソル下の変数をコード内で参照している箇所を一覧表示
+vim.keymap.set('n', 'gd',        '<cmd>lua vim.lsp.buf.definition()<CR>')      -- 定義ジャンプ
+vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.lsp.buf.declaration()<CR>')     -- 宣言ジャンプ
+vim.keymap.set('n', '<Leader>i', '<cmd>lua vim.lsp.buf.implementation()<CR>')  -- 実装ジャンプ
+vim.keymap.set('n', '<Leader>t', '<cmd>lua vim.lsp.buf.type_definition()<CR>') -- 型定義ジャンプ
+vim.keymap.set('n', '<Leader>n', '<cmd>lua vim.lsp.buf.rename()<CR>')          -- 変数のリネーム
