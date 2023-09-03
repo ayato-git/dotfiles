@@ -1,5 +1,4 @@
 -- TODO: InsertModeのctrl-oで一度だけノーマルモードのコマンドを入力できるのを覚える
--- TODO: gd コマンドで変数や関数の定義場所にジャンプできるのを覚える
 -- Require Neovim 0.7.0+ for new API
 -- see https://github.com/willelz/nvim-lua-guide-ja/blob/master/README.ja.md
 vim.loader.enable()
@@ -22,9 +21,9 @@ vim.opt.smartcase  = true -- 大文字が含まれる場合は大文字小文字
 vim.opt.inccommand = 'split' -- 置換をプレビューウィンドウで表示
 
 ---[[ Network file Reader and Writer ]]
-vim.g.netrw_liststyle = 3  -- ディレクトリの中身をツリー表示
-vim.g.netrw_preview   = 1  -- 'p'でファイルのプレビューウィンドウを開く
-vim.g.netrw_winsize   = 30 -- ウィンドウサイズを横30%に限定(プレビューが70%)
+vim.g.netrw_liststyle = 3    -- ディレクトリの中身をツリー表示する
+vim.g.netrw_preview   = 1    -- 'p'でファイルのプレビューウィンドウを垂直分割で開く
+vim.g.netrw_winsize   = 30   -- ウィンドウサイズを横30%に限定(プレビューが70%)
 
 ---[[ 表示 ]]
 vim.opt.termguicolors = true -- ターミナルで起動しても24bit色で表示する
