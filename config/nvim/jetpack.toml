@@ -123,15 +123,12 @@ repo = 'nvim-telescope/telescope.nvim'
 depends = 'plenary.nvim'
 tag = '0.1.2'
 on_cmd = 'Telescope'
-hook_add = 'nmap <Leader>f <Cmd>Telescope<CR>'
+hook_add = 'lua require("my-keymap.telescope")'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 on_map = '<Plug>(openbrowser'
-hook_add = '''
-nmap gw <Plug>(openbrowser-smart-search)
-vmap gw <Plug>(openbrowser-smart-search)
-'''
+hook_add = 'lua require("my-keymap.open-browser")'
 
 [[plugins]]
 repo = 'rhysd/devdocs.vim'
@@ -143,7 +140,8 @@ repo = 'rhysd/git-messenger.vim'
 on_cmd = 'GitMessenger'
 on_map = '<Plug>(git-messenger)'
 hook_add = '''
-nmap <Leader>gm <Plug>(git-messenger)
+let g:git_messenger_always_into_popup = v:true
+let g:git_messenger_floating_win_opts = { "border": "single" }
 '''
 
 [[plugins]]
@@ -176,7 +174,12 @@ repo = 'neovim/nvim-lspconfig'
 on_event = ["VimEnter"]
 # my-lspの設定でcmp-nvim-lspを呼び、そこで更にnvim-cmpを呼ぶ
 depends = ['cmp-nvim-lsp','nvim-cmp']
-hook_post_source = "lua require('my-lsp')"
+hook_post_source = """
+lua << EOF
+require('my-lsp')
+require('my-keymap.lsp')
+EOF
+"""
 
 [[plugins]] # TODO: fidget.nvim not working with intelephense LSP
 repo = 'j-hui/fidget.nvim'
@@ -240,7 +243,12 @@ opt = true
 repo = "rcarriga/nvim-dap-ui"
 on_map = '<F5>'
 depends = "nvim-dap"
-hook_post_source = "lua require('my-dap')"
+hook_post_source = """
+lua << EOF
+require('my-dap')
+require('my-keymap.dap')
+EOF
+"""
 
 [[plugins]]
 repo = "xdebug/vscode-php-debug"
