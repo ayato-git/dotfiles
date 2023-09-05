@@ -171,8 +171,8 @@ opt = true
 [[plugins]]
 repo = "hrsh7th/nvim-cmp"
 opt = true
-# my-cmpの設定でluasnipを呼ぶ
-depends = ['LuaSnip']
+# my-cmpの設定でluasnipとlspkind.nvimを呼ぶ
+depends = ['LuaSnip', 'lspkind.nvim']
 hook_post_source = "lua require('my-cmp')"
 
 [[plugins]]
@@ -237,6 +237,10 @@ on_source = 'nvim-cmp'
 
 [[plugins]]
 repo = 'saadparwaiz1/cmp_luasnip'
+on_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'onsails/lspkind.nvim'
 on_source = 'nvim-cmp'
 
 ## Debug Adapter Protocol ##

@@ -1,11 +1,12 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local lspkind = require('lspkind')
 local my_keymap = require("my-keymap.nvim-cmp")
 
 cmp.setup({
   sources = {
     { name = "nvim_lsp" },
-    { name = "path", option = { trailing_slash = true } },
+    { name = "path" },
     { name = "buffer" },
     { name = "cmdline" },
     { name = "rg" },
@@ -13,6 +14,20 @@ cmp.setup({
     { name = 'look', keyword_length = 2,
       option = { convert_case = true, loud = true }
     },
+  },
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = "symbol_text",
+      menu = ({
+        nvim_lsp = "LSP",
+        path = "path",
+        buffer = "buffer",
+        cmdline = "Vim",
+        rg = "ripgrep",
+        luasnip = "LuaSnip",
+        look = "Look"
+      })
+    })
   },
   mapping = cmp.mapping.preset.insert(my_keymap),
   snippet = {
