@@ -1,3 +1,4 @@
+tap "heroku/brew"
 tap "hmarr/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
@@ -63,6 +64,8 @@ brew "tree"
 brew "vagrant-completion"
 # Homebrew, but with Docker images
 brew "whalebrew"
+# Everything you need to get started with Heroku
+brew "heroku/brew/heroku"
 # hgrep is grep with human-friendly search output
 brew "rhysd/hgrep/hgrep"
 # Stripe CLI utility
@@ -135,6 +138,8 @@ cask "skype"
 cask "slack"
 # Video game digital distribution service
 cask "steam"
+# Native GUI tool for relational databases
+cask "tableplus"
 # Enable and disable the Intel CPU Turbo Boost feature
 cask "turbo-boost-switcher"
 # Development environment
