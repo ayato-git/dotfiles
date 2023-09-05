@@ -98,6 +98,12 @@ repo = 'nvim-treesitter/nvim-treesitter-context'
 on_event = ['CursorMoved', 'CursorMovedI']
 depends = 'nvim-treesitter'
 
+[[plugins]]
+repo = 'andersevenrud/nvim_context_vt'
+on_event = ['CursorMoved', 'CursorMovedI']
+depends = 'nvim-treesitter'
+hook_post_source = "lua require('nvim_context_vt').setup()"
+
 ### Extra Writing ###
 [[plugins]]
 ## repo = 'windwp/nvim-autopairs'
@@ -278,6 +284,7 @@ pnpm run build
 # https://github.com/numToStr/Comment.nvim
 # https://github.com/folke/which-key.nvim
 # https://github.com/marilari88/twoslash-queries.nvim
+# https://github.com/unblevable/quick-scope
 #
 #[[plugins]]
 #repo = "mxsdev/nvim-dap-vscode-js"
