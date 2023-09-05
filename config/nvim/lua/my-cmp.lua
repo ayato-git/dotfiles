@@ -1,6 +1,6 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local my_keymap = require("my-keymap.cmp")
+local my_keymap = require("my-keymap.nvim-cmp")
 
 cmp.setup({
   sources = {
