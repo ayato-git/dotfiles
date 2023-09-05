@@ -5,7 +5,7 @@ local my_keymap = require("my-keymap.nvim-cmp")
 cmp.setup({
   sources = {
     { name = "nvim_lsp" },
-    { name = "path" },
+    { name = "path", option = { trailing_slash = true } },
     { name = "buffer" },
     { name = "cmdline" },
     { name = "rg" },
@@ -14,7 +14,7 @@ cmp.setup({
       option = { convert_case = true, loud = true }
     },
   },
-  mapping = my_keymap,
+  mapping = cmp.mapping.preset.insert(my_keymap),
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -24,4 +24,9 @@ cmp.setup({
     completion = cmp.config.window.bordered({ border = "rounded" }),
     documentation = cmp.config.window.bordered({ border = "rounded" }),
   },
+})
+
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = { { name = 'buffer' } }
 })
