@@ -6,6 +6,11 @@
 # refactor  refactoring
 # test      when adding missing tests
 # chore     サポート期限切れソフトウェアの対応等
+# build
+# ci
+# perf
+# revert
+# test
 
 # <型>(任意のスコープ): <タイトル>
 # 型/スコープの直後に ! が追加されているコミットは破壊的変更を示します 
