@@ -8,7 +8,6 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "path" },
     { name = "buffer" },
-    { name = "cmdline" },
     { name = "rg" },
     { name = "luasnip" },
     { name = 'look', keyword_length = 2,
@@ -41,7 +40,17 @@ cmp.setup({
   },
 })
 
+-- `/` cmdline setup.
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = { { name = 'buffer' } }
+})
+
+-- `:` cmdline setup.
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources(
+    { { name = 'path' } },
+    { { name = 'cmdline' } }
+  )
 })
