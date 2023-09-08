@@ -18,13 +18,13 @@ cmp.setup({
     format = lspkind.cmp_format({
       mode = "symbol_text",
       menu = ({
-        nvim_lsp = "LSP",
-        path = "path",
-        buffer = "buffer",
-        cmdline = "Vim",
-        rg = "ripgrep",
-        luasnip = "LuaSnip",
-        look = "Look"
+        nvim_lsp = "LS",
+        path     = "",
+        buffer   = "\u{f13b8}",
+        cmdline  = "\u{e7c5}",
+        rg       = "\u{f002}",
+        luasnip  = "\u{eb66}",
+        look     = "\u{f0344}"
       })
     })
   },
