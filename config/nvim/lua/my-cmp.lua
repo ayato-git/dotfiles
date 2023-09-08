@@ -19,13 +19,13 @@ cmp.setup({
     format = lspkind.cmp_format({
       mode = "symbol_text",
       menu = ({
-        ["nvim_lsp"]   = "LS",
+        ["nvim_lsp"]   = "\u{f121}",
         ["path"]       = "",
-        ["buffer"]     = "\u{f13b8}",
+        ["buffer"]     = "\u{ebd0}",
         ["cmdline"]    = "\u{e7c5}",
         ["rg"]         = "\u{f002}",
         ["luasnip"]    = "\u{eb66}",
-        ["look"]       = "\u{f0344}",
+        ["look"]       = "\u{f100d}",
         ["cmp-tw2css"] = "\u{f13ff}"
       })
     })
