@@ -243,6 +243,10 @@ on_source = 'nvim-cmp'
 repo = 'onsails/lspkind.nvim'
 on_source = 'nvim-cmp'
 
+[[plugins]]
+repo = 'jcha0713/cmp-tw2css'
+on_source = 'nvim-cmp'
+
 ## Debug Adapter Protocol ##
 # F5を押してデバッガ読み込み,もう一度押してデバッガ起動
 [[plugins]]

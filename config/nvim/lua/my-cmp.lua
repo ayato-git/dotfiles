@@ -13,18 +13,20 @@ cmp.setup({
     { name = 'look', keyword_length = 2,
       option = { convert_case = true, loud = true }
     },
+    { name = "cmp-tw2css" },
   },
   formatting = {
     format = lspkind.cmp_format({
       mode = "symbol_text",
       menu = ({
-        nvim_lsp = "LS",
-        path     = "",
-        buffer   = "\u{f13b8}",
-        cmdline  = "\u{e7c5}",
-        rg       = "\u{f002}",
-        luasnip  = "\u{eb66}",
-        look     = "\u{f0344}"
+        ["nvim_lsp"]   = "LS",
+        ["path"]       = "",
+        ["buffer"]     = "\u{f13b8}",
+        ["cmdline"]    = "\u{e7c5}",
+        ["rg"]         = "\u{f002}",
+        ["luasnip"]    = "\u{eb66}",
+        ["look"]       = "\u{f0344}",
+        ["cmp-tw2css"] = "\u{f13ff}"
       })
     })
   },
