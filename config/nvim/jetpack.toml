@@ -181,11 +181,15 @@ repo = 'neovim/nvim-lspconfig'
 on_event = ["VimEnter"]
 # my-lspの設定でcmp-nvim-lspを呼び、そこで更にnvim-cmpを呼ぶ
 depends = ['cmp-nvim-lsp','nvim-cmp']
+# nvim-lspconfigを遅延読込みしているので,LanguageServerのautostartが効かない
+# (autostartはFileType autocmdで実行されるが、VimEnterはFileTypeより後)
+# なのでLspStartを遅延読み込み後に明示
 hook_post_source = """
 lua << EOF
 require('my-lsp')
 require('my-keymap.lsp')
 EOF
+LspStart
 """
 
 [[plugins]] # TODO: fidget.nvim not working with intelephense LSP

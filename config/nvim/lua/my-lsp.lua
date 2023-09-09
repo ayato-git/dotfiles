@@ -69,7 +69,6 @@ end
 -- Go-to definition in a rightbelow vertical split window
 vim.lsp.handlers["textDocument/definition"] = goto_definition('rightbelow vsplit')
 
--- TODO: PHPのlanguage-serverがautostartしない。ファイルを再度開くか、:LspStartすると問題ない
 for _, lsp in ipairs(servers) do
   -- if lsp == 'intelephense' then
   --   -- see https://github.com/bmewburn/vscode-intelephense/blob/v1.9.5/package.json
