@@ -104,6 +104,8 @@ cask "goneovim"
 cask "iterm2"
 # File archiver
 cask "keka"
+# Find shortcuts for any installed application
+cask "keyclu"
 # Warns about malware, adware and spyware
 cask "malwarebytes"
 # Multi-platform web browser
