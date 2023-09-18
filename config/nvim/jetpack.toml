@@ -145,7 +145,6 @@ on_cmd = ['DevDocs', 'DevDocsUnderCursor', 'DevDocsALL', 'DevDocsALLUnderCursor'
 [[plugins]]
 repo = 'rhysd/git-messenger.vim'
 on_cmd = 'GitMessenger'
-on_map = '<Leader>gm'
 hook_add = '''
 let g:git_messenger_always_into_popup = v:true
 let g:git_messenger_floating_win_opts = { "border": "single" }
