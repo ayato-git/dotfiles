@@ -49,14 +49,18 @@ end
 
 execute 'install tools in config/rtx/config.toml' do
   command 'rtx --yes install'
-  only_if 'which rtx && rtx list | grep "missing|outdated" '
+  only_if 'which rtx && rtx list | grep "missing\|outdated" '
+end
+
+execute 'remove default npm that bundled with Node.js installed via rtx' do
+  # 'npm uninstall --global npm' でnpmが消せない。node14と18で確認したがnode20では起きない
+  # npm が消せない場合は直接rmで消す
+  command 'rm -f $(rtx which npm)'
+  not_if 'npm uninstall --global npm pnpm yarn'
 end
 
 execute 'enable corepack that bundled with Node.js installed via rtx' do
-  # command 'npm uninstall --global npm pnpm yarn && corepack enable npm pnpm yarn'
-  # 'npm uninstall --global npm' でnpmが消せない。node14で確認したがnode20では起きない
-  # 直接npmを消してから corepack enable する
-  command "rm -f $(rtx which npm) && corepack enable npm pnpm yarn"
+  command "corepack enable npm pnpm yarn"
   only_if 'which corepack | grep "rtx" '
   not_if 'which pnpm && cat $(which pnpm) | grep "corepack" '
 end
