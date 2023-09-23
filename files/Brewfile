@@ -88,6 +88,8 @@ cask "bleunlock"
 cask "cloudflare-warp"
 # App to build and share containerized applications and microservices
 cask "docker"
+# Utility for customizing which browser to start
+cask "finicky"
 # Web browser
 cask "firefox"
 # Web browser
