@@ -20,8 +20,6 @@ brew "ctop"
 brew "difftastic"
 # Bash, Zsh and Fish completion for Docker
 brew "docker-completion"
-# Isolated development environments using Docker
-brew "docker-compose"
 # Minify and secure Docker images
 brew "docker-slim"
 # Collection of GNU find, xargs, and locate
@@ -183,5 +181,4 @@ mas "URL Linker", id: 1289119450
 mas "Vidrio", id: 1209843625
 mas "VisBug", id: 1538509686
 mas "Wappalyzer", id: 1520333300
-mas "Whalebird", id: 6445864587
 mas "Xcode", id: 497799835
