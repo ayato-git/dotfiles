@@ -25,9 +25,7 @@ alias bubu='brew update && brew upgrade && \
   brew bundle dump --describe --global --force --formula --cask --tap --mas \
   & brew autoremove & brew cleanup'
 zsh-defer unalias 'hgrep' # use rhysd/hgrep instead of common-aliases in ohmyzsh
-alias reconnect='networksetup -SetAirportPower en0 off \
-  && networksetup -SetAirportPower en0 on
-'
+alias reconnect='shortcuts run "Reconnect Wi-Fi and Bluetooth" '
 
 # homemade commands that depends on smartctl(smartmontools)
 alias temperature_sudo='smartctl -a /dev/disk0 | grep -i cel && sudo powermetrics -i 1 -n 1 --sampler smc,thermal'
