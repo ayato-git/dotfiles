@@ -1,5 +1,6 @@
 dotfiles-MBP2016gray/
 config/iterm2/
+config/stripe/*
 config/massren/*
 config/configstore/update-notifier-npm.json
 mitamae
