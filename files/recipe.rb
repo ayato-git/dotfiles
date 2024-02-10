@@ -15,6 +15,17 @@ brew_prefix = `uname -m`.include?("arm64") ? '/opt/homebrew' : '/usr/local'
   end
 end
 
+{
+  "templates/gitconfig.erb"  => "config/git/config",
+  "templates/miseconfig.erb" => "config/mise/config.toml"
+}
+.each do |tmpl, dst|
+  template dst do
+    source tmpl
+    variables(usr_home: ENV['HOME'], brew_prefix: brew_prefix)
+  end
+end
+
 execute 'install homebrew' do
   command '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
   not_if 'which brew'

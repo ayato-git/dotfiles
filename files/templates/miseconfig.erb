@@ -1,6 +1,6 @@
 env_path = [
 	# the absolute path of $XDG_DATA_HOME/pnpm
-	"/Users/ayato/.local/share/pnpm"
+	"<%= @usr_home %>/.local/share/pnpm"
 ]
 
 [tools]
@@ -10,6 +10,6 @@ node = "20"
 
 [env]
 # the absolute path of $XDG_DATA_HOME/pnpm
-PNPM_HOME = "/Users/ayato/.local/share/pnpm"
+PNPM_HOME = "<%= @usr_home %>/.local/share/pnpm"
  # the absolute path of $XDG_CONFIG_HOME/rtx/default-npm-package
-RTX_NODE_DEFAULT_PACKAGES_FILE = "/Users/ayato/.config/mise/default-npm-package"
+RTX_NODE_DEFAULT_PACKAGES_FILE = "<%= @usr_home %>/.config/mise/default-npm-package"

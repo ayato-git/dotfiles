@@ -1,7 +1,7 @@
 [user]
 	name = ayato-git
 	email = ayato-git@users.noreply.github.com
-	signingkey = /Users/ayato/.ssh/id_ed25519.pub
+	signingkey = <%= @usr_home %>/.ssh/id_ed25519.pub
 [color]
 	ui = true
 [github]
@@ -9,27 +9,27 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [ghq]
-	root = /Users/ayato/Repositories
+	root = <%= @usr_home %>/Repositories
 [core]
-	excludesfile = /Users/ayato/.config/git/ignore
+	excludesfile = <%= @usr_home %>/.config/git/ignore
 	editor = nvim
 	quotepath = false #日本語文字化け回避
 [pager]
 	difftool = true
-	log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
-	show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+	log = <%= @brew_prefix %>/share/git-core/contrib/diff-highlight/diff-highlight | less
+	show = <%= @brew_prefix %>/share/git-core/contrib/diff-highlight/diff-highlight | less
 [interactive]
-	diffFilter = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
+	diffFilter = <%= @brew_prefix %>/share/git-core/contrib/diff-highlight/diff-highlight
 [diff]
 	external = difft # github.com/Wilfred/difftastic
 	compactionHeuristic = true
 [gpg]
 	format = ssh
 [gpg "ssh"]
-	allowedSignersFile = /Users/ayato/.config/git/allowed_signers
+	allowedSignersFile = <%= @usr_home %>/.config/git/allowed_signers
 [commit]
 	gpgsign = true
-	template = /Users/ayato/.config/git/message
+	template = <%= @usr_home %>/.config/git/message
 [tag]
 	gpgsign = true
 [pull]

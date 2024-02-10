@@ -3,4 +3,6 @@ config/iterm2/
 config/stripe/*
 config/massren/*
 config/configstore/update-notifier-npm.json
+config/git/config
+config/mise/config.toml
 mitamae
