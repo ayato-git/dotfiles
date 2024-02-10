@@ -1,5 +1,7 @@
+brew_prefix = `uname -m`.include?("arm64") ? '/opt/homebrew' : '/usr/local'
+
 {
-  "files/dnscrypt-proxy.toml" => '/usr/local/etc/dnscrypt-proxy.toml',
+  "files/dnscrypt-proxy.toml" => File.join(brew_prefix, '/etc/dnscrypt-proxy.toml'),
   "files/zshenv"        => File.join(ENV['HOME'], ".zshenv"),
   "files/zshrc"         => File.join(ENV['HOME'], ".zshrc"),
   "files/Brewfile"      => File.join(ENV['HOME'], ".Brewfile"),
@@ -39,17 +41,17 @@ end
 end
 
 # adjust mode for zsh completion
-directory '/usr/local/share/zsh' do
+directory "#{brew_prefix}/share/zsh" do
   mode '0755'
 end
 
-directory '/usr/local/share/zsh/site-functions' do
+directory "#{brew_prefix}/share/zsh/site-functions" do
   mode '0755'
 end
 
 execute 'install tools in config/mise/config.toml' do
   command 'mise --yes install'
-  only_if 'which mise && mise list | grep "missing\|outdated" '
+  only_if 'which mise && mise list | grep "missing" '
 end
 
 execute 'remove default npm that bundled with Node.js installed via mise' do
@@ -73,8 +75,8 @@ end
   "wezterm shell-completion --shell zsh" => "_wezterm"
 }.each do |src, dump|
   execute "add #{dump} for zsh completion" do
-    command "#{src} >> /usr/local/share/zsh/site-functions/#{dump}"
-    not_if "test -f /usr/local/share/zsh/site-functions/#{dump}" 
+    command "#{src} >> #{brew_prefix}/share/zsh/site-functions/#{dump}"
+    not_if "test -f #{brew_prefix}/share/zsh/site-functions/#{dump}" 
   end
 end
 
