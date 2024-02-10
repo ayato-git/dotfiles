@@ -6,6 +6,8 @@ tap "homebrew/cask-versions"
 tap "rhysd/hgrep", "https://github.com/rhysd/hgrep"
 tap "stripe/stripe-cli"
 tap "vldmrkl/formulae"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
 # GNU multiple precision arithmetic library
 brew "gmp"
 # General-purpose scripting language
@@ -24,6 +26,8 @@ brew "docker-completion"
 brew "docker-slim"
 # Collection of GNU find, xargs, and locate
 brew "findutils"
+# Command-line tools for fly.io services
+brew "flyctl"
 # Remote repository management made easy
 brew "ghq"
 # Distributed revision control system
@@ -32,6 +36,8 @@ brew "git"
 brew "git-lfs"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
+# Improved top (interactive process viewer)
+brew "htop"
 # Language Server for the Lua language
 brew "lua-language-server"
 # Language Server Protocol for Markdown
@@ -44,6 +50,8 @@ brew "massren"
 brew "multitime"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# App source + Nix packages + Docker = Image
+brew "nixpacks"
 # Outputs current CPU temperature for OSX
 brew "osx-cpu-temp"
 # Simplistic interactive filtering tool
@@ -58,8 +66,6 @@ brew "sheldon"
 brew "smartmontools"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
-# Bash completion for Vagrant
-brew "vagrant-completion"
 # Homebrew, but with Docker images
 brew "whalebrew"
 # Everything you need to get started with Heroku
@@ -86,8 +92,8 @@ cask "balenaetcher"
 cask "bleunlock"
 # Free app that makes your Internet safer
 cask "cloudflare-warp"
-# App to build and share containerized applications and microservices
-cask "docker"
+# Server and cloud storage browser
+cask "cyberduck"
 # Utility for customizing which browser to start
 cask "finicky"
 # Web browser
@@ -106,6 +112,8 @@ cask "iterm2"
 cask "keka"
 # Find shortcuts for any installed application
 cask "keyclu"
+# WordPress local development tool by Flywheel
+cask "local"
 # Warns about malware, adware and spyware
 cask "malwarebytes"
 # Multi-platform web browser
@@ -120,11 +128,11 @@ cask "orbstack"
 cask "prismlauncher"
 # Display image info and preview unsupported formats in QuickLook
 cask "qlimagesize"
-# QuickLook generator for Markdown files
+# Quick Look generator for Markdown files
 cask "qlmarkdown"
-# QuickLook plugin for CSV files
+# Quick Look plugin for CSV files
 cask "quicklook-csv"
-# QuickLook plugin for JSON files
+# Quick Look plugin for JSON files
 cask "quicklook-json"
 # All-in-one bookmark manager
 cask "raindropio"
@@ -144,13 +152,8 @@ cask "steam"
 cask "tableplus"
 # Enable and disable the Intel CPU Turbo Boost feature
 cask "turbo-boost-switcher"
-# Development environment
-cask "vagrant"
-cask "vagrant-manager"
 # Virtualizer for x86 hardware
 cask "virtualbox"
-# Extend the functionality of VirtualBox
-cask "virtualbox-extension-pack"
 # Tiny process monitor
 cask "vitals"
 # Multimedia player
@@ -176,11 +179,13 @@ mas "Keyword Search", id: 1558453954
 mas "Numbers", id: 409203825
 mas "Playgrounds", id: 1496833156
 mas "Refined GitHub", id: 1519867270
+mas "RetinaCapture", id: 6472719286
 mas "RunCat", id: 1429033973
 mas "Save to Raindrop.io", id: 1549370672
 mas "SEOSpyder", id: 648917964
+mas "SVGViewer", id: 1239167834
 mas "URL Linker", id: 1289119450
 mas "Vidrio", id: 1209843625
 mas "VisBug", id: 1538509686
-mas "Wappalyzer", id: 1520333300
-mas "Xcode", id: 497799835
+mas "Wappalyzer - Technology profiler", id: 1520333300
+mas "WireGuard", id: 1451685025
