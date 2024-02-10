@@ -72,17 +72,24 @@ end
 vim.lsp.handlers["textDocument/definition"] = goto_definition('rightbelow vsplit')
 
 for _, lsp in ipairs(servers) do
-  -- if lsp == 'intelephense' then
-  --   -- see https://github.com/bmewburn/vscode-intelephense/blob/v1.9.5/package.json
-  --   -- see contributes.configuration.properties
-  --   lsp_settings.settings = {
-  --     ['intelephense'] = {
-  --       stubs = {
-  --         "wordpress"
-  --       }
-  --     }
-  --   }
-  -- end
+  if lsp == 'intelephense' then
+    -- see https://github.com/bmewburn/vscode-intelephense/blob/v1.9.5/package.json
+    -- see contributes.configuration.properties
+    lsp_settings.settings = {
+      ['intelephense'] = {
+        stubs = {
+          "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype", "curl", "date", "dba", "dom",
+          "enchant", "exif", "FFI", "fileinfo", "filter", "fpm", "ftp", "gd", "gettext", "gmp", "hash",
+          "iconv", "imap", "intl", "json", "ldap", "libxml", "mbstring", "meta", "mysqli", "oci8", "odbc",
+          "openssl", "pcntl", "pcre", "PDO", "pdo_ibm", "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "pgsql", "Phar", "posix",
+          "pspell", "random", "readline", "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap", "sockets", "sodium",
+          "SPL", "sqlite3", "standard", "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy", "tokenizer", "xml", "xmlreader",
+          "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib",
+          "wordpress"
+        }
+      }
+    }
+  end
 
   lspconfig[lsp].setup(lsp_settings)
 end
