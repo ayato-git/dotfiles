@@ -81,7 +81,7 @@ end
 end
 
 execute 'download phpactor.phar' do
-  command 'curl -Lo /usr/local/bin/phpactor https://github.com/phpactor/phpactor/releases/latest/download/phpactor.phar'
+  command 'sudo curl -Lo /usr/local/bin/phpactor https://github.com/phpactor/phpactor/releases/latest/download/phpactor.phar'
   not_if 'which phpactor'
 end
 
