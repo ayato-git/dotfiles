@@ -104,3 +104,8 @@ end
 execute 'start dnscrypt-proxy' do
   command 'sudo brew services restart dnscrypt-proxy'
 end
+
+execute 'install security software' do
+  not_if 'ls /Applications/*/Antivirus*'
+  command 'brew install --cask malwarebytes && sudo mas install 500154009'
+end

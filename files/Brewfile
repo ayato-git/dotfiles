@@ -110,8 +110,6 @@ cask "keka"
 cask "keyclu"
 # WordPress local development tool by Flywheel
 cask "local"
-# Warns about malware, adware and spyware
-cask "malwarebytes"
 # Free and open-source RSS reader
 cask "netnewswire"
 # Replacement for Docker Desktop
@@ -154,7 +152,6 @@ cask "zulu17"
 cask "zulu8"
 mas "1Blocker", id: 1365531024
 mas "Apple Configurator", id: 1037126344
-mas "Bitdefender Virus Scanner", id: 500154009
 mas "CodePiece", id: 1021284423
 mas "Developer", id: 640199958
 mas "DNSecure", id: 1533413232
@@ -162,6 +159,7 @@ mas "GhostText", id: 1552641506
 mas "Ginger - Skip Ads", id: 1555702394
 mas "Hidden Bar", id: 1452453066
 mas "Integrity", id: 513610341
+mas "Keynote", id: 409183694
 mas "Keyword Search", id: 1558453954
 mas "Numbers", id: 409203825
 mas "Playgrounds", id: 1496833156
