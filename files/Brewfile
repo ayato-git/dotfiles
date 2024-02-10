@@ -6,7 +6,6 @@ tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "rhysd/hgrep", "https://github.com/rhysd/hgrep"
 tap "stripe/stripe-cli"
-tap "vldmrkl/formulae"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
 # GNU multiple precision arithmetic library
@@ -77,8 +76,6 @@ brew "heroku/brew/heroku"
 brew "rhysd/hgrep/hgrep"
 # Stripe CLI utility
 brew "stripe/stripe-cli/stripe"
-# macOS CLI for AirDrop
-brew "vldmrkl/formulae/airdrop-cli"
 # Password manager that keeps all passwords secure behind one password
 cask "1password6"
 # Menu bar tool to limit maximum charging percentage
@@ -91,8 +88,6 @@ cask "appcleaner"
 cask "arc"
 # Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
-# Lock/unlock Apple computers using the proximity of a bluetooth low energy device
-cask "bleunlock"
 # Free app that makes your Internet safer
 cask "cloudflare-warp"
 # Server and cloud storage browser
@@ -109,8 +104,6 @@ cask "font-hackgen-nerd"
 cask "github"
 # Neovim GUI written in Golang, using a Golang qt backend
 cask "goneovim"
-# Terminal emulator as alternative to Apple's Terminal app
-cask "iterm2"
 # File archiver
 cask "keka"
 # Find shortcuts for any installed application
@@ -119,10 +112,6 @@ cask "keyclu"
 cask "local"
 # Warns about malware, adware and spyware
 cask "malwarebytes"
-# Multi-platform web browser
-cask "microsoft-edge-dev"
-# Native app email client for Gmail
-cask "mimestream"
 # Free and open-source RSS reader
 cask "netnewswire"
 # Replacement for Docker Desktop
@@ -147,16 +136,10 @@ cask "resilio-sync"
 cask "session-manager-plugin"
 # Video chat, voice call and instant messaging application
 cask "skype"
-# Team communication and collaboration software
-cask "slack"
 # Video game digital distribution service
 cask "steam"
 # Native GUI tool for relational databases
 cask "tableplus"
-# Enable and disable the Intel CPU Turbo Boost feature
-cask "turbo-boost-switcher"
-# Virtualizer for x86 hardware
-cask "virtualbox"
 # Tiny process monitor
 cask "vitals"
 # Multimedia player
@@ -189,7 +172,6 @@ mas "Save to Raindrop.io", id: 1549370672
 mas "SEOSpyder", id: 648917964
 mas "SVGViewer", id: 1239167834
 mas "URL Linker", id: 1289119450
-mas "Vidrio", id: 1209843625
 mas "VisBug", id: 1538509686
 mas "Wappalyzer - Technology profiler", id: 1520333300
 mas "WireGuard", id: 1451685025
