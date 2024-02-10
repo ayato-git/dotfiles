@@ -47,5 +47,5 @@ use = ["{{ name }}.zsh"]
 [plugins.zsh-alias-finder]
 github = "akash329d/zsh-alias-finder"
 
-[plugins.Homebrew-rtx]
-inline = 'zsh-defer eval "$(rtx activate zsh)"'
+[plugins.Homebrew-mise]
+inline = 'zsh-defer eval "$(mise activate zsh)"'

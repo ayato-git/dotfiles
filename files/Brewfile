@@ -49,6 +49,8 @@ brew "marksman"
 brew "mas"
 # Easily rename multiple files using your text editor
 brew "massren"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
 # Time command execution over multiple executions
 brew "multitime"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -61,8 +63,6 @@ brew "osx-cpu-temp"
 brew "peco"
 # Wrapper around ripgrep that adds multiple rich file types
 brew "ripgrep-all"
-# Polyglot runtime manager (asdf rust clone)
-brew "rtx"
 # Fast, configurable, shell plugin manager
 brew "sheldon"
 # SMART hard drive monitoring

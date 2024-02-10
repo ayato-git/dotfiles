@@ -12,4 +12,4 @@ node = "20"
 # the absolute path of $XDG_DATA_HOME/pnpm
 PNPM_HOME = "/Users/ayato/.local/share/pnpm"
  # the absolute path of $XDG_CONFIG_HOME/rtx/default-npm-package
-RTX_NODE_DEFAULT_PACKAGES_FILE = "/Users/ayato/.config/rtx/default-npm-package"
+RTX_NODE_DEFAULT_PACKAGES_FILE = "/Users/ayato/.config/mise/default-npm-package"

@@ -47,21 +47,25 @@ directory '/usr/local/share/zsh/site-functions' do
   mode '0755'
 end
 
-execute 'install tools in config/rtx/config.toml' do
-  command 'rtx --yes install'
-  only_if 'which rtx && rtx list | grep "missing\|outdated" '
+execute 'install tools in config/mise/config.toml' do
+  command 'mise --yes install'
+  only_if 'which mise && mise list | grep "missing\|outdated" '
 end
 
-execute 'remove default npm that bundled with Node.js installed via rtx' do
+execute 'remove default npm that bundled with Node.js installed via mise' do
   # 'npm uninstall --global npm' でnpmが消せない。node14と18で確認したがnode20では起きない
   # npm が消せない場合は直接rmで消す
-  command 'rm -f $(rtx which npm)'
+  command 'rm -f $(mise which npm)'
   not_if 'npm uninstall --global npm pnpm yarn'
 end
 
-execute 'enable corepack that bundled with Node.js installed via rtx' do
+execute 'enable corepack that bundled with Node.js installed via mise' do
+  # TODO: corepackが新しいnodeで実行される様にする
+  # config/mise/config.toml で node@latest としてる時に、
+  # 直前の 'install tools in config/mise/config.toml' で新しいnodeがインストールされると、
+  # mitamaeのプロセス内では古いnodeの上でcorepackコマンドが走ることになる
   command "corepack enable npm pnpm yarn"
-  only_if 'which corepack | grep "rtx" '
+  only_if 'which corepack | grep "mise" '
   not_if 'which pnpm && cat $(which pnpm) | grep "corepack" '
 end
 
