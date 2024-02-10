@@ -1,15 +1,15 @@
 {
-  "files/zshenv"        => ".zshenv",
-  "files/zshrc"         => ".zshrc",
-  "files/Brewfile"      => ".Brewfile",
-  "config"              => ".config"
+  "files/dnscrypt-proxy.toml" => '/usr/local/etc/dnscrypt-proxy.toml',
+  "files/zshenv"        => File.join(ENV['HOME'], ".zshenv"),
+  "files/zshrc"         => File.join(ENV['HOME'], ".zshrc"),
+  "files/Brewfile"      => File.join(ENV['HOME'], ".Brewfile"),
+  "config"              => File.join(ENV['HOME'], ".config")
 }
 .each do |src, dst|
-  src_path = File.join("#{Dir.pwd}", src)
-  dst_path = File.join(ENV['HOME'], dst)
+  src = File.join("#{Dir.pwd}", src)
 
-  link dst_path do # create symbolic link.
-    to src_path
+  link dst do # create symbolic link.
+    to src
   end
 end
 
@@ -82,4 +82,8 @@ end
 file '/usr/local/bin/phpactor' do
   action :create
   mode '0755'
+end
+
+execute 'start dnscrypt-proxy' do
+  command 'sudo brew services restart dnscrypt-proxy'
 end

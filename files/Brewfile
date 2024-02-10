@@ -3,6 +3,7 @@ tap "hmarr/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
+tap "homebrew/services"
 tap "rhysd/hgrep", "https://github.com/rhysd/hgrep"
 tap "stripe/stripe-cli"
 tap "vldmrkl/formulae"
@@ -20,6 +21,8 @@ brew "coreutils"
 brew "ctop"
 # Diff that understands syntax
 brew "difftastic"
+# Secure communications between a client and a DNS resolver
+brew "dnscrypt-proxy"
 # Bash, Zsh and Fish completion for Docker
 brew "docker-completion"
 # Minify and secure Docker images
@@ -171,6 +174,7 @@ mas "Apple Configurator", id: 1037126344
 mas "Bitdefender Virus Scanner", id: 500154009
 mas "CodePiece", id: 1021284423
 mas "Developer", id: 640199958
+mas "DNSecure", id: 1533413232
 mas "GhostText", id: 1552641506
 mas "Ginger - Skip Ads", id: 1555702394
 mas "Hidden Bar", id: 1452453066
