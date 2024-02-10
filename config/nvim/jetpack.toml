@@ -94,10 +94,10 @@ require('indent_blankline').setup {
 EOF
 '''
 
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter-context'
-on_event = ['WinScrolled']
-depends = 'nvim-treesitter'
+# [[plugins]]
+# repo = 'nvim-treesitter/nvim-treesitter-context'
+# on_event = ['WinScrolled']
+# depends = 'nvim-treesitter'
 
 [[plugins]]
 repo = 'andersevenrud/nvim_context_vt'
