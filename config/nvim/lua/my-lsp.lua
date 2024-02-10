@@ -11,8 +11,8 @@ local servers = {
   'stylelint_lsp', -- pnpm install --global stylelint-lsp
   'tailwindcss',   -- pnpm install --global @tailwindcss/language-server
   'quick_lint_js', -- pnpm install --global quick-lint-js
-  'denols',        -- Deno's built-in language server
-  'tsserver',      -- pnpm install --global typescript typescript-language-server
+--'denols',        -- Deno's built-in language server
+--'tsserver',      -- pnpm install --global typescript typescript-language-server
   'svelte',        -- pnpm install --global typescript svelte-language-server
   'bashls',        -- pnpm install --global bash-language-server
   'dockerls',      -- pnpm install --global dockerfile-language-server-nodejs
