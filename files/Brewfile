@@ -77,7 +77,9 @@ brew "rhysd/hgrep/hgrep"
 # Stripe CLI utility
 brew "stripe/stripe-cli/stripe"
 # Password manager that keeps all passwords secure behind one password
-cask "1password6"
+cask "1password"
+# Password manager that keeps all passwords secure behind one password
+cask "1password7"
 # Menu bar tool to limit maximum charging percentage
 cask "aldente"
 # Android SDK component
