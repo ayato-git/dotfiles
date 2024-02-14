@@ -118,14 +118,8 @@ cask "netnewswire"
 cask "orbstack"
 # Minecraft launcher
 cask "prismlauncher"
-# Display image info and preview unsupported formats in QuickLook
-cask "qlimagesize"
 # Quick Look generator for Markdown files
 cask "qlmarkdown"
-# Quick Look plugin for CSV files
-cask "quicklook-csv"
-# Quick Look plugin for JSON files
-cask "quicklook-json"
 # All-in-one bookmark manager
 cask "raindropio"
 # Move and resize windows using keyboard shortcuts or snap areas
@@ -140,6 +134,8 @@ cask "skype"
 cask "steam"
 # Native GUI tool for relational databases
 cask "tableplus"
+# Utility to hide the notch
+cask "topnotch"
 # Tiny process monitor
 cask "vitals"
 # Multimedia player
@@ -154,7 +150,6 @@ cask "zulu17"
 cask "zulu8"
 mas "1Blocker", id: 1365531024
 mas "Apple Configurator", id: 1037126344
-mas "CodePiece", id: 1021284423
 mas "Developer", id: 640199958
 mas "DNSecure", id: 1533413232
 mas "GhostText", id: 1552641506
