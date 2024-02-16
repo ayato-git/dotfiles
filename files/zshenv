@@ -4,3 +4,4 @@ export GHQ_ROOT=$(git config --global --get ghq.root)
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
