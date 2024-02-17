@@ -86,22 +86,43 @@ execute 'enable corepack that bundled with Node.js installed via mise' do
 end
 
 {
+  "vscode-langservers-extracted"      => "pnpm install --global",
+  "cssmodules-language-server"        => "pnpm install --global",
+  "stylelint-lsp"                     => "pnpm install --global",
+  "@tailwindcss/language-server"      => "pnpm install --global",
+  "quick-lint-js"                     => "pnpm install --global",
+  "typescript"                        => "pnpm install --global",
+  "typescript-language-server"        => "pnpm install --global",
+  "svelte-language-server"            => "pnpm install --global",
+  "bash-language-server"              => "pnpm install --global",
+  "dockerfile-language-server-nodejs" => "pnpm install --global",
+  "intelephense"                      => "pnpm install --global",
+  "vim-language-server"               => "pnpm install --global",
+  "sql-language-server"               => "pnpm install --global",
+  "marksman"            => "brew install",
+  "lua-language-server" => "brew install"
+}.each do |ls, method|
+
+  case method
+  when "brew install"
+    checker = "brew list | grep "
+  when "pnpm install --global"
+    checker = "pnpm ls --global | grep "
+  end
+
+  execute "install LanguageServer / #{ls}" do
+    not_if "#{checker} #{ls}"
+    command "#{method} #{ls}"
+  end
+end
+
+{
   "wezterm shell-completion --shell zsh" => "_wezterm"
 }.each do |src, dump|
   execute "add #{dump} for zsh completion" do
     command "#{src} >> #{brew_prefix}/share/zsh/site-functions/#{dump}"
     not_if "test -f #{brew_prefix}/share/zsh/site-functions/#{dump}" 
   end
-end
-
-execute 'download phpactor.phar' do
-  command 'sudo curl -Lo /usr/local/bin/phpactor https://github.com/phpactor/phpactor/releases/latest/download/phpactor.phar'
-  not_if 'which phpactor'
-end
-
-file '/usr/local/bin/phpactor' do
-  action :create
-  mode '0755'
 end
 
 execute 'start dnscrypt-proxy' do

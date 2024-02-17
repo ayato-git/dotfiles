@@ -268,10 +268,11 @@ require('my-keymap.dap')
 EOF
 """
 
-[[plugins]]
+[[plugins]] ## buildのコマンドは、JetpackSyncのプロセスが先に終わると中断されてしまう模様
 repo = "xdebug/vscode-php-debug"
 opt = true
 build = """
+mise use node@16
 pnpm import
 pnpm install --frozen-lockfile
 pnpm run build
