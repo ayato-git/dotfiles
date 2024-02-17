@@ -66,18 +66,21 @@ end
 execute 'remove default npm that bundled with Node.js installed via mise' do
   # 'npm uninstall --global npm' でnpmが消せない。node14と18で確認したがnode20では起きない
   # npm が消せない場合は直接rmで消す
-  command 'rm -f $(mise which npm)'
-  not_if 'npm uninstall --global npm pnpm yarn'
+  command 'npm uninstall --global npm pnpm yarn || rm -f $(mise which npm)'
+  not_if 'which npm && cat $(which npm) | grep corepack'
 end
 
-execute 'enable corepack that bundled with Node.js installed via mise' do
+['npm', 'pnpm', 'yarn'].each do |n|
   # TODO: corepackが新しいnodeで実行される様にする
   # config/mise/config.toml で node@latest としてる時に、
   # 直前の 'install tools in config/mise/config.toml' で新しいnodeがインストールされると、
   # mitamaeのプロセス内では古いnodeの上でcorepackコマンドが走ることになる
-  command "corepack enable npm pnpm yarn"
-  only_if 'which corepack | grep "mise" '
-  not_if 'which pnpm && cat $(which pnpm) | grep "corepack" '
+
+  execute "replace #{n} with corepack that bundled with Node.js installed via mise" do
+    command "corepack enable #{n}"
+    only_if 'which corepack | grep "mise" '
+    not_if "which #{n} && cat $(which #{n}) | grep corepack "
+  end
 end
 
 {
