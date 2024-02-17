@@ -39,15 +39,15 @@ execute 'install packages from files/Brewfile' do
   not_if 'brew bundle check --global'
 end
 
-{
-  "yt-dlp"   => "jauderho/yt-dlp"
-}.each do |name, image|
-  execute "install #{name} via Whalebrew" do
-    command "whalebrew install --name #{name} #{image}"
-    only_if 'which docker && which whalebrew && docker container ls'
-    not_if "which #{name}"
-  end
-end
+# {
+#   "yt-dlp"   => "jauderho/yt-dlp"
+# }.each do |name, image|
+#   execute "install #{name} via Whalebrew" do
+#     command "whalebrew install --name #{name} #{image}"
+#     only_if 'which docker && which whalebrew && docker container ls'
+#     not_if "which #{name}"
+#   end
+# end
 
 # adjust mode for zsh completion
 directory "#{brew_prefix}/share/zsh" do
@@ -114,14 +114,14 @@ end
   end
 end
 
-{
-  "wezterm shell-completion --shell zsh" => "_wezterm"
-}.each do |src, dump|
-  execute "add #{dump} for zsh completion" do
-    command "#{src} >> #{brew_prefix}/share/zsh/site-functions/#{dump}"
-    not_if "test -f #{brew_prefix}/share/zsh/site-functions/#{dump}" 
-  end
-end
+# {
+#   "wezterm shell-completion --shell zsh" => "_wezterm"
+# }.each do |src, dump|
+#   execute "add #{dump} for zsh completion" do
+#     command "#{src} >> #{brew_prefix}/share/zsh/site-functions/#{dump}"
+#     not_if "test -f #{brew_prefix}/share/zsh/site-functions/#{dump}" 
+#   end
+# end
 
 execute 'start dnscrypt-proxy' do
   not_if 'sudo brew services info dnscrypt-proxy'
