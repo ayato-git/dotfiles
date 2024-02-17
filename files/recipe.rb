@@ -35,12 +35,7 @@ execute 'install homebrew' do
 end
 
 execute 'install packages from files/Brewfile' do
-  command "brew bundle --global"
-  not_if 'brew bundle check --global'
-end
-
-execute 'Clean up files needed only during installation' do
-  command "brew autoremove & brew cleanup"
+  command "brew bundle --global && brew autoremove && brew cleanup"
   not_if 'brew bundle check --global'
 end
 
@@ -140,114 +135,112 @@ execute 'install security software' do
   command 'brew install --cask malwarebytes && sudo mas install 500154009'
 end
 
-execute '書類を開く時に常に新しいタブで開く' do
-  not_if 'defaults read -globalDomain AppleWindowTabbingMode | grep always'
-  command 'defaults write -globalDomain AppleWindowTabbingMode -string "always"'
+define :macOS_defaults, domain: nil, type: 'int', value: 1 do
+  execute params[:name] do
+    not_if "defaults read #{params[:domain]} | grep #{params[:value]}"
+    command "defaults write #{params[:domain]} -#{params[:type]} #{params[:value]}"
+  end
 end
 
-execute '書類を閉じる時に変更内容を保持するかどうかを確認' do
-  not_if 'defaults read -globalDomain NSCloseAlwaysConfirmsChanges | grep 1'
-  command 'defaults write -globalDomain NSCloseAlwaysConfirmsChanges -int 1'
+macOS_defaults '書類を開く時に常に新しいタブで開く' do
+  domain '-globalDomain AppleWindowTabbingMode'
+  type 'string'
+  value 'always'
 end
 
-execute 'Finder等のサイドバーのアイコンのサイズ(大)' do
-  not_if 'defaults read -globalDomain NSTableViewDefaultSizeMode | grep 3'
-  command 'defaults write -globalDomain NSTableViewDefaultSizeMode -int 3'
+macOS_defaults '書類を閉じる時に変更内容を保持するかどうかを確認' do
+  domain '-globalDomain NSCloseAlwaysConfirmsChanges'
 end
 
-execute 'トラックパッドの軌跡の速さ' do
-  not_if 'defaults read -globalDomain com.apple.trackpad.scaling | grep 3'
-  command 'defaults write -globalDomain com.apple.trackpad.scaling -int 3'
+macOS_defaults 'Finder等のサイドバーのアイコンのサイズ(大)' do
+  domain '-globalDomain NSTableViewDefaultSizeMode'
+  value 3
 end
 
-execute 'メニューバーを自動的に表示/非表示 (フルスクリーン時のみ)' do
-  not_if 'defaults read -globalDomain AppleMenuBarVisibleInFullscreen | grep 0'
-  command 'defaults write -globalDomain AppleMenuBarVisibleInFullscreen -int 0 '
+macOS_defaults 'トラックパッドの軌跡の速さ' do
+  domain '-globalDomain com.apple.trackpad.scaling'
+  value 3
 end
 
-execute 'Siriをステータスバーに表示しない' do
-  not_if 'defaults read com.apple.Siri StatusMenuVisible | grep 0'
-  command 'defaults write com.apple.Siri StatusMenuVisible -int 0'
+macOS_defaults 'メニューバーを自動的に表示/非表示 (フルスクリーン時のみ)' do
+  domain '-globalDomain AppleMenuBarVisibleInFullscreen'
+  value 0
 end
 
-execute 'バッテリー残量をステータスバーに表示しない' do
-  not_if 'defaults read com.apple.controlcenter "NSStatusItem Visible Battery" | grep 0'
-  command 'defaults write com.apple.controlcenter "NSStatusItem Visible Battery" -int 0'
+macOS_defaults 'Siriをステータスバーに表示しない' do
+  domain 'com.apple.Siri StatusMenuVisible'
+  value 0
 end
 
-execute 'AirDropをステータスバーに表示しない' do
-  not_if 'defaults read com.apple.controlcenter "NSStatusItem Visible AirDrop" | grep 0'
-  command 'defaults write com.apple.controlcenter "NSStatusItem Visible AirDrop" -int 0'
+macOS_defaults 'バッテリー残量をステータスバーに表示しない' do
+  domain 'com.apple.controlcenter "NSStatusItem Visible Battery"'
+  value 0
 end
 
-execute 'ステージマネージャーをステータスバーに表示しない' do
-  not_if 'defaults read com.apple.controlcenter "NSStatusItem Visible StageManager" | grep 0'
-  command 'defaults write com.apple.controlcenter "NSStatusItem Visible StageManager" -int 0'
+macOS_defaults 'AirDropをステータスバーに表示しない' do
+  domain 'com.apple.controlcenter "NSStatusItem Visible AirDrop"'
+  value 0
 end
 
-execute 'Wi-Fiをステータスバーに表示しない' do
-  not_if 'defaults read com.apple.controlcenter "NSStatusItem Visible WiFi" | grep 0'
-  command 'defaults write com.apple.controlcenter "NSStatusItem Visible WiFi" -int 0'
+macOS_defaults 'ステージマネージャーをステータスバーに表示しない' do
+  domain 'com.apple.controlcenter "NSStatusItem Visible StageManager"'
+  value 0
 end
 
-execute 'TimeMachineをステータスバーに表示する' do
-  not_if 'defaults read com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine" | grep 1'
-  command 'defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine" -int 1'
+macOS_defaults 'Wi-Fiをステータスバーに表示しない' do
+  domain 'com.apple.controlcenter "NSStatusItem Visible WiFi"'
+  value 0
 end
 
-execute 'VPN構成をステータスバーに表示する' do
-  not_if 'defaults read com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.vpn" | grep 1'
-  command 'defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.vpn" -int 1'
+macOS_defaults 'TimeMachineをステータスバーに表示する' do
+  domain 'com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine"'
 end
 
-execute 'メニューバーの時計に日付を表示しない' do
-  not_if 'defaults read com.apple.menuextra.clock ShowDate | grep 2'
-  command 'defaults write com.apple.menuextra.clock ShowDate -int 2'
+macOS_defaults 'VPN構成をステータスバーに表示する' do
+  domain 'com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.vpn"'
 end
 
-execute 'メニューバーの時計に秒数を表示' do
-  not_if 'defaults read com.apple.menuextra.clock ShowSeconds | grep 1'
-  command 'defaults write com.apple.menuextra.clock ShowSeconds -int 1'
+macOS_defaults 'メニューバーの時計に日付を表示しない' do
+  domain 'com.apple.menuextra.clock ShowDate'
+  value 2
 end
 
-execute 'Dockを自動的に隠す' do
-  not_if 'defaults read com.apple.dock autohide | grep 1'
-  command 'defaults write com.apple.dock autohide -int 1'
+macOS_defaults 'メニューバーの時計に秒数を表示' do
+  domain 'com.apple.menuextra.clock ShowSeconds'
 end
 
-execute '隠れたDockを表示するまでの遅延を無くす' do
-  not_if 'defaults read com.apple.dock autohide-delay | grep 0'
-  command 'defaults write com.apple.dock autohide-delay -int 0'
+macOS_defaults 'Dockを自動的に隠す' do
+  domain 'com.apple.dock autohide'
 end
 
-execute 'Dockを拡大する' do
-  not_if 'defaults read com.apple.dock magnification | grep 1'
-  command 'defaults write com.apple.dock magnification -int 1'
+macOS_defaults '隠れたDockを表示するまでの遅延を無くす' do
+  domain 'com.apple.dock autohide-delay'
+  value 0
 end
 
-execute 'Dockを拡大した時のサイズを指定' do
-  not_if 'defaults read com.apple.dock largesize | grep 192'
-  command 'defaults write com.apple.dock largesize -int 192'
+macOS_defaults 'Dockを拡大する' do
+  domain 'com.apple.dock magnification'
 end
 
-execute 'ステージマネージャ有効化' do
-  not_if 'defaults read com.apple.WindowManager GloballyEnabled | grep 1'
-  command 'defaults write com.apple.WindowManager GloballyEnabled -int 1'
+macOS_defaults 'Dockを拡大した時のサイズを指定' do
+  domain 'com.apple.dock largesize'
+  value 192
 end
 
-execute '最近使用したアプリをステージマネージャに表示しない (ステージマネージャのサムネイルを自動的に隠す)' do
-  not_if 'defaults read com.apple.WindowManager AutoHide | grep 1'
-  command 'defaults write com.apple.WindowManager AutoHide -int 1'
+macOS_defaults 'ステージマネージャ有効化' do
+  domain 'com.apple.WindowManager GloballyEnabled'
 end
 
-execute 'スクリーンショットの影をなくす' do
-  not_if 'defaults read com.apple.screencapture disable-shadow | grep 1'
-  command 'defaults write com.apple.screencapture disable-shadow -int 1'
+macOS_defaults '最近使用したアプリをステージマネージャに表示しない (ステージマネージャのサムネイルを自動的に隠す)' do
+  domain 'com.apple.WindowManager AutoHide'
 end
 
-execute '隠しファイルを常にファインダーに表示する' do
-  not_if 'defaults read com.apple.finder AppleShowAllFiles | grep 1'
-  command 'defaults write com.apple.finder AppleShowAllFiles -int 1'
+macOS_defaults 'スクリーンショットの影をなくす' do
+  domain 'com.apple.screencapture disable-shadow'
+end
+
+macOS_defaults '隠しファイルを常にファインダーに表示する' do
+  domain 'com.apple.finder AppleShowAllFiles'
 end
 
 # TODO: 一度アプリを開いた後に以下を設定したい
