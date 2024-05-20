@@ -195,6 +195,11 @@ macOS_defaults 'Wi-Fiをステータスバーに表示しない' do
   value 0
 end
 
+macOS_defaults 'テキスト入力メニューをステータスバーに表示しない' do
+  domain 'com.apple.TextInputMenu "visible"'
+  value 0
+end
+
 macOS_defaults 'TimeMachineをステータスバーに表示する' do
   domain 'com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine"'
 end
