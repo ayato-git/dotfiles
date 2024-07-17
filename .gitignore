@@ -1,5 +1,8 @@
 dotfiles-MBP2016gray/
 config/iterm2/
+config/composer/
+config/htop/
+config/1password/
 config/stripe/*
 config/massren/*
 config/configstore/update-notifier-npm.json
