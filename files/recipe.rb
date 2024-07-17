@@ -114,6 +114,10 @@ end
   end
 end
 
+execute 'install aws-mfa via pipx' do
+  command 'pipx install aws-mfa'
+end
+
 # {
 #   "wezterm shell-completion --shell zsh" => "_wezterm"
 # }.each do |src, dump|
