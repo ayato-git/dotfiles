@@ -83,7 +83,7 @@ brew "stripe/stripe-cli/stripe"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Password manager that keeps all passwords secure behind one password
-cask "1password7"
+cask "1password@7"
 # Menu bar tool to limit maximum charging percentage
 cask "aldente"
 # Android SDK component
@@ -103,8 +103,7 @@ cask "finicky"
 # Web browser
 cask "firefox"
 # Web browser
-cask "firefox-developer-edition"
-# Japanese programming font which is a composed of Hack and GenJyuu-Gothic
+cask "firefox@developer-edition"
 cask "font-hackgen-nerd"
 # Desktop client for GitHub repositories
 cask "github"
@@ -149,9 +148,9 @@ cask "wezterm"
 # Comic reader
 cask "yacreader"
 # OpenJDK distribution from Azul
-cask "zulu17"
+cask "zulu@17"
 # OpenJDK distribution from Azul
-cask "zulu8"
+cask "zulu@8"
 mas "1Blocker", id: 1365531024
 mas "Apple Configurator", id: 1037126344
 mas "Developer", id: 640199958
