@@ -81,6 +81,10 @@ end
     only_if 'which corepack | grep "mise" '
     not_if "which #{n} && cat $(which #{n}) | grep corepack "
   end
+
+  execute "activate #{n} via corepack" do
+    command "echo y | #{n} -v"
+  end
 end
 
 {
