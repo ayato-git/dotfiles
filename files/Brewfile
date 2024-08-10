@@ -106,6 +106,7 @@ cask "firefox"
 # Web browser
 cask "firefox@developer-edition"
 cask "font-hackgen-nerd"
+cask "font-udev-gothic-nf"
 # Desktop client for GitHub repositories
 cask "github"
 # Neovim GUI written in Golang, using a Golang qt backend

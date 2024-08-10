@@ -19,8 +19,8 @@ local shortcutkeys = {
 
 return {
   font = wezterm.font_with_fallback({
-    {family = "HackGen Console NF", assume_emoji_presentation = false},
-    {family = "HackGen Console NF", assume_emoji_presentation = true}
+    {family = "UDEV Gothic NF", assume_emoji_presentation = false},
+    {family = "UDEV Gothic NF", assume_emoji_presentation = true},
   }),
   font_size = 14.5,
   color_scheme = "Molokai",
