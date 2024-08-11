@@ -13,43 +13,35 @@ opt = true
 
 ### Appearance ###
 [[plugins]]
-repo = 'akinsho/bufferline.nvim'
-tag = 'v4.6.0'
+repo = "romgrk/barbar.nvim"
 on_event = 'VimEnter'
-hook_post_source = """
-lua << EOF
-require('bufferline').setup({
-  options = {
-    numbers = 'buffer_id',
-    diagnostics = "nvim_lsp",
-    indicator = { style = 'none' },
-  },
-  highlights = {
-    tab_selected = {
-      fg = { attribute = "fg", highlight = "TabLineSel" },
-      bg = { attribute = "bg", highlight = "TabLineSel" }
-    },
-    buffer_selected = {
-      fg = { attribute = "fg", highlight = "TabLineSel" },
-      bg = { attribute = "bg", highlight = "TabLineSel" }
-    },
-    numbers_selected = {
-      fg = { attribute = "fg", highlight = "TabLineSel" },
-      bg = { attribute = "bg", highlight = "TabLineSel" }
-    },
-    close_button_selected = {
-      fg = { attribute = "fg", highlight = "TabLineSel" },
-      bg = { attribute = "bg", highlight = "TabLineSel" }
-    },
-  }
+hook_source = """
+let g:barbar_auto_setup = v:false " disable auto-setup
+lua << LUA
+require('barbar').setup({
+  icons = { filetype = { enabled = false } }
 })
-EOF
+LUA
 """
 
 [[plugins]]
 repo = "tiagovla/scope.nvim"
-on_source = 'bufferline.nvim'
-hook_source = "lua require('scope').setup()"
+on_event = 'VimEnter'
+hook_source = """
+lua << LUA
+require('scope').setup {
+  hooks = {
+    pre_tab_leave = function()
+      vim.api.nvim_exec_autocmds('User', { pattern = 'ScopeTabLeavePre' })
+    end,
+
+    post_tab_enter = function()
+      vim.api.nvim_exec_autocmds('User', { pattern = 'ScopeTabEnterPost' })
+    end,
+  },
+}
+LUA
+"""
 
 [[plugins]]
 repo = 'ray-x/starry.nvim'
