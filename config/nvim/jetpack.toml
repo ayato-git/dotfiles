@@ -77,7 +77,7 @@ hook_post_source = "lua require('nvim-highlight-colors').turnOn()"
 
 [[plugins]]
 repo = 'lukas-reineke/indent-blankline.nvim'
-tag = 'v3.6.1'
+tag = 'v3.7.2'
 on_event = ['CursorMoved', 'CursorMovedI', 'CursorHold']
 depends = 'nvim-treesitter'
 hook_post_source = '''
@@ -120,7 +120,7 @@ on_cmd = [ "Str2HtmlEntity", "Entity2HtmlString" ]
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
 depends = 'plenary.nvim'
-tag = '0.1.7'
+tag = '0.1.8'
 on_cmd = 'Telescope'
 hook_add = 'lua require("my-keymap.telescope")'
 
@@ -262,6 +262,7 @@ EOF
 
 [[plugins]] ## buildのコマンドは、JetpackSyncのプロセスが先に終わると中断されてしまう模様
 repo = "xdebug/vscode-php-debug"
+tag = "v1.35.0"
 opt = true
 build = """
 mise use node@16
