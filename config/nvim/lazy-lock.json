@@ -33,6 +33,7 @@
   "scope.nvim": { "branch": "main", "commit": "5e3f5ead970317b2f276d38dc031cb4bc5742cd4" },
   "starry.nvim": { "branch": "master", "commit": "d34483f09383be20d04dde5b52b53624d759558d" },
   "str2htmlentity": { "branch": "master", "commit": "4c131ffa60a54078939cdd45f2c144910b71882d" },
+  "telescope-file-browser.nvim": { "branch": "master", "commit": "a46780830b576049c675680650f773bedfa8677a" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "vim-list2tree": { "branch": "master", "commit": "962dc2215093b25bf110840bfdf7b3cd78742df8" },
   "vim-maketable": { "branch": "master", "commit": "d72e73f333c64110524197ec637897bd1464830f" },
