@@ -91,7 +91,6 @@ return {
     version = "0.1.8",
     cmd = "Telescope",
     event = "CmdlineEnter",
-    init = function() require("my-keymap.telescope") end,
     config = function ()
       local telescope = require('telescope')
       telescope.setup({
@@ -108,7 +107,6 @@ return {
   {
     "https://github.com/tyru/open-browser.vim",
     keys = "<Plug>(openbrowser",
-    init = function() require("my-keymap.open-browser") end,
   },
   {
     "https://github.com/rhysd/devdocs.vim",
@@ -156,7 +154,6 @@ return {
 -- なのでLspStartを遅延読み込み後に明示
     config = function()
       require('my-lsp')
-      require('my-keymap.lsp')
       vim.cmd("LspStart")
     end,
   },
@@ -196,7 +193,6 @@ return {
     keys = "<F5>",
     config = function()
       require('my-dap')
-      require('my-keymap.dap')
     end,
   },
   {
