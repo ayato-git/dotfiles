@@ -1,7 +1,7 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 local lspkind = require('lspkind')
-local my_keymap = require("my-keymap.nvim-cmp")
+local my_keymap = require("keymap.completion")
 local colors = require('nvim-highlight-colors')
 
 cmp.setup({

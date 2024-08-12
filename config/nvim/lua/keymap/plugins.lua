@@ -6,7 +6,7 @@ vim.keymap.set('n', '<F11>', function() dap.step_into() end)
 vim.keymap.set('n', '<F12>', function() dap.step_out() end)
 vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end)
 
--- lsp-config
+-- nvim-lspconfig
 vim.keymap.set('n', 'K',         '<cmd>lua vim.lsp.buf.hover()<CR>')           -- カーソル下の変数の情報を表示
 vim.keymap.set('n', '=',         '<cmd>lua vim.lsp.buf.formatting()<CR>')      -- コード整形
 vim.keymap.set('n', '<Leader>r', '<cmd>lua vim.lsp.buf.references()<CR>')      -- カーソル下の変数をコード内で参照している箇所を一覧表示

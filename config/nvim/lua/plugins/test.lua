@@ -144,7 +144,7 @@ return {
     "https://github.com/rcarriga/nvim-dap-ui",
     keys = "<F5>",
     config = function()
-      require('my-dap')
+      require('config.dap')
     end,
   },
   {
