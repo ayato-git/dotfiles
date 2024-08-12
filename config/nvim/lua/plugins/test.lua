@@ -152,10 +152,12 @@ return {
     "https://github.com/rcarriga/nvim-dap-ui",
     main = 'dapui',
     version = 'v3.9.3',
+    cmd = {'DapToggleBreakpoint'},
   },
   {
     "https://github.com/xdebug/vscode-php-debug",
     version = "v1.35.0",
+    cmd = {'DapToggleBreakpoint'},
     build = [[
       mise use node@16
       npm install
