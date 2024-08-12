@@ -64,7 +64,7 @@ return {
     opts = {
       chunk = {
         enable = true,
-        textobject = "cl", -- vcl でvisual chunk linesと解釈できるtextobjectを設定
+        textobject = "lc", -- vcl でvisual lines of chunkと解釈できるtextobjectを設定
         duration = 100,
         delay = 10,
       },
@@ -165,3 +165,37 @@ return {
     ]],
   },
 }
+
+
+--   TODO: 今度試してみたい
+--   autosave
+--   toggle comments
+--   generate Document comment
+--   Debugger
+--   https://github.com/adoy/vim-php-refactoring-toolbox
+--   https://github.com/dsawardekar/wordpress.vim
+--   https://github.com/hotwatermorning/auto-git-diff
+--   https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+--   https://daisuzu.hatenablog.com/entry/2020/12/03/003629  ## Quickfix
+--   https://zenn.dev/tmrekk/articles/4380961a754287  ## Quickfix
+--   https://github.com/ray-x/navigator.lua
+--   https://github.com/ThePrimeagen/refactoring.nvim
+--   https://github.com/glacambre/firenvim
+--   https://github.com/numToStr/Comment.nvim
+--   https://github.com/folke/which-key.nvim
+--   https://github.com/marilari88/twoslash-queries.nvim
+--   https://github.com/unblevable/quick-scope
+--  
+--  [[plugins]]
+--  repo = "mxsdev/nvim-dap-vscode-js"
+--  depends = "mfussenegger/nvim-dap"
+--  hook_post_source = ""
+--  
+--  [[plugins]]
+--  repo = "microsoft/vscode-js-debug"
+--  opt = true
+--  build = """
+--  npm install --legacy-peer-deps
+--  npx gulp vsDebugServerBundle
+--  mv dist out
+--  """
