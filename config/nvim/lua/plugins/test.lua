@@ -59,11 +59,18 @@ return {
     end,
   },
   {
-    "https://github.com/lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    version = "v3.7.2",
-    event = {"CursorMoved", "CursorMovedI", "CursorHold"},
-    opts = {}
+    "https://github.com/shellRaining/hlchunk.nvim",
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+    opts = {
+      chunk = {
+        enable = true,
+        textobject = "cl", -- vcl でvisual chunk linesと解釈できるtextobjectを設定
+        duration = 100,
+        delay = 10,
+      },
+      indent = { enable = true },
+      line_num = { enable = true, style = '#f0f0f0' },
+    },
   },
   {
     "https://github.com/andersevenrud/nvim_context_vt",
