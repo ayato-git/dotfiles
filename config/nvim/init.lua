@@ -51,8 +51,8 @@ vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup~//"
 vim.opt.undofile  = true -- アンドゥファイルを作成する
 
 ---[[ 編集 ]]
-require('lazy-keymap.for-vanilla')
-require('lazy-keymap.for-plugins')
+require('keymap.vanilla')
+require('keymap.plugins')
 
 ---[[ 自作のコマンド定義 ]]
 -- 現在開いているファイルのディレクトリに移動する :CdCurrent
