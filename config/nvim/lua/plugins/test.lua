@@ -32,6 +32,11 @@ return {
     opts = { disable = { background = true } }
   },
   {
+    "https://github.com/lewis6991/gitsigns.nvim",
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+    opts = {}
+  },
+  {
     "https://github.com/nvim-treesitter/nvim-treesitter",
     event = "VimEnter",
     build = ":TSupdate",

@@ -32,6 +32,7 @@ vim.opt.termguicolors = true -- ターミナルで起動しても24bit色で表�
 vim.opt.splitright    = true -- :vertical や :vsplit でウィンドウを右側に表示する
 vim.opt.laststatus    = 3    -- ステータスラインをsplitせずに下部に表示する
 vim.opt.number        = true -- 行番号を表示する
+vim.opt.signcolumn    = 'yes:1' -- 行ごとのサインを表示する
 vim.opt.cursorline    = true -- カーソル行をハイライトする
 vim.opt.cursorcolumn  = true -- カーソル列をハイライトする
 vim.opt.synmaxcol     = 200  -- 1行に200文字までハイライトする(負荷対策)
