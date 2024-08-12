@@ -138,14 +138,20 @@ return {
     event = "InsertEnter",
     opts = {}
   },
---  F5を押してデバッガ読み込み,もう一度押してデバッガ起動
-  { "https://github.com/mfussenegger/nvim-dap" },
   {
-    "https://github.com/rcarriga/nvim-dap-ui",
-    keys = "<F5>",
+    -- デバッガの利用方法は keymap.plugins にてキーマップの設定と共にコメント有
+    "https://github.com/mfussenegger/nvim-dap",
+    main = 'dap',
+    version = '0.8.0',
+    cmd = {'DapToggleBreakpoint'},
     config = function()
       require('config.dap')
     end,
+  },
+  {
+    "https://github.com/rcarriga/nvim-dap-ui",
+    main = 'dapui',
+    version = 'v3.9.3',
   },
   {
     "https://github.com/xdebug/vscode-php-debug",

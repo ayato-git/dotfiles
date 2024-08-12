@@ -1,10 +1,13 @@
 -- nvim-dap
-local dap = require('dap')
-vim.keymap.set('n', '<F5>',  function() dap.continue() end)
-vim.keymap.set('n', '<F10>', function() dap.step_over() end)
-vim.keymap.set('n', '<F11>', function() dap.step_into() end)
-vim.keymap.set('n', '<F12>', function() dap.step_out() end)
-vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end)
+-- 1. BreakPointを打ってプラグイン起動
+-- 2. DapContinueでデバッガ起動 (待機状態になる)
+-- 3. ローカル環境をブラウザで開く (BreakPointを打った部分を含むコードを実行する)
+-- 4. デバッガに実行時の情報が届く
+vim.keymap.set('n', '<F5>',      '<cmd>DapContinue<CR>')
+vim.keymap.set('n', '<F10>',     '<cmd>DapStepOver<CR>')
+vim.keymap.set('n', '<F11>',     '<cmd>DapStepInto<CR>')
+vim.keymap.set('n', '<F12>',     '<cmd>DapStepOut<CR>')
+vim.keymap.set('n', '<Leader>b', '<cmd>DapToggleBreakpoint<CR>')
 
 -- nvim-lspconfig
 vim.keymap.set('n', 'K',         '<cmd>lua vim.lsp.buf.hover()<CR>')           -- カーソル下の変数の情報を表示

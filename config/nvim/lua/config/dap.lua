@@ -1,11 +1,12 @@
 local dap = require('dap')
 local dapui = require('dapui')
-local php_debug = require('jetpack').get('vscode-php-debug').path
 
 dap.adapters.php = {
   type = 'executable',
   command = 'node',
-  args = { php_debug .. '/out/phpDebug.js' }
+  args = {
+    vim.fn.stdpath("data") .. '/lazy/vscode-php-debug/out/phpDebug.js'
+  }
 }
 
 dap.configurations.php = {
