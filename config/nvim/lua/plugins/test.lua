@@ -7,13 +7,13 @@ return {
   { "https://github.com/nvim-lua/plenary.nvim" },
   {
     "https://github.com/romgrk/barbar.nvim",
-    event = "VimEnter",
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     init = function() vim.g.barbar_auto_setup = false end,
     opts = { icons = { filetype = { enabled = false } } },
   },
   {
     "https://github.com/tiagovla/scope.nvim",
-    event = "VimEnter",
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     opts = {
       hooks = {
         pre_tab_leave = function()
@@ -27,7 +27,7 @@ return {
   },
   {
     "https://github.com/ray-x/starry.nvim",
-    event = "VimEnter",
+    event = "VeryLazy",
     init = function () vim.cmd('colorscheme monokai') end,
     opts = { disable = { background = true } }
   },
@@ -38,7 +38,7 @@ return {
   },
   {
     "https://github.com/nvim-treesitter/nvim-treesitter",
-    event = "VimEnter",
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     build = ":TSupdate",
     init = function()
       vim.opt.runtimepath:prepend(vim.fn.stdpath('data') .. '/treesitter')
@@ -148,11 +148,11 @@ return {
   },
   {
     "https://github.com/neovim/nvim-lspconfig",
-    event = "VimEnter",
+    event = "VeryLazy",
     dependencies = {"cmp-nvim-lsp", "nvim-cmp"},
 -- my-lspの設定でcmp-nvim-lspを呼び、そこで更にnvim-cmpを呼ぶ
 -- nvim-lspconfigを遅延読込みしているので,LanguageServerのautostartが効かない
--- (autostartはFileType autocmdで実行されるが、VimEnterはFileTypeより後)
+-- (autostartはFileType autocmdで実行されるが、VeryLazyはFileTypeより後)
 -- なのでLspStartを遅延読み込み後に明示
     config = function()
       require('my-lsp')
@@ -173,7 +173,7 @@ return {
   },
   {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    event = {"TextChanged", "TextChangedI", "CursorMoved", "CursorMovedI"},
+    event = "LspAttach",
     init = function () vim.diagnostic.config({ virtual_text = false }) end,
     opts = {}
   },
