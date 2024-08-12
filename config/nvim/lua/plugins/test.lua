@@ -4,7 +4,7 @@ return {
     event = "CmdlineEnter",
     init = function() vim.opt.helplang = "ja,en" end,
   },
-  { "https://github.com/nvim-lua/plenary.nvim", lazy = true, },
+  { "https://github.com/nvim-lua/plenary.nvim" },
   {
     "https://github.com/romgrk/barbar.nvim",
     event = "VimEnter",
@@ -58,13 +58,11 @@ return {
     main = "ibl",
     version = "v3.7.2",
     event = {"CursorMoved", "CursorMovedI", "CursorHold"},
-    dependencies = "nvim-treesitter",
     opts = {}
   },
   {
     "https://github.com/andersevenrud/nvim_context_vt",
     event = {"CursorMoved", "CursorMovedI"},
-    dependencies = "nvim-treesitter",
     opts = {}
   },
   {
@@ -78,7 +76,6 @@ return {
   { "https://github.com/inotom/str2htmlentity", cmd = { "Str2HtmlEntity", "Entity2HtmlString" }, },
   {
     "https://github.com/nvim-telescope/telescope.nvim",
-    dependencies = "plenary.nvim",
     version = "0.1.8",
     cmd = "Telescope",
     init = function() require("my-keymap.telescope") end,
@@ -116,13 +113,11 @@ return {
       "astro", "svelte", "vue", "jsx", "tsx",
     },
     event = "InsertEnter",
-    dependencies = "nvim-treesitter",
     opts = {}
   },
-  { "https://github.com/hrsh7th/cmp-nvim-lsp", lazy = true, },
+  { "https://github.com/hrsh7th/cmp-nvim-lsp" },
   {
     "https://github.com/hrsh7th/nvim-cmp",
-    lazy = true,
     dependencies = {"LuaSnip", "lspkind.nvim"}, --my-cmpの設定でluasnipとlspkind.nvimを呼ぶ
     config = function() require('my-cmp') end,
   },
@@ -153,16 +148,12 @@ return {
   },
   {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    dependencies = "nvim-lspconfig",
     event = {"TextChanged", "TextChangedI", "CursorMoved", "CursorMovedI"},
-    config = function()
-      require('lsp_lines').setup()
-      vim.diagnostic.config({ virtual_text = false })
-    end,
+    init = function () vim.diagnostic.config({ virtual_text = false }) end,
+    opts = {}
   },
   {
     "https://github.com/L3MON4D3/LuaSnip",
-    lazy = true,
     build = "make install_jsregexp",
   },
   { "https://github.com/hrsh7th/cmp-path", event = "InsertEnter", },
@@ -174,11 +165,10 @@ return {
   { "https://github.com/onsails/lspkind.nvim", event = "InsertEnter", },
   { "https://github.com/jcha0713/cmp-tw2css", event = "InsertEnter", },
 --  F5を押してデバッガ読み込み,もう一度押してデバッガ起動
-  { "https://github.com/mfussenegger/nvim-dap", lazy = true, },
+  { "https://github.com/mfussenegger/nvim-dap" },
   {
     "https://github.com/rcarriga/nvim-dap-ui",
     keys = "<F5>",
-    dependencies = "nvim-dap",
     config = function()
       require('my-dap')
       require('my-keymap.dap')
@@ -187,7 +177,6 @@ return {
   {
     "https://github.com/xdebug/vscode-php-debug",
     version = "v1.35.0",
-    lazy = true,
     build = [[
       mise use node@16
       npm install

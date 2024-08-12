@@ -22,6 +22,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 require("lazy").setup({
+  default = { lazy = true },
   spec = {
     { import = "plugins" },
   },
