@@ -5,15 +5,17 @@ vim.loader.enable()
 vim.g.mapleader = " " -- <Leader>をスペースキーに指定
 
 ---[[ Plugins with vim-jetpack ]]
-local jetpackfile = vim.fn.stdpath('data') .. '/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
-local jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
-if vim.fn.filereadable(jetpackfile) == 0 then
-  vim.fn.system(string.format('curl -fsSLo %s --create-dirs %s', jetpackfile, jetpackurl))
-end
-vim.cmd.packadd('vim-jetpack')
-vim.call('jetpack#begin')
-vim.call('jetpack#load_toml', vim.fn.stdpath("config") .. '/jetpack.toml') -- ~/.config/nvim/jetpack.toml
-vim.call('jetpack#end')
+-- local jetpackfile = vim.fn.stdpath('data') .. '/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
+-- local jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+-- if vim.fn.filereadable(jetpackfile) == 0 then
+--   vim.fn.system(string.format('curl -fsSLo %s --create-dirs %s', jetpackfile, jetpackurl))
+-- end
+-- vim.cmd.packadd('vim-jetpack')
+-- vim.call('jetpack#begin')
+-- vim.call('jetpack#load_toml', vim.fn.stdpath("config") .. '/jetpack.toml') -- ~/.config/nvim/jetpack.toml
+-- vim.call('jetpack#end')
+
+require("config.lazy")
 
 ---[[ 検索 ]]
 vim.opt.ignorecase = true -- 大文字小文字を無視する
