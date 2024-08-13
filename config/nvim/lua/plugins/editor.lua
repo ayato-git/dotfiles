@@ -80,10 +80,6 @@ return {
 --   autosave
 --   toggle comments
 --   generate Document comment
---   Debugger
---   https://github.com/adoy/vim-php-refactoring-toolbox
---   https://github.com/dsawardekar/wordpress.vim
---   https://github.com/hotwatermorning/auto-git-diff
 --   https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 --   https://daisuzu.hatenablog.com/entry/2020/12/03/003629  ## Quickfix
 --   https://zenn.dev/tmrekk/articles/4380961a754287  ## Quickfix
@@ -91,9 +87,9 @@ return {
 --   https://github.com/ThePrimeagen/refactoring.nvim
 --   https://github.com/glacambre/firenvim
 --   https://github.com/numToStr/Comment.nvim
---   https://github.com/folke/which-key.nvim
 --   https://github.com/marilari88/twoslash-queries.nvim
 --   https://github.com/unblevable/quick-scope
+--   https://github.com/yuki-yano/fuzzy-motion.vim
 --  
 --  [[plugins]]
 --  repo = "mxsdev/nvim-dap-vscode-js"

@@ -4,7 +4,7 @@ local lsp_settings = {
   -- settings = {}
 }
 local servers = {
-  -- @see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+  ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
   'cssls', 'html', 'jsonls', -- pnpm install --global vscode-langservers-extracted
   'cssmodules_ls', -- pnpm install --global cssmodules-language-server
   'stylelint_lsp', -- pnpm install --global stylelint-lsp
@@ -36,8 +36,8 @@ end
 
 for _, lsp in ipairs(servers) do
   if lsp == 'intelephense' then
-    -- see https://github.com/bmewburn/vscode-intelephense/blob/v1.9.5/package.json
-    -- see contributes.configuration.properties
+    ---@see https://github.com/bmewburn/vscode-intelephense/blob/v1.9.5/package.json
+    ---@see contributes.configuration.properties
     lsp_settings.settings = {
       ['intelephense'] = {
         stubs = {

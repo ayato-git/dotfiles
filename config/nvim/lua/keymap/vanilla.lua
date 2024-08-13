@@ -1,5 +1,5 @@
 vim.keymap.set('c', "<D-v>",  '<C-R>+',  { noremap = true }) -- コマンドモードでcommand-vで貼り付け
--- see https://blog.atusy.net/2024/03/11/vim-gy-as-gui-yank/ 
+---@see https://blog.atusy.net/2024/03/11/vim-gy-as-gui-yank/ 
 vim.keymap.set('n', 'gy',  '"+y', nil)                       -- gyでクリップボード(+のレジスタ)にyankする
 vim.keymap.set('v', 'gy',  '"+y', nil)                       -- gyでクリップボード(+のレジスタ)にyankする
 vim.keymap.set('i', 'jj',     '<ESC>',          nil)         -- jjで挿入モードから抜ける

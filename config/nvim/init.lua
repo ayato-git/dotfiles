@@ -1,6 +1,5 @@
--- TODO: InsertModeのctrl-oで一度だけノーマルモードのコマンドを入力できるのを覚える
 -- Require Neovim 0.7.0+ for new API
--- see https://github.com/willelz/nvim-lua-guide-ja/blob/master/README.ja.md
+---@see https://github.com/willelz/nvim-lua-guide-ja/blob/master/README.ja.md
 vim.loader.enable()
 vim.g.mapleader = " " -- <Leader>をスペースキーに指定
 
