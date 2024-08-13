@@ -20,8 +20,6 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
   performance = {
     rtp = {
       ---@type string[] list any plugins you want to disable here
