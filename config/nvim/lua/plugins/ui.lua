@@ -8,7 +8,7 @@ return {
   {
     "https://github.com/nvim-treesitter/nvim-treesitter",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-    build = ":TSupdate",
+    build = ":TSUpdate",
     init = function()
       vim.opt.runtimepath:prepend(vim.fn.stdpath('data') .. '/treesitter')
     end,
