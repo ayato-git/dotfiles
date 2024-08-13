@@ -5,6 +5,7 @@ vim.loader.enable()
 vim.g.mapleader = " " -- <Leader>をスペースキーに指定
 
 ---[[ Bootstrap lazy.nvim ]]
+vim.cmd("syntax off")
 require("config.lazy")
 
 ---[[ 検索 ]]

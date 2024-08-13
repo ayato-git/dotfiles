@@ -14,6 +14,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+---@see https://lazy.folke.io/configuration
 require("lazy").setup({
   default = { lazy = true },
   spec = {

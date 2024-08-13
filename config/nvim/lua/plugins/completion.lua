@@ -33,14 +33,15 @@ return {
   {
     "https://github.com/L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
+    event = "InsertEnter",
   },
   { "https://github.com/hrsh7th/cmp-nvim-lsp" ,    event = "LspAttach"   },
-  { "https://github.com/hrsh7th/cmp-path" ,        event = "InsertEnter" },
-  { "https://github.com/hrsh7th/cmp-buffer" ,      event = "InsertEnter" },
+  { "https://github.com/onsails/lspkind.nvim" ,    event = "LspAttach"   },
+  { "https://github.com/hrsh7th/cmp-path" ,        event = {"CmdlineEnter", "InsertEnter"} },
+  { "https://github.com/hrsh7th/cmp-buffer" ,      event = {"CmdlineEnter", "InsertEnter"} },
   { "https://github.com/hrsh7th/cmp-cmdline" ,     event = "CmdlineEnter"},
   { "https://github.com/octaltree/cmp-look" ,      event = "InsertEnter" },
   { "https://github.com/lukas-reineke/cmp-rg" ,    event = "InsertEnter" },
   { "https://github.com/saadparwaiz1/cmp_luasnip", event = "InsertEnter" },
-  { "https://github.com/onsails/lspkind.nvim" ,    event = "LspAttach"   },
   { "https://github.com/jcha0713/cmp-tw2css" ,     event = "InsertEnter" },
 }
