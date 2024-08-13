@@ -25,3 +25,7 @@ vim.keymap.set('v', 'gw', '<Plug>(openbrowser-smart-search)')
 
 -- telescope
 vim.keymap.set('n', '<Leader>f', '<cmd>Telescope<CR>')
+
+-- barbar
+vim.keymap.set('n', '<Tab>',  '<Cmd>BufferNext<CR>', nil)
+vim.keymap.set('n', '<S-Tab>','<Cmd>BufferPrevious<CR>', nil)

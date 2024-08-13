@@ -42,6 +42,7 @@ return {
   {
     "https://github.com/romgrk/barbar.nvim",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+    cmd = { 'BufferNext', 'BufferPrevious' },
     init = function() vim.g.barbar_auto_setup = false end,
     opts = { icons = { filetype = { enabled = false } } },
   },
