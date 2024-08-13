@@ -1,33 +1,31 @@
-local wezterm = require 'wezterm';
+local wezterm = require('wezterm');
+local config = wezterm.config_builder()
 
 wezterm.on('gui-startup', function(cmd)
   local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
   window:gui_window():set_position(0, 0)
 end)
 
-local shortcutkeys = {
+config.animation_fps = 60
+config.font = wezterm.font('UDEV Gothic NFLG')
+config.font_size = 14.5
+config.color_scheme = 'Molokai'
+config.window_background_opacity = 0.75
+config.window_decorations = 'RESIZE'
+config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
+config.adjust_window_size_when_changing_font_size = false
+config.initial_rows = 60
+config.keys = {
   {
     key = 'k',
     mods = 'CMD',
     action = wezterm.action.ClearScrollback 'ScrollbackAndViewport',
-  }, {
-    key = "_", -- workaround  https://github.com/wez/wezterm/issues/4051
-    mods = "SHIFT|ALT",
-    action = wezterm.action({ SendString = "\\" })
+  },
+  {
+    key = '¥',
+    mods = 'ALT',
+    action = wezterm.action({ SendString = '\\' })
   },
 }
 
-return {
-  font = wezterm.font_with_fallback({
-    {family = "UDEV Gothic NFLG", assume_emoji_presentation = false},
-    {family = "UDEV Gothic NFLG", assume_emoji_presentation = true},
-  }),
-  font_size = 14.5,
-  color_scheme = "Molokai",
-  window_background_opacity = 0.75,
-  window_decorations = 'RESIZE',
-  window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
-  adjust_window_size_when_changing_font_size = false,
-  initial_rows = 60,
-  keys = shortcutkeys,
-}
+return config
