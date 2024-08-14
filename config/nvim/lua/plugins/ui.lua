@@ -78,7 +78,7 @@ return {
     opts = {
       chunk = {
         enable = true,
-        textobject = "lc", -- vcl でvisual lines of chunkと解釈できるtextobjectを設定
+        textobject = "ac", -- vac でvisual around chunkと解釈できるtextobjectを設定
         duration = 100,
         delay = 10,
       },
