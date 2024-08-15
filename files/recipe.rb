@@ -50,6 +50,10 @@ end
 # end
 
 # adjust mode for zsh completion
+directory "#{brew_prefix}/share" do
+  mode '0755'
+end
+
 directory "#{brew_prefix}/share/zsh" do
   mode '0755'
 end

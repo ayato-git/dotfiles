@@ -8,6 +8,10 @@ fi
 source $sheldon_dump
 
 path=("$HOME/.local/bin" $path)
+fpath=(
+  "$(brew --prefix)/share/zsh/site-functions"
+  $fpath
+)
 
 setopt hist_ignore_all_dups hist_save_no_dups # コマンド履歴の重複無視
 setopt hist_no_store hist_ignore_space  # historyコマンドや行頭がスペースのコマンドは履歴に登録しない
