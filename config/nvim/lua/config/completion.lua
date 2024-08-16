@@ -1,8 +1,32 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 local lspkind = require('lspkind')
-local my_keymap = require("keymap.completion")
 local colors = require('nvim-highlight-colors')
+local my_keymap = require("keymap.completion")
+local my_formatter = function(entry, item)
+  local color_item = colors.format(entry, { kind = item.kind })
+  item = lspkind.cmp_format({
+    mode = "symbol_text",
+    menu = ({
+      ["nvim_lsp"]   = "\u{f121}",
+      ["path"]       = "",
+      ["buffer"]     = "\u{ebd0}",
+      ["cmdline"]    = "\u{e7c5}",
+      ["rg"]         = "\u{f002}",
+      ["luasnip"]    = "\u{eb66}",
+      ["look"]       = "\u{f100d}",
+      ["cmp-tw2css"] = "\u{f13ff}"
+    })
+  })(entry, item)
+
+  if color_item.abbr_hl_group then
+    item.kind_hl_group = color_item.abbr_hl_group
+    item.kind = color_item.abbr
+  end
+
+  return item
+end
+
 
 cmp.setup({
   sources = {
@@ -16,30 +40,7 @@ cmp.setup({
     },
     { name = "cmp-tw2css" },
   },
-  formatting = {
-    format = function(entry, item)
-      local color_item = colors.format(entry, { kind = item.kind })
-      item = lspkind.cmp_format({
-        mode = "symbol_text",
-        menu = ({
-          ["nvim_lsp"]   = "\u{f121}",
-          ["path"]       = "",
-          ["buffer"]     = "\u{ebd0}",
-          ["cmdline"]    = "\u{e7c5}",
-          ["rg"]         = "\u{f002}",
-          ["luasnip"]    = "\u{eb66}",
-          ["look"]       = "\u{f100d}",
-          ["cmp-tw2css"] = "\u{f13ff}"
-        })
-      })(entry, item)
-
-      if color_item.abbr_hl_group then
-        item.kind_hl_group = color_item.abbr_hl_group
-        item.kind = color_item.abbr
-      end
-      return item
-    end,
-  },
+  formatting = { format = my_formatter },
   mapping = cmp.mapping.preset.insert(my_keymap),
   snippet = {
     expand = function(args)
