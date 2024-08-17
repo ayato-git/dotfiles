@@ -1,5 +1,6 @@
 local dap = require('dap')
 local dapui = require('dapui')
+local cmp = require('cmp')
 
 dap.adapters.php = {
   type = 'executable',
@@ -33,3 +34,17 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+
+-- Thanks to cmp-dap, nvim-cmp and nvim-dap can work together
+cmp.setup({
+  enabled = function()
+    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+        or require("cmp_dap").is_dap_buffer()
+  end
+})
+
+cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+  sources = {
+    { name = "dap" },
+  },
+})

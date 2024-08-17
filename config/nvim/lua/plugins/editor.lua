@@ -64,6 +64,11 @@ return {
     cmd = {'DapToggleBreakpoint'},
   },
   {
+    "https://github.com/rcarriga/cmp-dap",
+    main = 'cmp_dap',
+    cmd = {'DapToggleBreakpoint'},
+  },
+  {
     "https://github.com/xdebug/vscode-php-debug",
     version = "v1.35.0",
     cmd = {'DapToggleBreakpoint'},
