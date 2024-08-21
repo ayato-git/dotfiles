@@ -105,7 +105,6 @@ cask "finicky"
 cask "firefox"
 # Web browser
 cask "firefox@developer-edition"
-cask "font-hackgen-nerd"
 cask "font-udev-gothic-nf"
 # Desktop client for GitHub repositories
 cask "github"
@@ -115,8 +114,6 @@ cask "goneovim"
 cask "keka"
 # Find shortcuts for any installed application
 cask "keyclu"
-# WordPress local development tool by Flywheel
-cask "local"
 # Free and open-source RSS reader
 cask "netnewswire"
 # Replacement for Docker Desktop
@@ -147,6 +144,8 @@ cask "vitals"
 cask "vlc"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
+# WordPress local development environment
+cask "wordpresscom-studio"
 # Comic reader
 cask "yacreader"
 # OpenJDK distribution from Azul
@@ -157,7 +156,6 @@ mas "1Blocker", id: 1365531024
 mas "Apple Configurator", id: 1037126344
 mas "Developer", id: 640199958
 mas "DNSecure", id: 1533413232
-mas "GhostText", id: 1552641506
 mas "Ginger - Skip Ads", id: 1555702394
 mas "Hidden Bar", id: 1452453066
 mas "Integrity", id: 513610341
