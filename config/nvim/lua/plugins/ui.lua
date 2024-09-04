@@ -75,6 +75,10 @@ return {
   {
     "https://github.com/shellRaining/hlchunk.nvim",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+    cond = function()
+      local excluded_filetypes = { "gitcommit", "gitrebase", "svn", "hgcommit" }
+      return not vim.tbl_contains(excluded_filetypes, vim.bo.filetype)
+    end,
     opts = {
       chunk = {
         enable = true,
