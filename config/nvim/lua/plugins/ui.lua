@@ -73,23 +73,47 @@ return {
     end,
   },
   {
-    "https://github.com/shellRaining/hlchunk.nvim",
-    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-    cond = function()
-      local excluded_filetypes = { "gitcommit", "gitrebase", "svn", "hgcommit" }
-      return not vim.tbl_contains(excluded_filetypes, vim.bo.filetype)
-    end,
+    "https://github.com/lukas-reineke/indent-blankline.nvim",
+    main = 'ibl',
+    version = '*',
+    event = {"CursorMoved", "CursorMovedI", "CursorHold"},
     opts = {
-      chunk = {
-        enable = true,
-        textobject = "ac", -- vac でvisual around chunkと解釈できるtextobjectを設定
-        duration = 100,
-        delay = 10,
-      },
-      indent = { enable = true },
-      line_num = { enable = true, style = '#f0f0f0' },
+      indent = {
+        highlight = 'Whitespace'
+      }
     },
   },
+  -- gitcommitで以上に重くなるのでexclude_filetypesで動作しない様にしたが、
+  -- 正しく適用されないバグがある様なのでプラグインの利用自体を中止
+  -- {
+  --   "https://github.com/shellRaining/hlchunk.nvim",
+  --   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+  --   version = '*',
+  --   opts = {
+  --     chunk = {
+  --       enable = false,
+  --       textobject = "ac", -- vac でvisual around chunkと解釈できるtextobjectを設定
+  --       duration = 100,
+  --       delay = 10,
+  --       exclude_filetypes = {
+  --         gitcommit = true,
+  --       }
+  --     },
+  --     indent = {
+  --       enable = false,
+  --       exclude_filetypes = {
+  --         gitcommit = true,
+  --       }
+  --     },
+  --     line_num = {
+  --       enable = false,
+  --       style = '#f0f0f0',
+  --       exclude_filetypes = {
+  --         gitcommit = true,
+  --       }
+  --     },
+  --   },
+  -- },
   {
     "https://github.com/andersevenrud/nvim_context_vt",
     event = {"CursorMoved", "CursorMovedI"},
