@@ -4,6 +4,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
+tap "kunichiko/tap"
 tap "rhysd/hgrep", "https://github.com/rhysd/hgrep"
 tap "stripe/stripe-cli"
 # Automate deployment, configuration, and upgrading
@@ -76,6 +77,7 @@ brew "tree"
 brew "whalebrew"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
+brew "kunichiko/tap/mono2stereo"
 # hgrep is grep with human-friendly search output
 brew "rhysd/hgrep/hgrep"
 # Stripe CLI utility
@@ -94,6 +96,8 @@ cask "appcleaner"
 cask "arc"
 # Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
+# Virtual Audio Driver
+cask "blackhole-2ch"
 # Free app that makes your Internet safer
 cask "cloudflare-warp"
 # Server and cloud storage browser
@@ -147,6 +151,8 @@ cask "wezterm"
 cask "wordpresscom-studio"
 # Comic reader
 cask "yacreader"
+# Gecko based web browser
+cask "zen-browser"
 # OpenJDK distribution from Azul
 cask "zulu@17"
 # OpenJDK distribution from Azul
