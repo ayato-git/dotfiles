@@ -124,6 +124,7 @@ end
 
 execute 'install aws-mfa via pipx' do
   command 'pipx install aws-mfa'
+  not_if 'which aws-mfa'
 end
 
 # {
@@ -146,8 +147,8 @@ end
 # end
 
 execute 'install security software' do
-  not_if 'ls /Applications/*/Antivirus*'
-  command 'brew install --cask malwarebytes && sudo mas install 500154009'
+  not_if 'ls /Applications/*/Antivirus* || ls /Applications/ | grep "Malwarebytes" '
+  command 'brew install --cask malwarebytes'
 end
 
 define :macOS_defaults, domain: nil, type: 'int', value: 1 do
@@ -247,9 +248,9 @@ macOS_defaults 'Dockを拡大した時のサイズを指定' do
   value 192
 end
 
-macOS_defaults 'ステージマネージャ有効化' do
-  domain 'com.apple.WindowManager GloballyEnabled'
-end
+# macOS_defaults 'ステージマネージャ有効化' do
+#   domain 'com.apple.WindowManager GloballyEnabled'
+# end
 
 macOS_defaults '最近使用したアプリをステージマネージャに表示しない (ステージマネージャのサムネイルを自動的に隠す)' do
   domain 'com.apple.WindowManager AutoHide'
