@@ -1,8 +1,6 @@
 tap "heroku/brew"
 tap "hmarr/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "kunichiko/tap"
 tap "rhysd/hgrep", "https://github.com/rhysd/hgrep"
@@ -25,8 +23,6 @@ brew "difftastic"
 brew "dnscrypt-proxy"
 # Bash, Zsh and Fish completion for Docker
 brew "docker-completion"
-# Minify and secure Docker images
-brew "docker-slim"
 # Collection of GNU find, xargs, and locate
 brew "findutils"
 # Command-line tools for fly.io services
@@ -49,6 +45,8 @@ brew "marksman"
 brew "mas"
 # Easily rename multiple files using your text editor
 brew "massren"
+# Minify and secure Docker images
+brew "mintoolkit"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Simple tool to make locally trusted development certificates
@@ -77,7 +75,6 @@ brew "tree"
 brew "whalebrew"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
-brew "kunichiko/tap/mono2stereo"
 # hgrep is grep with human-friendly search output
 brew "rhysd/hgrep/hgrep"
 # Stripe CLI utility
@@ -96,6 +93,8 @@ cask "appcleaner"
 cask "arc"
 # Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
+# Display management tool
+cask "betterdisplay"
 # Virtual Audio Driver
 cask "blackhole-2ch"
 # Free app that makes your Internet safer
@@ -117,6 +116,8 @@ cask "goneovim"
 cask "keka"
 # Find shortcuts for any installed application
 cask "keyclu"
+# Scan and remove malware, spyware, and viruses
+cask "malwarebytes"
 # Free and open-source RSS reader
 cask "netnewswire"
 # Replacement for Docker Desktop
@@ -152,13 +153,14 @@ cask "wordpresscom-studio"
 # Comic reader
 cask "yacreader"
 # Gecko based web browser
-cask "zen-browser"
+cask "zen"
 # OpenJDK distribution from Azul
 cask "zulu@17"
 # OpenJDK distribution from Azul
 cask "zulu@8"
 mas "1Blocker", id: 1365531024
 mas "Apple Configurator", id: 1037126344
+mas "Bitdefender Virus Scanner", id: 500154009
 mas "Developer", id: 640199958
 mas "DNSecure", id: 1533413232
 mas "Ginger - Skip Ads", id: 1555702394
@@ -167,14 +169,14 @@ mas "Integrity", id: 513610341
 mas "Keynote", id: 409183694
 mas "Keyword Search", id: 1558453954
 mas "Numbers", id: 409203825
-mas "Playgrounds", id: 1496833156
 mas "Refined GitHub", id: 1519867270
 mas "RetinaCapture", id: 6472719286
 mas "RunCat", id: 1429033973
 mas "Save to Raindrop.io", id: 1549370672
 mas "SEOSpyder", id: 648917964
 mas "SVGViewer", id: 1239167834
-mas "Tunacan", id: 1594063111
+mas "Swift Playground", id: 1496833156
+mas "Tunacan2", id: 1594063111
 mas "URL Linker", id: 1289119450
 mas "VisBug", id: 1538509686
 mas "Wappalyzer - Technology profiler", id: 1520333300
