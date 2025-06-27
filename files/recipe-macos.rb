@@ -4,7 +4,7 @@ brew_prefix = `uname -m`.include?("arm64") ? '/opt/homebrew' : '/usr/local'
 #  "files/dnscrypt-proxy.toml" => File.join(brew_prefix, '/etc/dnscrypt-proxy.toml'),
   "files/zshenv"        => File.join(ENV['HOME'], ".zshenv"),
   "files/zshrc"         => File.join(ENV['HOME'], ".zshrc"),
-  "files/Brewfile"      => File.join(ENV['HOME'], ".Brewfile"),
+  "packages/Brewfile"   => File.join(ENV['HOME'], ".Brewfile"),
   "config"              => File.join(ENV['HOME'], ".config")
 }
 .each do |src, dst|
@@ -34,7 +34,7 @@ execute 'install homebrew' do
   not_if 'which brew'
 end
 
-execute 'install packages from files/Brewfile' do
+execute 'install packages from Brewfile' do
   command "brew bundle --global && brew autoremove && brew cleanup"
   not_if 'brew bundle check --global'
 end
