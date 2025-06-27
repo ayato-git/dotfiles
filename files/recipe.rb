@@ -1,7 +1,7 @@
 brew_prefix = `uname -m`.include?("arm64") ? '/opt/homebrew' : '/usr/local'
 
 {
-  "files/dnscrypt-proxy.toml" => File.join(brew_prefix, '/etc/dnscrypt-proxy.toml'),
+#  "files/dnscrypt-proxy.toml" => File.join(brew_prefix, '/etc/dnscrypt-proxy.toml'),
   "files/zshenv"        => File.join(ENV['HOME'], ".zshenv"),
   "files/zshrc"         => File.join(ENV['HOME'], ".zshrc"),
   "files/Brewfile"      => File.join(ENV['HOME'], ".Brewfile"),
@@ -135,15 +135,15 @@ end
 #   end
 # end
 
-execute 'start dnscrypt-proxy' do
-  not_if 'sudo brew services info dnscrypt-proxy'
-  command 'sudo brew services restart dnscrypt-proxy'
-end
+# execute 'start dnscrypt-proxy' do
+#   not_if 'brew services info dnscrypt-proxy'
+#   command 'sudo brew services restart dnscrypt-proxy'
+# end
 
-execute 'dnscrypt-proxyをWi-Fi環境下のDNSサーバーとして利用' do
-  not_if 'networksetup -getdnsservers Wi-Fi | grep "127.0.0.1"'
-  command 'networksetup -setdnsservers Wi-Fi 127.0.0.1'
-end
+# execute 'dnscrypt-proxyをWi-Fi環境下のDNSサーバーとして利用' do
+#   not_if 'networksetup -getdnsservers Wi-Fi | grep "127.0.0.1"'
+#   command 'networksetup -setdnsservers Wi-Fi 127.0.0.1'
+# end
 
 execute 'install security software' do
   not_if 'ls /Applications/*/Antivirus*'
