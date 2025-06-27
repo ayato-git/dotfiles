@@ -70,10 +70,10 @@ return {
   },
   {
     "https://github.com/xdebug/vscode-php-debug",
-    version = "v1.35.0",
+    version = "v1.36.1",
     cmd = {'DapToggleBreakpoint'},
     build = [[
-      mise use node@16
+      mise use node@20
       npm install
       npm run build
     ]],
