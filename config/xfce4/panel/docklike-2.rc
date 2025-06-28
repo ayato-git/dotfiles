@@ -1,0 +1,7 @@
+[user]
+pinned=/usr/share/applications/thunar.desktop;/var/lib/flatpak/exports/share/applications/app.zen_browser.zen.desktop;
+indicatorStyle=2
+inactiveIndicatorStyle=2
+indicatorOrientation=0
+indicatorColor=rgb(255,163,72)
+inactiveColor=rgb(76,166,230)

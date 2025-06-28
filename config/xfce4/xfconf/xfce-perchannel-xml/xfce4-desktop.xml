@@ -1,0 +1,36 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<channel name="xfce4-desktop" version="1.0">
+  <property name="desktop-icons" type="empty">
+    <property name="icon-size" type="uint" value="32"/>
+    <property name="file-icons" type="empty">
+      <property name="show-home" type="bool" value="false"/>
+      <property name="show-filesystem" type="bool" value="false"/>
+      <property name="show-trash" type="bool" value="false"/>
+      <property name="show-removable" type="bool" value="false"/>
+      <property name="migrated-4.19" type="array">
+        <value type="string" value="7c54bb876c98ab2937745025618aba7dc12d9cdb"/>
+        <value type="string" value="37223bf4ac47c6c74fab6d44b3c9135048e24251"/>
+      </property>
+    </property>
+    <property name="single-click" type="bool" value="true"/>
+  </property>
+  <property name="last-settings-migration-version" type="uint" value="1"/>
+  <property name="backdrop" type="empty">
+    <property name="single-workspace-mode" type="bool" value="true"/>
+    <property name="single-workspace-number" type="int" value="0"/>
+    <property name="screen0" type="empty">
+      <property name="monitoreDP-1" type="empty">
+        <property name="workspace0" type="empty">
+          <property name="backdrop-cycle-enable" type="bool" value="true"/>
+          <property name="backdrop-cycle-timer" type="uint" value="30"/>
+          <property name="backdrop-cycle-random-order" type="bool" value="true"/>
+        </property>
+      </property>
+    </property>
+  </property>
+  <property name="last" type="empty">
+    <property name="window-width" type="int" value="795"/>
+    <property name="window-height" type="int" value="512"/>
+  </property>
+</channel>

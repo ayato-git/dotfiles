@@ -1,9 +1,11 @@
 dotfiles-MBP2016gray/
 config/iterm2/
 config/composer/
-config/htop/
+config/chromium/
 config/1password/
 config/stripe/*
+config/libreoffice/
+config/mozc/.*
 config/massren/*
 config/configstore/update-notifier-npm.json
 config/git/config
